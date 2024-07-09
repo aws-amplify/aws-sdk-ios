@@ -1122,672 +1122,714 @@
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 192,
+      "line": 190,
+      "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationDeriveSharedSecret",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 193,
+      "symbol": "AWSKMSKeyAgreementAlgorithmSpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 193,
+      "symbol": "AWSKMSKeyAgreementAlgorithmSpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 194,
+      "symbol": "AWSKMSKeyAgreementAlgorithmSpec.AWSKMSKeyAgreementAlgorithmSpecUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 195,
+      "symbol": "AWSKMSKeyAgreementAlgorithmSpec.AWSKMSKeyAgreementAlgorithmSpecEcdh",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 198,
       "symbol": "AWSKMSKeyEncryptionMechanism",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 192,
+      "line": 198,
       "symbol": "AWSKMSKeyEncryptionMechanism",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 193,
+      "line": 199,
       "symbol": "AWSKMSKeyEncryptionMechanism.AWSKMSKeyEncryptionMechanismUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 194,
+      "line": 200,
       "symbol": "AWSKMSKeyEncryptionMechanism.AWSKMSKeyEncryptionMechanismRsaesOaepSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 197,
+      "line": 203,
       "symbol": "AWSKMSKeyManagerType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 197,
+      "line": 203,
       "symbol": "AWSKMSKeyManagerType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 198,
-      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 199,
-      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeAws",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 200,
-      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeCustomer",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 203,
-      "symbol": "AWSKMSKeySpec",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 203,
-      "symbol": "AWSKMSKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 204,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecUnknown",
+      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 205,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa2048",
+      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeAws",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 206,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa3072",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 207,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa4096",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 208,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP256",
+      "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 209,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP384",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSKeySpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 209,
+      "symbol": "AWSKMSKeySpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 210,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP521",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 211,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccSecgP256k1",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 212,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecSymmetricDefault",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 213,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac224",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecRsa4096",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 214,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac256",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 215,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac384",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 216,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac512",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccNistP521",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 217,
-      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecSm2",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecEccSecgP256k1",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 218,
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecSymmetricDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 219,
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac224",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 220,
-      "symbol": "AWSKMSKeyState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 220,
-      "symbol": "AWSKMSKeyState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac256",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 221,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnknown",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 222,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateCreating",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecHmac512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 223,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateEnabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 224,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateDisabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 225,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingDeletion",
+      "symbol": "AWSKMSKeySpec.AWSKMSKeySpecSm2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 226,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingImport",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSKeyState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 226,
+      "symbol": "AWSKMSKeyState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 227,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingReplicaDeletion",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 228,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnavailable",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 229,
-      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUpdating",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 230,
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 231,
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingDeletion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 232,
-      "symbol": "AWSKMSKeyUsageType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 232,
-      "symbol": "AWSKMSKeyUsageType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingImport",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 233,
-      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeUnknown",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingReplicaDeletion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 234,
-      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeSignVerify",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 235,
-      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeEncryptDecrypt",
+      "symbol": "AWSKMSKeyState.AWSKMSKeyStateUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 236,
-      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeGenerateVerifyMac",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 239,
-      "symbol": "AWSKMSMacAlgorithmSpec",
+      "line": 238,
+      "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 239,
-      "symbol": "AWSKMSMacAlgorithmSpec",
+      "line": 238,
+      "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 239,
+      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 240,
-      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecUnknown",
+      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeSignVerify",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 241,
-      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha224",
+      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeEncryptDecrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 242,
-      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha256",
+      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeGenerateVerifyMac",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 243,
-      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha384",
+      "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeKeyAgreement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 244,
-      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha512",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 247,
-      "symbol": "AWSKMSMessageType",
+      "line": 246,
+      "symbol": "AWSKMSMacAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 247,
-      "symbol": "AWSKMSMessageType",
+      "line": 246,
+      "symbol": "AWSKMSMacAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 247,
+      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 248,
-      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeUnknown",
+      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha224",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 249,
-      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeRAW",
+      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 250,
-      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeDigest",
+      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 253,
-      "symbol": "AWSKMSMultiRegionKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 253,
-      "symbol": "AWSKMSMultiRegionKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 251,
+      "symbol": "AWSKMSMacAlgorithmSpec.AWSKMSMacAlgorithmSpecHmacSha512",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 254,
-      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSMessageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 254,
+      "symbol": "AWSKMSMessageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 255,
-      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypePrimary",
+      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 256,
-      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypeReplica",
+      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeRAW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 259,
-      "symbol": "AWSKMSOriginType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 259,
-      "symbol": "AWSKMSOriginType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 257,
+      "symbol": "AWSKMSMessageType.AWSKMSMessageTypeDigest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 260,
-      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSMultiRegionKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 260,
+      "symbol": "AWSKMSMultiRegionKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 261,
-      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsKms",
+      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 262,
-      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternal",
+      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypePrimary",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 263,
-      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsCloudhsm",
+      "symbol": "AWSKMSMultiRegionKeyType.AWSKMSMultiRegionKeyTypeReplica",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 264,
-      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternalKeyStore",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 267,
-      "symbol": "AWSKMSRotationType",
+      "line": 266,
+      "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 267,
-      "symbol": "AWSKMSRotationType",
+      "line": 266,
+      "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 267,
+      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 268,
-      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeUnknown",
+      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 269,
-      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeAutomatic",
+      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 270,
-      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeOnDemand",
+      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsCloudhsm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 273,
-      "symbol": "AWSKMSSigningAlgorithmSpec",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 273,
-      "symbol": "AWSKMSSigningAlgorithmSpec",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 271,
+      "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternalKeyStore",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 274,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSRotationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 274,
+      "symbol": "AWSKMSRotationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 275,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha256",
+      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 276,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha384",
+      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeAutomatic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 277,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha512",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 278,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha256",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 279,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha384",
+      "symbol": "AWSKMSRotationType.AWSKMSRotationTypeOnDemand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 280,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha512",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSKMSSigningAlgorithmSpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 280,
+      "symbol": "AWSKMSSigningAlgorithmSpec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 281,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha256",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 282,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha384",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 283,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha512",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 284,
-      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecSm2dsa",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha512",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 285,
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha256",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 286,
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 287,
-      "symbol": "AWSKMSWrappingKeySpec",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 287,
-      "symbol": "AWSKMSWrappingKeySpec",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha512",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 288,
-      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecUnknown",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 289,
-      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa2048",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 290,
-      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa3072",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 291,
-      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa4096",
+      "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecSm2dsa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 292,
-      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecSm2",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 295,
-      "symbol": "AWSKMSXksProxyConnectivityType",
+      "line": 294,
+      "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
-      "line": 295,
-      "symbol": "AWSKMSXksProxyConnectivityType",
+      "line": 294,
+      "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 295,
+      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 296,
-      "symbol": "AWSKMSXksProxyConnectivityType.AWSKMSXksProxyConnectivityTypeUnknown",
+      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 297,
-      "symbol": "AWSKMSXksProxyConnectivityType.AWSKMSXksProxyConnectivityTypePublicEndpoint",
+      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 298,
+      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa4096",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 299,
+      "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecSm2",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 302,
+      "symbol": "AWSKMSXksProxyConnectivityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 302,
+      "symbol": "AWSKMSXksProxyConnectivityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 303,
+      "symbol": "AWSKMSXksProxyConnectivityType.AWSKMSXksProxyConnectivityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 304,
+      "symbol": "AWSKMSXksProxyConnectivityType.AWSKMSXksProxyConnectivityTypePublicEndpoint",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "line": 305,
       "symbol": "AWSKMSXksProxyConnectivityType.AWSKMSXksProxyConnectivityTypeVpcEndpointService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

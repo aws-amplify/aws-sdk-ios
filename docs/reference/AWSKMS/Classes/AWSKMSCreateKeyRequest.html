@@ -17,7 +17,7 @@
     <a title="AWSKMSCreateKeyRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.36.3 Docs</a> (68% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.36.4 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -99,6 +99,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSDeleteImportedKeyMaterialRequest.html">AWSKMSDeleteImportedKeyMaterialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeriveSharedSecretRequest.html">AWSKMSDeriveSharedSecretRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeriveSharedSecretResponse.html">AWSKMSDeriveSharedSecretResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSDescribeCustomKeyStoresRequest.html">AWSKMSDescribeCustomKeyStoresRequest</a>
@@ -408,6 +414,9 @@
                 <a href="../Enums/AWSKMSGrantOperation.html">AWSKMSGrantOperation</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyAgreementAlgorithmSpec.html">AWSKMSKeyAgreementAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSKeyEncryptionMechanism.html">AWSKMSKeyEncryptionMechanism</a>
               </li>
               <li class="nav-group-task">
@@ -612,7 +621,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Specifies the type of KMS key to create. The default value, <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the algorithms that the KMS key supports. You can&rsquo;t change the <code>KeySpec</code> after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><important><p><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that are integrated with KMS</a> use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p></important><p>KMS supports the following key specs for KMS keys:</p><ul><li><p>Symmetric encryption key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code></p></li></ul></li><li><p>HMAC keys (symmetric)</p><ul><li><p><code>HMAC_224</code></p></li><li><p><code>HMAC_256</code></p></li><li><p><code>HMAC_384</code></p></li><li><p><code>HMAC_512</code></p></li></ul></li><li><p>Asymmetric RSA key pairs</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li><li><p>SM2 key pairs (China Regions only)</p><ul><li><p><code>SM2</code></p></li></ul></li></ul></p>
+                        <p><p>Specifies the type of KMS key to create. The default value, <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the algorithms that the KMS key supports. You can&rsquo;t change the <code>KeySpec</code> after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><important><p><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that are integrated with KMS</a> use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p></important><p>KMS supports the following key specs for KMS keys:</p><ul><li><p>Symmetric encryption key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code></p></li></ul></li><li><p>HMAC keys (symmetric)</p><ul><li><p><code>HMAC_224</code></p></li><li><p><code>HMAC_256</code></p></li><li><p><code>HMAC_384</code></p></li><li><p><code>HMAC_512</code></p></li></ul></li><li><p>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or- deriving shared secrets)</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs (signing and verification)</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li><li><p>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving shared secrets)</p><ul><li><p><code>SM2</code> (China Regions only)</p></li></ul></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -644,7 +653,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can&rsquo;t change the <code>KeyUsage</code> value after the KMS key is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric encryption KMS keys, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p></li><li><p>For asymmetric KMS keys with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with ECC key material, specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with SM2 key material (China Regions only), specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li></ul></p>
+                        <p><p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can&rsquo;t change the <code>KeyUsage</code> value after the KMS key is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric encryption KMS keys, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p></li><li><p>For asymmetric KMS keys with RSA key pairs, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p></li><li><p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or <code>KEY_AGREEMENT</code>.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -828,7 +837,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
