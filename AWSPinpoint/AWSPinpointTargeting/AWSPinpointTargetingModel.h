@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -641,6 +641,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @class AWSPinpointTargetingSetDimension;
 @class AWSPinpointTargetingSimpleCondition;
 @class AWSPinpointTargetingSimpleEmail;
+@class AWSPinpointTargetingMessageHeader;
 @class AWSPinpointTargetingSimpleEmailPart;
 @class AWSPinpointTargetingStartCondition;
 @class AWSPinpointTargetingTagResourceRequest;
@@ -2207,6 +2208,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable fromAddress;
+
+/**
+ <p>The list of <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id.html#apps-application-id-campaigns-campaign-id-model-messageheader">MessageHeaders</a> for the email. You can have up to 15 MessageHeaders for each email.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingMessageHeader *> * _Nullable headers;
 
 /**
  <p>The body of the email, in HTML format, for recipients whose email clients render HTML content.</p>
@@ -4030,6 +4036,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable identity;
 
 /**
+ <p>The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable orchestrationSendingRoleArn;
+
+/**
   <p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
@@ -4102,6 +4113,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The maximum number of emails that can be sent through the channel each second.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messagesPerSecond;
+
+/**
+ <p>The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable orchestrationSendingRoleArn;
 
 /**
  <p>The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.</p>
@@ -4203,6 +4219,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable defaultSubstitutions;
 
 /**
+ <p>The list of <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader">MessageHeaders</a> for the email. You can have up to 15 Headers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingMessageHeader *> * _Nullable headers;
+
+/**
  <p>The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable htmlPart;
@@ -4255,6 +4276,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultSubstitutions;
+
+/**
+ <p>The list of <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader">MessageHeaders</a> for the email. You can have up to 15 Headers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingMessageHeader *> * _Nullable headers;
 
 /**
  <p>The message body, in HTML format, that's used in email messages that are based on the message template.</p>
@@ -4507,7 +4533,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable address;
 
 /**
- <p>The delivery status of the message. Possible values are:</p><ul><li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>SUCCESSFUL - The message was successfully delivered to the endpoint.</p></li><li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.</p></li><li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li><li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
+ <p>The delivery status of the message. Possible values are:</p><ul><li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>SUCCESSFUL - The message was successfully delivered to the endpoint.</p></li><li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.</p></li><li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
  */
 @property (nonatomic, assign) AWSPinpointTargetingDeliveryStatus deliveryStatus;
 
@@ -8519,7 +8545,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 
 
 /**
- <p>The delivery status of the message. Possible values are:</p><ul><li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>SUCCESSFUL - The message was successfully delivered to the endpoint address.</p></li><li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.</p></li><li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li><li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
+ <p>The delivery status of the message. Possible values are:</p><ul><li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>SUCCESSFUL - The message was successfully delivered to the endpoint address.</p></li><li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li><li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.</p></li><li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
  */
 @property (nonatomic, assign) AWSPinpointTargetingDeliveryStatus deliveryStatus;
 
@@ -10195,6 +10221,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 
 
 /**
+ <p>The list of MessageHeaders for the email. You can have up to 15 Headers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingMessageHeader *> * _Nullable headers;
+
+/**
  <p>The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingSimpleEmailPart * _Nullable htmlPart;
@@ -10208,6 +10239,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The body of the email message, in plain text format. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingSimpleEmailPart * _Nullable textPart;
+
+@end
+
+/**
+ <p>Contains the name and value pair of an email header to add to your email. You can have up to 15 MessageHeaders. A header can contain information such as the sender, receiver, route, or timestamp.</p>
+ */
+@interface AWSPinpointTargetingMessageHeader : AWSModel
+
+
+/**
+ <p>The name of the message header. The header name can contain up to 126 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 

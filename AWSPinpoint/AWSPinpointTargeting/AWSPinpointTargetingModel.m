@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1035,9 +1035,14 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"body" : @"Body",
              @"fromAddress" : @"FromAddress",
+             @"headers" : @"Headers",
              @"htmlBody" : @"HtmlBody",
              @"title" : @"Title",
              };
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingMessageHeader class]];
 }
 
 @end
@@ -3014,6 +3019,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"enabled" : @"Enabled",
              @"fromAddress" : @"FromAddress",
              @"identity" : @"Identity",
+             @"orchestrationSendingRoleArn" : @"OrchestrationSendingRoleArn",
              @"roleArn" : @"RoleArn",
              };
 }
@@ -3040,6 +3046,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"lastModifiedBy" : @"LastModifiedBy",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"messagesPerSecond" : @"MessagesPerSecond",
+             @"orchestrationSendingRoleArn" : @"OrchestrationSendingRoleArn",
              @"platform" : @"Platform",
              @"roleArn" : @"RoleArn",
              @"version" : @"Version",
@@ -3106,6 +3113,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"headers" : @"Headers",
              @"htmlPart" : @"HtmlPart",
              @"recommenderId" : @"RecommenderId",
              @"subject" : @"Subject",
@@ -3113,6 +3121,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"textPart" : @"TextPart",
              @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingMessageHeader class]];
 }
 
 @end
@@ -3128,6 +3140,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"arn" : @"Arn",
              @"creationDate" : @"CreationDate",
              @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"headers" : @"Headers",
              @"htmlPart" : @"HtmlPart",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"recommenderId" : @"RecommenderId",
@@ -3139,6 +3152,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"version" : @"Version",
              @"tags" : @"tags",
              };
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingMessageHeader class]];
 }
 
 + (NSValueTransformer *)templateTypeJSONTransformer {
@@ -9238,10 +9255,15 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"headers" : @"Headers",
              @"htmlPart" : @"HtmlPart",
              @"subject" : @"Subject",
              @"textPart" : @"TextPart",
              };
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingMessageHeader class]];
 }
 
 + (NSValueTransformer *)htmlPartJSONTransformer {
@@ -9254,6 +9276,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)textPartJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSimpleEmailPart class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingMessageHeader
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"value" : @"Value",
+             };
 }
 
 @end
