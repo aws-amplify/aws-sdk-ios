@@ -139,7 +139,7 @@ class AWSComprehendTests: XCTestCase {
         let comprehendClient = AWSComprehend.default()
         let detectSentimentRequest = AWSComprehendDetectSentimentRequest()
         detectSentimentRequest!.languageCode = AWSComprehendLanguageCode.en
-        detectSentimentRequest!.text = "I have no strong feelings one way or the other"
+        detectSentimentRequest!.text = "This sentence is a statement of fact"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
             if let error = task.error {
