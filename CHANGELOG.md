@@ -1,5 +1,14 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## Unreleased
+
+### Bug Fixes
+
+- **AWSIoT** 
+  - Fixing a potential race condition on topic listeners (#5402)
+
+## 2.36.4
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -16,11 +25,15 @@
   - AWSFirehose
   - AWSTranscribe
 
+### Bug Fixes
+
 - **AWSS3** 
-  - fix(s3): cleanup file cache after mpu task is cancelled (#5128)
- 
-- **AWSIOT** 
-  - feat(IoT): Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
+  - Cleanup file cache after mpu task is cancelled (#5128)
+
+### New features 
+
+- **AWSIoT** 
+  - Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
 
 ## 2.36.3
 
