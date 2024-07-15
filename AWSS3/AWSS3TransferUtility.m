@@ -1158,8 +1158,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     transferUtilityMultiPartUploadTask.retryCount = 0;
     transferUtilityMultiPartUploadTask.temporaryFileCreated = temporaryFileCreated;
     transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusInProgress;
-    transferUtilityMultiPartUploadTask.cachedFileURL = fileURL;
-
+    
     //Get the size of the file and calculate the number of parts.
     NSError *nsError = nil;
     NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[fileURL path]
