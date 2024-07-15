@@ -53,7 +53,6 @@
 @property (copy) NSString * uploadID;
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
-@property NSURL *cachedFileURL;
 @property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
