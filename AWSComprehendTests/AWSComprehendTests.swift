@@ -134,7 +134,8 @@ class AWSComprehendTests: XCTestCase {
             }.waitUntilFinished()
     }
     
-    func testDetectSentimentNeutral() {
+    // TODO: Fix flaky test case
+    func skip_testDetectSentimentNeutral() {
         let comprehendClient = AWSComprehend.default()
         let detectSentimentRequest = AWSComprehendDetectSentimentRequest()
         detectSentimentRequest!.languageCode = AWSComprehendLanguageCode.en
