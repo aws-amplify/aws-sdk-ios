@@ -7,7 +7,12 @@
 - **AWSIoT** 
   - Fixing a potential race condition on topic listeners (#5402)
 
-## 2.36.4
+## 2.36.5
+
+### New features 
+
+- **AWSIoT** 
+  - Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
 
 ### Misc. Updates
 
@@ -25,15 +30,11 @@
   - AWSFirehose
   - AWSTranscribe
 
-### Bug Fixes
+## 2.36.4
 
-- **AWSS3** 
-  - Cleanup file cache after mpu task is cancelled (#5128)
+### Deprecated release
 
-### New features 
-
-- **AWSIoT** 
-  - Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
+This release is deprecated due to errors. Please use 2.36.5 or greater.
 
 ## 2.36.3
 
