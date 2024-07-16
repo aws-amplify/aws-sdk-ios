@@ -38,7 +38,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
 @property(nonatomic, strong) AWSMQTTSession* session;
-@property(nonatomic, strong) NSMutableDictionary * topicListeners;
+@property(nonatomic, strong) AWSSynchronizedMutableDictionary * topicListeners;
 
 @property(atomic, assign) BOOL userDidIssueDisconnect; //Flag to indicate if requestor has issued a disconnect
 @property(atomic, assign) BOOL userDidIssueConnect; //Flag to indicate if requestor has issued a connect
@@ -91,7 +91,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (instancetype)init {
     if (self = [super init]) {
-        _topicListeners = [NSMutableDictionary dictionary];
+        _topicListeners = [AWSSynchronizedMutableDictionary new];
         _clientCerts = nil;
         _session.delegate = nil;
         _session = nil;
