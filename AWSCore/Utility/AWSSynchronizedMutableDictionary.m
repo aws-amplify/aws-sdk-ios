@@ -74,13 +74,13 @@
 }
 
 - (void)setObject:(id)anObject forKey:(id)aKey {
-    dispatch_barrier_sync(self.dispatchQueue, ^{
+    dispatch_barrier_async(self.dispatchQueue, ^{
         [self.dictionary setObject:anObject forKey:aKey];
     });
 }
 
 - (void)removeObject:(id)object {
-    dispatch_barrier_sync(self.dispatchQueue, ^{
+    dispatch_barrier_async(self.dispatchQueue, ^{
         for (NSString *key in self.dictionary) {
             if (object == self.dictionary[key]) {
                 [self.dictionary removeObjectForKey:key];
@@ -91,19 +91,19 @@
 }
 
 - (void)removeObjectForKey:(id)aKey {
-    dispatch_barrier_sync(self.dispatchQueue, ^{
+    dispatch_barrier_async(self.dispatchQueue, ^{
         [self.dictionary removeObjectForKey:aKey];
     });
 }
 
 - (void)removeAllObjects {
-    dispatch_barrier_sync(self.dispatchQueue, ^{
+    dispatch_barrier_async(self.dispatchQueue, ^{
         [self.dictionary removeAllObjects];
     });
 }
 
 - (void)mutateWithBlock:(void (^)(NSMutableDictionary *))block {
-    dispatch_barrier_sync(self.dispatchQueue, ^{
+    dispatch_barrier_async(self.dispatchQueue, ^{
         block(self.dictionary);
     });
 }
@@ -112,7 +112,7 @@
     AWSSynchronizedMutableDictionary *first = [dictionaries firstObject];
     if (!first) { return; }
 
-    dispatch_barrier_sync(first.dispatchQueue, ^{
+    dispatch_barrier_async(first.dispatchQueue, ^{
         [dictionaries enumerateObjectsUsingBlock:^(AWSSynchronizedMutableDictionary * _Nonnull atomicDictionary, NSUInteger index, BOOL * _Nonnull stop) {
             NSCAssert([first.syncKey isEqual:atomicDictionary.syncKey], @"Sync keys much match");
             block(atomicDictionary.instanceKey, atomicDictionary.dictionary);

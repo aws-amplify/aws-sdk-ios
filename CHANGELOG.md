@@ -2,7 +2,11 @@
 
 ## Unreleased
 
--Features for next release
+- **AWSCore** 
+  - Fixing concurrency issues in `AWSSynchronizedMutableDictionary` (#5413)
+
+- **AWSIoT** 
+  - Fixing random crash when a connection is attempted just after disconnecting
 
 ## 2.36.6
 
