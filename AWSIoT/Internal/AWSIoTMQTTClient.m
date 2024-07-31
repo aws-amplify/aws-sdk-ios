@@ -681,8 +681,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     }
 
     if (self.reconnectThread) {
-        if ( ![[NSThread currentThread] isEqual:self.reconnectThread]) {
-            // Move to reconnect thread to cleanup
+        if (!self.reconnectThread.isFinished && ![[NSThread currentThread] isEqual:self.reconnectThread]) {
+            // Move to reconnect thread to cleanup only if it's still running
             [self performSelector:@selector(cleanupReconnectTimer)
                          onThread:self.reconnectThread
                        withObject:nil
