@@ -635,6 +635,8 @@
 		68A45BBC2B8D6ADE00A0851E /* AWSDDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68A45BBF2B8E74F900A0851E /* AWSCLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BBD2B8E74F800A0851E /* AWSCLIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68A45BC02B8E74F900A0851E /* AWSCLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45BBE2B8E74F900A0851E /* AWSCLIColor.m */; };
+		68DD11862C5AF52B004E1C37 /* AWSIoTAtomicDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 68DD11842C5AF52B004E1C37 /* AWSIoTAtomicDictionary.h */; };
+		68DD11872C5AF52B004E1C37 /* AWSIoTAtomicDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD11852C5AF52B004E1C37 /* AWSIoTAtomicDictionary.m */; };
 		68EE1A6C2B713D8100B7CF41 /* AWSIoTStreamThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */; };
 		68EE1A6E2B713D8900B7CF41 /* AWSIoTStreamThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */; };
 		6BE9D6AA25A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */; };
@@ -3250,6 +3252,8 @@
 		68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDMultiFormatter.h; sourceTree = "<group>"; };
 		68A45BBD2B8E74F800A0851E /* AWSCLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCLIColor.h; sourceTree = "<group>"; };
 		68A45BBE2B8E74F900A0851E /* AWSCLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCLIColor.m; sourceTree = "<group>"; };
+		68DD11842C5AF52B004E1C37 /* AWSIoTAtomicDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSIoTAtomicDictionary.h; sourceTree = "<group>"; };
+		68DD11852C5AF52B004E1C37 /* AWSIoTAtomicDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTAtomicDictionary.m; sourceTree = "<group>"; };
 		68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTStreamThread.h; sourceTree = "<group>"; };
 		68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTStreamThread.m; sourceTree = "<group>"; };
 		6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerRetainTests.swift; sourceTree = "<group>"; };
@@ -7209,6 +7213,8 @@
 		CE9DE6351C6A78D70060793F /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				68DD11842C5AF52B004E1C37 /* AWSIoTAtomicDictionary.h */,
+				68DD11852C5AF52B004E1C37 /* AWSIoTAtomicDictionary.m */,
 				CE9DE6361C6A78D70060793F /* AWSIoTCSR.h */,
 				CE9DE6371C6A78D70060793F /* AWSIoTCSR.m */,
 				CE9DE6381C6A78D70060793F /* AWSIoTKeychain.h */,
@@ -8457,6 +8463,7 @@
 				CE9DE6501C6A78D70060793F /* AWSIoTDataModel.h in Headers */,
 				CE9DE6541C6A78D70060793F /* AWSIoTDataService.h in Headers */,
 				CE9DE64D1C6A78D70060793F /* AWSIoTData.h in Headers */,
+				68DD11862C5AF52B004E1C37 /* AWSIoTAtomicDictionary.h in Headers */,
 				CE9DE64E1C6A78D70060793F /* AWSIoTDataManager.h in Headers */,
 				CE9DE66E1C6A78D70060793F /* AWSMQttTxFlow.h in Headers */,
 				03427765269D15A400379263 /* AWSIoTMessage.h in Headers */,
@@ -13393,6 +13400,7 @@
 				0342776A269D185200379263 /* AWSIoTMessage+AWSMQTTMessage.m in Sources */,
 				CE9DE66B1C6A78D70060793F /* AWSMQTTMessage.m in Sources */,
 				CE9DE65D1C6A78D70060793F /* AWSIoTService.m in Sources */,
+				68DD11872C5AF52B004E1C37 /* AWSIoTAtomicDictionary.m in Sources */,
 				CE9DE6571C6A78D70060793F /* AWSIoTManager.m in Sources */,
 				CE9DE6591C6A78D70060793F /* AWSIoTModel.m in Sources */,
 				CE9DE6691C6A78D70060793F /* AWSMQTTEncoder.m in Sources */,
