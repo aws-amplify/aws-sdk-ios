@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -179,7 +179,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSAddPermissionRequest
  */
@@ -190,18 +190,18 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSAddPermissionRequest
  */
 - (void)addPermission:(AWSSQSAddPermissionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCancelMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCancelMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSCancelMessageMoveTaskRequest
  @see AWSSQSCancelMessageMoveTaskResult
@@ -209,12 +209,12 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSCancelMessageMoveTaskResult *> *)cancelMessageMoveTask:(AWSSQSCancelMessageMoveTaskRequest *)request;
 
 /**
- <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSCancelMessageMoveTaskRequest
  @see AWSSQSCancelMessageMoveTaskResult
@@ -226,7 +226,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -248,7 +248,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityBatchRequest
  @see AWSSQSChangeMessageVisibilityBatchResult
@@ -261,7 +261,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityBatchRequest
  @see AWSSQSChangeMessageVisibilityBatchResult
@@ -273,7 +273,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSCreateQueueRequest
  @see AWSSQSCreateQueueResult
@@ -286,7 +286,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the CreateQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSCreateQueueRequest
  @see AWSSQSCreateQueueResult
@@ -298,7 +298,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSDeleteMessageRequest
  */
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSDeleteMessageRequest
  */
@@ -320,7 +320,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteMessageBatchRequest
  @see AWSSQSDeleteMessageBatchResult
@@ -333,7 +333,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteMessageBatchRequest
  @see AWSSQSDeleteMessageBatchResult
@@ -345,7 +345,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteQueueRequest
  */
@@ -356,7 +356,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteQueueRequest
  */
@@ -367,7 +367,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSGetQueueAttributesRequest
  @see AWSSQSGetQueueAttributesResult
@@ -380,7 +380,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSGetQueueAttributesRequest
  @see AWSSQSGetQueueAttributesResult
@@ -392,7 +392,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetQueueUrl service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSGetQueueUrlRequest
  @see AWSSQSGetQueueUrlResult
@@ -405,7 +405,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the GetQueueUrl service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSGetQueueUrlRequest
  @see AWSSQSGetQueueUrlResult
@@ -417,7 +417,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListDeadLetterSourceQueuesRequest
  @see AWSSQSListDeadLetterSourceQueuesResult
@@ -430,7 +430,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListDeadLetterSourceQueuesRequest
  @see AWSSQSListDeadLetterSourceQueuesResult
@@ -438,11 +438,11 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSSQSListDeadLetterSourceQueuesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListMessageMoveTasksResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListMessageMoveTasksResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListMessageMoveTasksRequest
  @see AWSSQSListMessageMoveTasksResult
@@ -450,12 +450,12 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSListMessageMoveTasksResult *> *)listMessageMoveTasks:(AWSSQSListMessageMoveTasksRequest *)request;
 
 /**
- <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListMessageMoveTasksRequest
  @see AWSSQSListMessageMoveTasksResult
@@ -467,7 +467,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListQueueTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueueTagsResult`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueueTagsResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSListQueueTagsRequest
  @see AWSSQSListQueueTagsResult
@@ -480,7 +480,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListQueueTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSListQueueTagsRequest
  @see AWSSQSListQueueTagsResult
@@ -492,7 +492,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListQueues service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueuesResult`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListQueuesRequest
  @see AWSSQSListQueuesResult
@@ -505,7 +505,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListQueues service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListQueuesRequest
  @see AWSSQSListQueuesResult
@@ -517,7 +517,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSPurgeQueueRequest
  */
@@ -528,7 +528,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSPurgeQueueRequest
  */
@@ -539,7 +539,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ReceiveMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSReceiveMessageRequest
  @see AWSSQSReceiveMessageResult
@@ -552,7 +552,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ReceiveMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSReceiveMessageRequest
  @see AWSSQSReceiveMessageResult
@@ -564,7 +564,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSRemovePermissionRequest
  */
@@ -575,18 +575,18 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSRemovePermissionRequest
  */
 - (void)removePermission:(AWSSQSRemovePermissionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Delivers a message to the specified queue.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important>
+ <p>Delivers a message to the specified queue.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p></important>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageRequest
  @see AWSSQSSendMessageResult
@@ -594,12 +594,12 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSSendMessageResult *> *)sendMessage:(AWSSQSSendMessageRequest *)request;
 
 /**
- <p>Delivers a message to the specified queue.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important>
+ <p>Delivers a message to the specified queue.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p></important>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageRequest
  @see AWSSQSSendMessageResult
@@ -607,11 +607,11 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)sendMessage:(AWSSQSSendMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSSQSSendMessageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified queue by assigning either identical or different values to each message (or by not assigning values at all). This is a batch version of <code><a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p><p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p><p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144 bytes).</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important><p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
+ <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified queue by assigning either identical or different values to each message (or by not assigning values at all). This is a batch version of <code><a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p><p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p><p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144 bytes).</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p></important><p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
  
  @param request A container for the necessary parameters to execute the SendMessageBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageBatchRequest
  @see AWSSQSSendMessageBatchResult
@@ -619,12 +619,12 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSSendMessageBatchResult *> *)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request;
 
 /**
- <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified queue by assigning either identical or different values to each message (or by not assigning values at all). This is a batch version of <code><a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p><p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p><p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144 bytes).</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important><p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
+ <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified queue by assigning either identical or different values to each message (or by not assigning values at all). This is a batch version of <code><a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p><p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p><p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144 bytes).</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p></important><p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
  
  @param request A container for the necessary parameters to execute the SendMessageBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageBatchRequest
  @see AWSSQSSendMessageBatchResult
@@ -632,33 +632,33 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)request completionHandler:(void (^ _Nullable)(AWSSQSSendMessageBatchResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p><note><ul><li><p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p></li><li><p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p></li></ul></note>
+ <p>Sets the value of one or more queue attributes, like a policy. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p><note><ul><li><p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p></li><li><p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSSetQueueAttributesRequest
  */
 - (AWSTask *)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request;
 
 /**
- <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p><note><ul><li><p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p></li><li><p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p></li></ul></note>
+ <p>Sets the value of one or more queue attributes, like a policy. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p><note><ul><li><p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p></li><li><p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSSetQueueAttributesRequest
  */
 - (void)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Currently, only standard queues support redrive. FIFO queues don't support redrive.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSStartMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSStartMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSStartMessageMoveTaskRequest
  @see AWSSQSStartMessageMoveTaskResult
@@ -666,12 +666,12 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSStartMessageMoveTaskResult *> *)startMessageMoveTask:(AWSSQSStartMessageMoveTaskRequest *)request;
 
 /**
- <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Currently, only standard queues support redrive. FIFO queues don't support redrive.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSStartMessageMoveTaskRequest
  @see AWSSQSStartMessageMoveTaskResult
@@ -683,7 +683,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSTagQueueRequest
  */
@@ -694,7 +694,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSTagQueueRequest
  */
@@ -705,7 +705,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSUntagQueueRequest
  */
@@ -716,7 +716,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSUntagQueueRequest
  */
