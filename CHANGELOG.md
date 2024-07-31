@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.36.7
+
 - **AWSCore** 
   - Fixing concurrency issues in `AWSSynchronizedMutableDictionary` (#5413)
 
