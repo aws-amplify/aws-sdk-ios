@@ -25,6 +25,7 @@
 #import "AWSMQTTMessage.h"
 #import "AWSIoTManager.h"
 #import "AWSIoTStreamThread.h"
+#import "AWSIoTAtomicDictionary.h"
 
 @implementation AWSIoTMQTTTopicModel
 @end
@@ -38,7 +39,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
 @property(nonatomic, strong) AWSMQTTSession* session;
-@property(nonatomic, strong) AWSSynchronizedMutableDictionary * topicListeners;
+@property(nonatomic, strong) AWSIoTAtomicDictionary *topicListeners;
 
 @property(atomic, assign) BOOL userDidIssueDisconnect; //Flag to indicate if requestor has issued a disconnect
 @property(atomic, assign) BOOL userDidIssueConnect; //Flag to indicate if requestor has issued a connect
@@ -91,7 +92,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (instancetype)init {
     if (self = [super init]) {
-        _topicListeners = [AWSSynchronizedMutableDictionary new];
+        _topicListeners = [AWSIoTAtomicDictionary new];
         _clientCerts = nil;
         _session.delegate = nil;
         _session = nil;
@@ -681,8 +682,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     }
 
     if (self.reconnectThread) {
-        if ( ![[NSThread currentThread] isEqual:self.reconnectThread]) {
-            // Move to reconnect thread to cleanup
+        if (!self.reconnectThread.isFinished && ![[NSThread currentThread] isEqual:self.reconnectThread]) {
+            // Move to reconnect thread to cleanup only if it's still running
             [self performSelector:@selector(cleanupReconnectTimer)
                          onThread:self.reconnectThread
                        withObject:nil

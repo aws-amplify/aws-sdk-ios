@@ -4,6 +4,12 @@
 
 -Features for next release
 
+## 2.36.7
+
+- **AWSIoT** 
+  - Using custom atomic dictionary for topic listeners (#5415)
+  - Fixing random crash when a connection is attempted just after disconnecting
+
 ## 2.36.6
 
 ### Bug Fixes
