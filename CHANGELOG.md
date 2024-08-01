@@ -2,10 +2,8 @@
 
 ## Unreleased
 
-- **AWSCore** 
-  - Fixing concurrency issues in `AWSSynchronizedMutableDictionary` (#5413)
-
 - **AWSIoT** 
+  - Using custom atomic dictionary for topic listeners (#5415)
   - Fixing random crash when a connection is attempted just after disconnecting
 
 ## 2.36.6
