@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/CocoaPods/Xcodeproj.git
-  revision: fe55cf57badef2ca27fb9d4f801d9b834de1f871
-  ref: fe55cf5
-  branch: master
-  specs:
-    xcodeproj (1.24.0)
-      CFPropertyList (>= 2.3.3, < 4.0)
-      atomos (~> 0.1.3)
-      claide (>= 1.0.2, < 2.0)
-      colored2 (~> 3.1)
-      nanaimo (~> 0.3.0)
-      rexml (>= 3.3.2, < 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,7 +91,7 @@ GEM
     open4 (1.3.4)
     public_suffix (4.0.6)
     redcarpet (3.5.1)
-    rexml (3.3.3)
+    rexml (3.3.4)
       strscan
     rouge (2.0.7)
     ruby-macho (2.5.1)
@@ -120,6 +106,13 @@ GEM
       concurrent-ruby (~> 1.0)
     xcinvoke (0.3.0)
       liferaft (~> 0.0.6)
+    xcodeproj (1.25.0)
+      CFPropertyList (>= 2.3.3, < 4.0)
+      atomos (~> 0.1.3)
+      claide (>= 1.0.2, < 2.0)
+      colored2 (~> 3.1)
+      nanaimo (~> 0.3.0)
+      rexml (>= 3.3.2, < 4.0)
     xcpretty (0.3.0)
       rouge (~> 2.0.7)
     zeitwerk (2.6.11)
@@ -131,8 +124,7 @@ DEPENDENCIES
   cocoapods (= 1.11.3)
   cocoapods-downloader (= 1.6.3)
   jazzy (= 0.14.2)
-  xcodeproj!
   xcpretty (= 0.3.0)
 
 BUNDLED WITH
-   2.3.7
+   2.5.14
