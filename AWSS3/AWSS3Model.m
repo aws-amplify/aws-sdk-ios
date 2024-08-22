@@ -1226,6 +1226,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-southeast-4"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast4);
         }
+        if ([value caseInsensitiveCompare:@"ap-southeast-5"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSoutheast5);
+        }
         if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCACentral1);
         }
@@ -1319,6 +1322,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-3";
             case AWSS3BucketLocationConstraintAPSoutheast4:
                 return @"ap-southeast-4";
+            case AWSS3BucketLocationConstraintAPSoutheast5:
+                return @"ap-southeast-5";
             case AWSS3BucketLocationConstraintCACentral1:
                 return @"ca-central-1";
             case AWSS3BucketLocationConstraintCAWest1:
@@ -2844,6 +2849,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-southeast-4"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast4);
         }
+        if ([value caseInsensitiveCompare:@"ap-southeast-5"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSoutheast5);
+        }
         if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCACentral1);
         }
@@ -2937,6 +2945,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-3";
             case AWSS3BucketLocationConstraintAPSoutheast4:
                 return @"ap-southeast-4";
+            case AWSS3BucketLocationConstraintAPSoutheast5:
+                return @"ap-southeast-5";
             case AWSS3BucketLocationConstraintCACentral1:
                 return @"ca-central-1";
             case AWSS3BucketLocationConstraintCAWest1:
