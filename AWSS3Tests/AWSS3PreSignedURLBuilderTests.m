@@ -604,7 +604,6 @@ static long unsigned testObjectSize = 10000;
             switch (count) {
                 case 0:
                     preSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
-                    [getPreSignedURLRequest setValue:@"" forRequestParameter:AWSS3PresignedURLTorrent];
                     break;
                 case 2:
                     preSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:testS3PresignedURLEUCentralKey];
@@ -648,7 +647,7 @@ static long unsigned testObjectSize = 10000;
                                                      if (count == 0) {
                                                          XCTAssertTrue([data length] > 0);
                                                          NSString *responseContentTypeStr = [((NSHTTPURLResponse *)response) allHeaderFields][@"Content-Type"];
-                                                         XCTAssertEqualObjects(@"application/x-bittorrent", responseContentTypeStr);
+                                                         XCTAssertEqualObjects(@"binary/octet-stream", responseContentTypeStr);
                                                      } else {
                                                          XCTAssertEqual(testObjectSize, [data length]);
                                                      }
