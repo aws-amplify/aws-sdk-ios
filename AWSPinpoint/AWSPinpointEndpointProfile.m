@@ -578,7 +578,8 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
         _userId = [decoder decodeObjectOfClass:[NSString class] forKey:@"userId"];
-        _userAttributes = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"userAttributes"];
+        NSSet * attributesClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSString class], nil];
+        _userAttributes = [decoder decodeObjectOfClasses:attributesClasses forKey:@"userAttributes"];
     }
     return self;
 }
