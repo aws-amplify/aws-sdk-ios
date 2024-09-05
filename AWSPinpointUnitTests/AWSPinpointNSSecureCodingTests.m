@@ -40,14 +40,6 @@
 
 @property (nonatomic, strong) NSURL *archiveURL;
 
-// Specifically declare these methods in the interface so we can set availability
-// to iOS 11. Tests that don't use newer APIs don't need to be declared here.
-- (void)testProfileArchivesAndUnarchivesUsingSecureCoding API_AVAILABLE(ios(11));
-- (void)testProfileArchivesAndUnarchivesWithLegacyAPI API_AVAILABLE(ios(11));
-
-- (void)testSessionArchivesAndUnarchivesSecurely API_AVAILABLE(ios(11));
-- (void)testSessionArchivesAndUnarchivesWithLegacyAPI API_AVAILABLE(ios(11));
-
 @end
 
 @implementation AWSPinpointNSSecureCodingTests
@@ -59,6 +51,16 @@
                                                                  isRegisteredForRemoteNotifications:YES
                                                                                               debug:YES
                                                                                        userDefaults:[NSUserDefaults standardUserDefaults] keychain:[AWSUICKeyChainStore keyChainStoreWithService: @"com.amazonaws.AWSPinpointContext"]];
+
+    [profile addAttribute:@[@"Attribute1", @"Attribute2"]
+                   forKey:@"profileAttributeKey"];
+    [profile addMetric:[NSNumber numberWithInt:10] forKey:@"profileMetricKey"];
+
+    AWSPinpointEndpointProfileUser *user = [AWSPinpointEndpointProfileUser new];
+    user.userId = @"UserId";
+    [user addUserAttribute:@[@"Attribute1", @"Attribute2"] 
+                    forKey:@"userAttributeKey"];
+    profile.user = user;
 
     NSError *error;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:profile
@@ -78,21 +80,6 @@
 
 - (void)testProfileSupportsSecureCoding {
     XCTAssert([AWSPinpointEndpointProfile supportsSecureCoding]);
-}
-
-- (void)testProfileArchivesAndUnarchivesWithLegacyAPI {
-    AWSPinpointEndpointProfile *profile = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:@"app-id-123"
-                                                                                         endpointId:@"endpoint-id-123"
-                                                                             applicationLevelOptOut:YES
-                                                                 isRegisteredForRemoteNotifications:YES
-                                                                                              debug:YES
-                                                                                       userDefaults:[NSUserDefaults standardUserDefaults] keychain:[AWSUICKeyChainStore keyChainStoreWithService: @"com.amazonaws.AWSPinpointContext"]];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:profile];
-
-    AWSPinpointEndpointProfile *unarchivedProfile = (AWSPinpointEndpointProfile *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-
-    // The class doesn't support `isEqual` so we'll compare string descriptions
-    XCTAssertEqualObjects([unarchivedProfile description], [profile description]);
 }
 
 - (void)testSessionArchivesAndUnarchivesSecurely {
@@ -119,20 +106,6 @@
 
 - (void)testSessionSupportsSecureCoding {
     XCTAssert([AWSPinpointSession supportsSecureCoding]);
-}
-
-- (void)testSessionArchivesAndUnarchivesWithLegacyAPI {
-    AWSPinpointSession *session = [[AWSPinpointSession alloc] initWithSessionId:@"session-123"
-                                                                  withStartTime:[NSDate new]
-                                                                   withStopTime:nil];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:session];
-
-    AWSPinpointSession *unarchivedSession = (AWSPinpointSession *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-
-    // The class doesn't support `isEqual` or `description` so we'll compare property-by-property
-    XCTAssertEqualObjects(unarchivedSession.sessionId, session.sessionId);
-    XCTAssertEqualObjects(unarchivedSession.startTime, session.startTime);
-    XCTAssertEqualObjects(unarchivedSession.stopTime, session.stopTime);
 }
 
 @end

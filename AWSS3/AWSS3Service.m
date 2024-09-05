@@ -27,7 +27,7 @@
 #import "AWSS3Serializer.h"
 
 static NSString *const AWSInfoS3 = @"S3";
-NSString *const AWSS3SDKVersion = @"2.37.0";
+NSString *const AWSS3SDKVersion = @"2.37.1";
 
 
 

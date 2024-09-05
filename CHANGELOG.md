@@ -4,6 +4,13 @@
 
 -Features for next release
 
+## 2.37.1
+
+### Bug Fixes
+
+- **AWSPinpoint**
+  - Fixing error decoding `AWSPinpointEndpointProfile` when user attributes are set. (#5431)
+
 ## 2.37.0
 
 ### New features
