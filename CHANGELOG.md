@@ -4,6 +4,13 @@
 
 -Features for next release
 
+## 2.37.2
+
+### Bug Fixes
+
+- **AWSIoT** 
+  - Replacing deprecated `SecKeyRawSign` with `SecKeyCreateSignature` (#5442)
+
 ## 2.37.1
 
 ### Bug Fixes

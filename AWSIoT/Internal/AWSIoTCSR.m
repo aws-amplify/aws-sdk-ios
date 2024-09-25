@@ -74,20 +74,15 @@ unsigned char setTag = 0x31;
     }
     
     NSMutableData * certRequestData = [self createCertificateRequestData];
-    
-    CC_SHA256_CTX SHA256Struct;
-    CC_SHA256_Init(&SHA256Struct);
-    CC_SHA256_Update(&SHA256Struct, [certRequestData mutableBytes], (unsigned int)[certRequestData length]);
-    unsigned char SHA256Digest[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256_Final(SHA256Digest, &SHA256Struct);
-    
-    unsigned char sig[256];
-    size_t sigLen = sizeof(sig);
-    OSStatus sanityCheck = SecKeyRawSign(privateKeyRef, kSecPaddingPKCS1SHA256, SHA256Digest, sizeof(SHA256Digest), sig, &sigLen);
-    if (sanityCheck != noErr) {
+    NSData *signature = CFBridgingRelease(SecKeyCreateSignature(privateKeyRef, kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA256, (CFDataRef)certRequestData, nil));
+    if (signature == nil) {
         return nil;
     }
-    
+
+    unsigned char sig[256];
+    size_t sigLen = sizeof(sig);
+    [signature getBytes:&sig length:sigLen];
+
     NSMutableData * scr = [[NSMutableData alloc] initWithData:certRequestData];
 
     // DER encoded value of digest algorithm sha256WithRSAEncryption
