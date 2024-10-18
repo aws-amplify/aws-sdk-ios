@@ -255,7 +255,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 while ([rs next]) {
                     [temporaryRecords addObject:@{
                                                   @"partition_key": [rs stringForColumn:@"partition_key"],
-                                                  @"data": [rs dataForColumn:@"data"],
+                                                  @"data": [rs dataForColumn:@"data"] ?: [NSNull null],
                                                   @"stream_name": [rs stringForColumn:@"stream_name"],
                                                   }];
 
