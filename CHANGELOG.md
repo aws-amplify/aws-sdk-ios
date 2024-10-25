@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSIoT** 
+  - Fixing a race condition when invalidating/creating the reconnect timer (#5454)
 
 ## 2.38.0
 
