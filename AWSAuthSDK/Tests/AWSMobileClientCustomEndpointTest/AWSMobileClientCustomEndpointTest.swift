@@ -16,7 +16,6 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
     }
 
     override func setUp() {
-        _ = AWSMobileClient.default().getCredentialsProvider()
         continueAfterFailure = false
     }
 

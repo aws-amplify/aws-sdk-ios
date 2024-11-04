@@ -94,60 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
            sourceApplication:(nullable NSString *)sourceApplication
                   annotation:(id)annotation;
 
-/**
- Configures the different AWSMobile SDK Clientsfrom application delegate with options.
-
- @param application instance from application delegate.
- @param launchOptions from application delegate.
- @param completionHandler completion handler for resuming auth session.
- 
- *Swift*
- 
- AWSMobileClient
-    .sharedInstance()
-    .interceptApplication(application,
-        didFinishLaunchingWithOptions:launchOptions,
-        resumeSessionWithCompletionHandler:completionHandler)
- 
- *Objective-C*
- 
- AWSMobileClient *mobileClient = [AWSMobileClient sharedInstance];
- [mobileClient interceptApplication:application
-      didFinishLaunchingWithOptions:launchOptions
- resumeSessionWithCompletionHandler:completionHandler];
- */
-- (BOOL)interceptApplication:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions
-resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completionHandler;
-
-/**
- Configures the different AWSMobile SDK Clientsfrom application delegate with options.
- 
- @param application instance from application delegate.
- @param launchOptions from application delegate.
- 
- *Swift*
- 
- AWSMobileClient
-    .sharedInstance()
-    .interceptApplication(application, didFinishLaunchingWithOptions:launchOptions)
- 
- *Objective-C*
- 
- AWSMobileClient *mobileClient = [AWSMobileClient sharedInstance];
- [mobileClient interceptApplication:application
-      didFinishLaunchingWithOptions:launchOptions];
- */
-- (BOOL)interceptApplication:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
-
-/**
- Set the signInProviderConfig
- 
- @param signInProviderConfig the signInProviderConfiguration with permissions.
- **/
-- (void)setSignInProviders:(nullable NSArray<AWSSignInProviderConfig *> *)signInProviderConfig;
-
 
 -(void)showSignInScreen:(UINavigationController *)navController
   signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
@@ -158,12 +104,6 @@ didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
  * @param credentialsProvider The CredentialsProvider supplied by the user
  */
 - (void)setCredentialsProvider:(AWSCognitoCredentialsProvider *)credentialsProvider;
-
-/**
- * Retrieve the Credentials Provider.
- * @return AWSCognitoCredentialsProvider
- */
-- (AWSCognitoCredentialsProvider *)getCredentialsProvider;
 
 /**
  * Indicates whether the user is signed-in or not.
