@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSIoT** 
+  - Fixing a potential race condition in the timer ring queue (#5461)
 
 ## 2.38.0
 
