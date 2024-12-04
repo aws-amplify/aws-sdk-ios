@@ -5,7 +5,8 @@
 -Features for next release
 
 ### Bug Fixes
-Fix reading content_length from DB in AWSS3/AWSS3TransferUtilityDatabaseHelper.m `getTransferTaskDataFromDB`
+- **AWSS3**
+  - Fix reading content_length from DB AWSS3TransferUtilityDatabaseHelper.m `getTransferTaskDataFromDB`
 
 ## 2.37.2
 
