@@ -7,12 +7,12 @@ on:
 jobs:
   unit-tests:
     name: All SDK Unit Tests
-    runs-on: macos-latest
+    runs-on: macOS-15
     continue-on-error: true
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - name: Run AWS SDK Unit Tests
-        run: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme AWSAllUnitTests -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+        run: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme AWSAllUnitTests -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
       - name: Generate SDK Coverage Report
         run: |
           cd Build/Build/ProfileData
@@ -27,7 +27,7 @@ jobs:
           done
           mv aws-sdk-ios-Coverage.lcov ${{ github.workspace }}
       - name: Run AWS Auth SDK Unit Tests
-        run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -only-testing:"AWSMobileClientUnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+        run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -only-testing:"AWSMobileClientUnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
       - name: Generate Auth SDK Coverage Report
         run: |
           cd Build/Build/ProfileData
