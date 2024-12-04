@@ -34,7 +34,7 @@ jobs:
 
   create-release-pr:
     name: Create release PR for ${{ github.event.inputs.release-version }}
-    runs-on: macos-14
+    runs-on: macos-latest
     needs:
       - validate-version-format
     env:
