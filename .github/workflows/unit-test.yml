@@ -77,9 +77,13 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install Rosetta
+        run: |
+          /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
       - name: ${{ matrix.scheme }}
         run: |
-          xcodebuild test -project "${{ matrix.project }}" \
+          arch -x86_64 xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
           -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" \
           -sdk iphonesimulator \
@@ -88,7 +92,7 @@ jobs:
       - name: Additional AWSCore unit test
         if: ${{ matrix.scheme == 'AWSCore' }}
         run: |
-          xcodebuild test -project "${{ matrix.project }}" \
+          arch -x86_64 xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
           -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" \
           -sdk iphonesimulator \
