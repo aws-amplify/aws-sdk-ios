@@ -27,7 +27,7 @@ jobs:
   integration-test:
     needs: [validation]
     name: Integration Test
-    environment: IntegrationTest
+    #environment: IntegrationTest
     strategy:
       fail-fast: false
       matrix:
