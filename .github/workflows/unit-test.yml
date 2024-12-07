@@ -45,7 +45,8 @@ jobs:
           - AWSKinesisVideoSignaling
           - AWSKinesisVideoWebRTCStorage
           - AWSLambda
-          - AWSLex
+          # Disabled due to BlueAudioSource available archs
+          # - AWSLex
           - AWSLogs
           - AWSMachineLearning
           - AWSMobileClient
