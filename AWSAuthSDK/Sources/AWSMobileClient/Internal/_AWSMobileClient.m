@@ -111,31 +111,6 @@ Class AWSCognitoUserPoolsSignInProviderClass;
                                                         annotation:annotation];
 }
 
-- (BOOL)interceptApplication:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions
-resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completionHandler {
-    
-    AWSDDLogInfo(@"didFinishLaunching:withOptions:resumeSessionWithCompletionHandler:");
-    
-    if (self.signInProviderConfig == nil) {
-        [self registerConfigSignInProviders];
-    } else {
-        [self registerUserSignInProviders:self.signInProviderConfig];
-    }
-    
-    BOOL didFinishLaunching = [[AWSSignInManager sharedInstance]
-                               interceptApplication:application
-                               didFinishLaunchingWithOptions:launchOptions];;
-    
-    if (!_isInitialized) {
-        AWSDDLogInfo(@"Resuming any previously signed-in session");
-        [[AWSSignInManager sharedInstance] resumeSessionWithCompletionHandler:completionHandler];
-        _isInitialized = YES;
-    }
-    
-    return didFinishLaunching;
-}
-
 -(void)showSignInScreen:(UINavigationController *)navController
 signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
       completionHandler:(void (^)(NSString * _Nullable signInProviderKey, NSString * _Nullable signInProviderToken, NSError * _Nullable error))completionHandler {
@@ -291,25 +266,6 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
 
 - (BOOL)isLoggedIn {
     return [[AWSSignInManager sharedInstance] isLoggedIn];
-}
-
-- (AWSCognitoCredentialsProvider *)getCredentialsProvider {
-    return [[AWSIdentityManager defaultIdentityManager] credentialsProvider];
-}
-
-- (void)setSignInProviders:(nullable NSArray<AWSSignInProviderConfig *> *)signInProviderConfig {
-    self.signInProviderConfig = signInProviderConfig;
-}
-
-- (BOOL)interceptApplication:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    
-    return [self interceptApplication:application
-        didFinishLaunchingWithOptions:launchOptions
-   resumeSessionWithCompletionHandler:^(id result, NSError *error) {
-       AWSDDLogInfo(@"Welcome to AWS! You are connected successfully.");
-       AWSDDLogInfo(@"result = %@,error = %@", result, error);
-   }];
 }
 
 @end
