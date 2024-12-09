@@ -17,7 +17,7 @@
     <a title="SignOutOptions Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.37.2 Docs</a> (0% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.38.0 Docs</a> (55% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,19 +81,7 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html">FetchUserPoolTokensOperation</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchState">– TokenFetchState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchEvent">– TokenFetchEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchError">– TokenFetchError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
+                <a href="../Extensions.html#/FetchUserPoolTokensOperation">FetchUserPoolTokensOperation</a>
               </li>
             </ul>
           </li>
@@ -131,7 +119,7 @@
                 <a href="../Structs/Tokens.html">Tokens</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs.html#/UpdateDeviceStatusResult">UpdateDeviceStatusResult</a>
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -142,10 +130,10 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/TokenCompletion">TokenCompletion</a>
+                <a href="../Typealiases.html#/s:15AWSMobileClient15TokenCompletiona">TokenCompletion</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/UserStateChangeCallback">UserStateChangeCallback</a>
+                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
               </li>
             </ul>
           </li>
@@ -155,6 +143,13 @@
         <section>
           <section class="section">
             <h1>SignOutOptions</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SignOutOptions</span></code></pre>
+
+                </div>
+              </div>
             <p>Signout options to change the default behavior.</p>
 
           </section>
@@ -164,9 +159,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient14SignOutOptionsV04signD8Globally16invalidateTokensACSb_Sbtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(signOutGlobally:invalidateTokens:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">init(signOutGlobally:<wbr>invalidateTokens:<wbr>)</a>
+                    <a class="token" href="#/s:15AWSMobileClient14SignOutOptionsV04signD8Globally16invalidateTokensACSb_Sbtcfc">init(signOutGlobally:<wbr>invalidateTokens:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -177,6 +172,45 @@
                         <p>Initializer: Signout options to change the default behavior.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">signOutGlobally</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">invalidateTokens</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>signOutGlobally</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Invalidate all active sessions with the service. The user will be logged out of all devices.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>invalidateTokens</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If functionality available, the access token, refresh token and id token will be invalidated and won&rsquo;t be usable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -185,7 +219,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-09-25)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

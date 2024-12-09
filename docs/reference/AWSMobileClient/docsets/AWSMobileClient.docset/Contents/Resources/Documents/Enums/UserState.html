@@ -17,7 +17,7 @@
     <a title="UserState Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.37.2 Docs</a> (0% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.38.0 Docs</a> (55% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,19 +81,7 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html">FetchUserPoolTokensOperation</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchState">– TokenFetchState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchEvent">– TokenFetchEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchError">– TokenFetchError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
+                <a href="../Extensions.html#/FetchUserPoolTokensOperation">FetchUserPoolTokensOperation</a>
               </li>
             </ul>
           </li>
@@ -131,7 +119,7 @@
                 <a href="../Structs/Tokens.html">Tokens</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs.html#/UpdateDeviceStatusResult">UpdateDeviceStatusResult</a>
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -142,10 +130,10 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/TokenCompletion">TokenCompletion</a>
+                <a href="../Typealiases.html#/s:15AWSMobileClient15TokenCompletiona">TokenCompletion</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/UserStateChangeCallback">UserStateChangeCallback</a>
+                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
               </li>
             </ul>
           </li>
@@ -155,6 +143,13 @@
         <section>
           <section class="section">
             <h1>UserState</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserState</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                </div>
+              </div>
             <p>Indicates the user state.</p>
 
           </section>
@@ -164,9 +159,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO8signedInyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/signedIn" class="dashAnchor"></a>
-                    <a class="token" href="#/">signedIn</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO8signedInyA2CmF">signedIn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -177,15 +172,23 @@
                         <p>The user is signed in through Cognito User Pools or a federation provider like Google, Facebook, etc.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">signedIn</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO9signedOutyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/signedOut" class="dashAnchor"></a>
-                    <a class="token" href="#/">signedOut</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO9signedOutyA2CmF">signedOut</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -196,15 +199,23 @@
                         <p>The user is signed out and does not have guest access.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">signedOut</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO31signedOutFederatedTokensInvalidyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/signedOutFederatedTokensInvalid" class="dashAnchor"></a>
-                    <a class="token" href="#/">signedOutFederatedTokensInvalid</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO31signedOutFederatedTokensInvalidyA2CmF">signedOutFederatedTokensInvalid</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -217,15 +228,23 @@
  If the end user is unable to sign in, call <code>releaseSignInWait</code> method to return an error to the calling API.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">signedOutFederatedTokensInvalid</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO09signedOutC17PoolsTokenInvalidyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/signedOutUserPoolsTokenInvalid" class="dashAnchor"></a>
-                    <a class="token" href="#/">signedOutUserPoolsTokenInvalid</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO09signedOutC17PoolsTokenInvalidyA2CmF">signedOutUserPoolsTokenInvalid</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,15 +257,23 @@ using the <code>signIn</code> method or by showing the drop in UI. If the end us
 method to return an error to the calling API.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">signedOutUserPoolsTokenInvalid</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO5guestyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/guest" class="dashAnchor"></a>
-                    <a class="token" href="#/">guest</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO5guestyA2CmF">guest</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -257,15 +284,23 @@ method to return an error to the calling API.</p>
                         <p>The user is signed out, but has guest access in the app.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">guest</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:15AWSMobileClient9UserStateO7unknownyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/unknown" class="dashAnchor"></a>
-                    <a class="token" href="#/">unknown</a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO7unknownyA2CmF">unknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -276,6 +311,14 @@ method to return an error to the calling API.</p>
                         <p>The initial user state before <code><a href="../Classes/AWSMobileClient.html">AWSMobileClient</a></code> is initialized.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -284,7 +327,7 @@ method to return an error to the calling API.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-09-25)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
