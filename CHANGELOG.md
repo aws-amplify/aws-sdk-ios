@@ -4,6 +4,20 @@
 
 -Features for next release
 
+## 2.38.0
+
+### Misc. Updates
+- **AWSMobileClient**
+  - **Breaking API change** Removing the following deprecated methods:
+    - `interceptApplication(_:didFinishLaunchingWithOptions:)`
+    - `interceptApplication(_:didFinishLaunchingWithOptions:resumeSessionWithCompletionHandler:)`
+    - `setSignInProviders(_:)`
+    - `getCredentialsProvider()`
+
+### Bug Fixes
+- **AWSS3**
+  - Fix reading content_length from DB in AWSS3TransferUtilityDatabaseHelper.m `getTransferTaskDataFromDB`
+
 ## 2.37.2
 
 ### Bug Fixes
