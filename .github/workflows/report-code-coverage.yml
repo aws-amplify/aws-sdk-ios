@@ -7,7 +7,7 @@ on:
 jobs:
   unit-tests:
     name: All SDK Unit Tests
-    runs-on: macos-12
+    runs-on: macos-13
     continue-on-error: true
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
