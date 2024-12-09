@@ -2,7 +2,13 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+- **AWSMobileClient**
+  - **Breaking API change** Removing the following deprecated methods:
+    - `interceptApplication(_:didFinishLaunchingWithOptions:)`
+    - `interceptApplication(_:didFinishLaunchingWithOptions:resumeSessionWithCompletionHandler:)`
+    - `setSignInProviders(_:)`
+    - `getCredentialsProvider()`
 
 ## 2.37.2
 
