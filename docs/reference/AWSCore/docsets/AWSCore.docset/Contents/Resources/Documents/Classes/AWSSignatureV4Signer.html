@@ -17,7 +17,7 @@
     <a title="AWSSignatureV4Signer Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.37.2 Docs</a> (46% documented)</p>
+        <p><a href="../index.html">AWSCore 2.38.0 Docs</a> (46% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -878,6 +878,9 @@
                 <a href="../Enums/AWSLogLevel.html">AWSLogLevel</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSMTLModelEncodingBehavior.html">AWSMTLModelEncodingBehavior</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSNetworkingErrorType.html">AWSNetworkingErrorType</a>
               </li>
               <li class="nav-group-task">
@@ -1021,9 +1024,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Type%20Definitions.html#/c:AWSKSReachability.h@T@AWSKSReachabilityCallback">AWSKSReachabilityCallback</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Type%20Definitions/AWSMTLModelEncodingBehavior.html">AWSMTLModelEncodingBehavior</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a>
@@ -1181,6 +1181,11 @@
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span> <span class="n">credentialsProvider</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">credentialsProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1207,6 +1212,11 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">initWithCredentialsProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
                                    <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">endpoint</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">credentialsProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1255,6 +1265,11 @@ part of the signed query paramters.</p>
                                               <span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span><span class="o">&gt;</span>
                                                    <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="n">requestParameters</span>
                                                    <span class="n">signBody</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">signBody</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">generateQueryStringForSignatureV4</span><span class="p">(</span><span class="n">withCredentialProvider</span> <span class="nv">credentialsProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="p">,</span> <span class="nv">httpMethod</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a></span><span class="p">,</span> <span class="nv">expireDuration</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span><span class="p">,</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">requestHeaders</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?,</span> <span class="nv">requestParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">signBody</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTask.html">AWSTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1404,6 +1419,11 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
                      <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span>
              <span class="nf">signSessionToken</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signSessionToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">sigV4SignedURL</span><span class="p">(</span><span class="n">with</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="n">credentialProvider</span> <span class="nv">credentialsProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="p">,</span> <span class="nv">regionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">serviceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">expireDuration</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">,</span> <span class="nv">signBody</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">signSessionToken</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTask.html">AWSTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1626,7 +1646,7 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-09-25)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

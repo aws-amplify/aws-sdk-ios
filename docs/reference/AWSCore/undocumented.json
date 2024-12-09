@@ -2467,7 +2467,7 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 22,
-      "symbol": "",
+      "symbol": "AWSMTLModelEncodingBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
@@ -2481,49 +2481,49 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 22,
-      "symbol": "AWSMTLModelEncodingBehavior.",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 23,
-      "symbol": ".AWSMTLModelEncodingBehaviorExcluded",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorExcluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 23,
-      "symbol": "AWSMTLModelEncodingBehavior..AWSMTLModelEncodingBehaviorExcluded",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorExcluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 24,
-      "symbol": ".AWSMTLModelEncodingBehaviorUnconditional",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorUnconditional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 24,
-      "symbol": "AWSMTLModelEncodingBehavior..AWSMTLModelEncodingBehaviorUnconditional",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorUnconditional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 25,
-      "symbol": ".AWSMTLModelEncodingBehaviorConditional",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorConditional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 25,
-      "symbol": "AWSMTLModelEncodingBehavior..AWSMTLModelEncodingBehaviorConditional",
+      "symbol": "AWSMTLModelEncodingBehavior.AWSMTLModelEncodingBehaviorConditional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
