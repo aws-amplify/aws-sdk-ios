@@ -19,6 +19,7 @@
 #import "AWSMQTTEncoder.h"
 #import "AWSMQttTxFlow.h"
 #import "AWSIoTMessage.h"
+#import "AWSMQTTTimerRing.h"
 #import "AWSIoTMessage+AWSMQTTMessage.h"
 
 @interface AWSMQTTSession () <AWSMQTTDecoderDelegate,AWSMQTTEncoderDelegate>  {
@@ -58,7 +59,7 @@
 - (UInt16)nextMsgId;
 
 @property (strong,atomic) NSMutableArray* queue; //Queue to temporarily hold messages if encoder is busy sending another message
-@property (strong,atomic) NSMutableArray* timerRing; // circular array of 60. Each element is a set that contains the messages that need to be retried.
+@property (strong,atomic) AWSMQTTTimerRing* timerRing; // A collection of messages that need to be retried.
 @property (nonatomic, strong) dispatch_queue_t drainSenderSerialQueue;
 @property (nonatomic, strong) AWSMQTTEncoder* encoder; //Low level protocol handler that converts a message into out bound network data
 @property (nonatomic, strong) AWSMQTTDecoder* decoder; //Low level protocol handler that converts in bound network data into a Message
@@ -103,11 +104,7 @@
         txMsgId = 1;
         txFlows = [[NSMutableDictionary alloc] init];
         rxFlows = [[NSMutableDictionary alloc] init];
-        self.timerRing = [[NSMutableArray alloc] initWithCapacity:60];
-        int i;
-        for (i = 0; i < 60; i++) {
-            [self.timerRing addObject:[NSMutableSet new]];
-        }
+        self.timerRing = [[AWSMQTTTimerRing alloc] init];
         serialQueue = dispatch_queue_create("com.amazon.aws.iot.test-queue", DISPATCH_QUEUE_SERIAL);
         ticks = 0;
         status = AWSMQTTSessionStatusCreated;
@@ -233,7 +230,7 @@
     AWSMQttTxFlow *flow = [AWSMQttTxFlow flowWithMsg:msg
                                             deadline:deadline];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
+    [self.timerRing addMsgId:[NSNumber numberWithUnsignedInt:msgId] atTick:[flow deadline]];
     AWSDDLogDebug(@"Published message %hu for QOS 1", msgId);
     [self send:msg];
     return msgId;
@@ -267,7 +264,7 @@
     AWSMQttTxFlow *flow = [AWSMQttTxFlow flowWithMsg:msg
                                             deadline:(ticks + 60)];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
+    [self.timerRing addMsgId:[NSNumber numberWithUnsignedInt:msgId] atTick:[flow deadline]];
     [self send:msg];
     return msgId;
 }
@@ -299,7 +296,7 @@
     dispatch_sync(serialQueue, ^{
         ticks++;
     });
-    NSEnumerator *e = [[[self.timerRing objectAtIndex:(ticks % 60)] allObjects] objectEnumerator];
+    NSEnumerator *e = [[self.timerRing allMsgIdsAtTick:ticks] objectEnumerator];
     id msgId;
     
     //Stay under the throttle here and move the work to the next tick if throttle is breached.
@@ -321,8 +318,8 @@
     while ((msgId = [e nextObject])) {
         AWSMQttTxFlow *flow = [txFlows objectForKey:msgId];
         [flow setDeadline:((ticks +1) %  60)];
-        [[self.timerRing objectAtIndex:((ticks + 1) % 60)] addObject:msgId];
-        [[self.timerRing objectAtIndex:(ticks % 60)] removeObject:msgId];
+        [self.timerRing addMsgId:msgId atTick:(ticks + 1)];
+        [self.timerRing removeMsgId:msgId atTick:ticks];
     }
     
     if (count > 0 ) {
@@ -567,8 +564,8 @@
     if ([[flow msg] type] != AWSMQTTPublish || [[flow msg] qos] != 1) {
         return;
     }
-    
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
+
+    [self.timerRing removeMsgId:msgId atTick:[flow deadline]];
     [txFlows removeObjectForKey:msgId];
     AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS1 guarantee", msgId);
     [self.delegate session:self newAckForMessageId:msgId.unsignedShortValue];
@@ -594,10 +591,10 @@
     }
     msg = [AWSMQTTMessage pubrelMessageWithMessageId:[msgId unsignedIntValue]];
     [flow setMsg:msg];
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
+    [self.timerRing removeMsgId:msgId atTick:[flow deadline]];
     [flow setDeadline:(ticks + 60)];
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:msgId];
-    
+    [self.timerRing addMsgId:msgId atTick:[flow deadline]];
+
     [self send:msg];
 }
 
@@ -638,8 +635,8 @@
     if (flow == nil || [[flow msg] type] != AWSMQTTPubrel) {
         return;
     }
-    
-    [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
+
+    [self.timerRing removeMsgId:msgId atTick:[flow deadline]];
     [txFlows removeObjectForKey:msgId];
 
     AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS2 guarantee", msgId);
