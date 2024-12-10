@@ -690,10 +690,17 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                     waitUntilDone:NO];
             return;
         }
-        
-        [self.reconnectTimer invalidate];
-        self.reconnectTimer = nil;
+
+        [self invalidateReconnectTimer];
     }
+}
+
+- (void)invalidateReconnectTimer {
+    __weak AWSIoTMQTTClient *weakSelf = self;
+    dispatch_async(self.timerQueue, ^{
+        [weakSelf.reconnectTimer invalidate];
+        weakSelf.reconnectTimer = nil;
+    });
 }
 
 - (void)cleanUpWebsocketOutputStream {
