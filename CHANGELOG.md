@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.38.0
+
 ### Misc. Updates
 - **AWSMobileClient**
   - **Breaking API change** Removing the following deprecated methods:
