@@ -21,6 +21,9 @@ Pod::Spec.new do |s|
   s.resource_bundle = { 'AWSLex' => ['AWSLex/Media.xcassets', 'AWSLex/PrivacyInfo.xcprivacy'] }
   
   # Exclude arm64 when building for simulator on Xcode 12+
-  s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
+  s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+    'OTHER_LDFLAGS': '-ObjC -ld64'
+  }
 
 end
