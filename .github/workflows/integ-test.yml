@@ -1,6 +1,7 @@
 name: Integration Test
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       identifier:

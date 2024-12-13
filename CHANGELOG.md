@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSIoT** 
+  - Fixing a race condition when invalidating/creating the reconnect timer (#5454)
+  - Fixing a potential race condition in the timer ring queue (#5461)
+
+## 2.38.0
+
 ### Misc. Updates
 - **AWSMobileClient**
   - **Breaking API change** Removing the following deprecated methods:
@@ -9,6 +17,10 @@
     - `interceptApplication(_:didFinishLaunchingWithOptions:resumeSessionWithCompletionHandler:)`
     - `setSignInProviders(_:)`
     - `getCredentialsProvider()`
+
+### Bug Fixes
+- **AWSS3**
+  - Fix reading content_length from DB in AWSS3TransferUtilityDatabaseHelper.m `getTransferTaskDataFromDB`
 
 ## 2.37.2
 
