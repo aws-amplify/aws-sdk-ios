@@ -134,7 +134,7 @@
     XCTAssertFalse(didInvokeOutputStreamClose, @"The `close` method on `outputStream` should not be invoked");
 }
 
-- (void)testCancelAndDisconnect_shouldSeDidCleanUp_andInvalidateTimer {
+- (void)testCancelAndDisconnect_shouldSetDidCleanUp_andInvalidateTimer {
     XCTestExpectation *stopExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.onStop expectation"];
     self.thread.onStop = ^{
         [stopExpectation fulfill];
