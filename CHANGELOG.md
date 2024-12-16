@@ -5,8 +5,9 @@
 ### Bug Fixes
 
 - **AWSIoT** 
-  - Fixing a race condition when invalidating/creating the reconnect timer (#5454)
-  - Fixing a potential race condition in the timer ring queue (#5461)
+  - Fixing race conditions during cleanup in `AWSIoTStreamThread` (#5477)
+  - Fixing a race condition when invalidating/creating the reconnect timer in `AWSIoTMQTTClient` (#5454)
+  - Fixing a potential race condition in the timer ring queue in `AWSMQTTSession` (#5461)
 
 ## 2.38.0
 
