@@ -27,6 +27,8 @@
 @property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
 @property(nonatomic, assign) BOOL isRunning;
 @property(nonatomic, assign) BOOL shouldDisconnect;
+@property(nonatomic, strong) dispatch_queue_t serialQueue;
+@property(nonatomic, assign) BOOL didCleanUp;
 @end
 
 @implementation AWSIoTStreamThread
@@ -40,10 +42,10 @@
                     outputStream:nil];
 }
 
--(instancetype)initWithSession:(nonnull AWSMQTTSession *)session
-            decoderInputStream:(nonnull NSInputStream *)decoderInputStream
-           encoderOutputStream:(nonnull NSOutputStream *)encoderOutputStream
-                  outputStream:(nullable NSOutputStream *)outputStream; {
+- (instancetype)initWithSession:(nonnull AWSMQTTSession *)session
+             decoderInputStream:(nonnull NSInputStream *)decoderInputStream
+            encoderOutputStream:(nonnull NSOutputStream *)encoderOutputStream
+                   outputStream:(nullable NSOutputStream *)outputStream {
     if (self = [super init]) {
         _session = session;
         _decoderInputStream = decoderInputStream;
@@ -51,23 +53,31 @@
         _outputStream = outputStream;
         _defaultRunLoopTimeInterval = 10;
         _shouldDisconnect = NO;
+        _serialQueue = dispatch_queue_create("com.amazonaws.iot.streamthread.syncQueue", DISPATCH_QUEUE_SERIAL);
+        _didCleanUp = NO;
     }
     return self;
 }
 
 - (void)main {
+    if (self.isRunning) {
+        AWSDDLogWarn(@"Attempted to start a thread that is already running: [%@]", self);
+        return;
+    }
+
     AWSDDLogVerbose(@"Started execution of Thread: [%@]", self);
     //This is invoked in a new thread by the webSocketDidOpen method or by the Connect method. Get the runLoop from the thread.
     self.runLoopForStreamsThread = [NSRunLoop currentRunLoop];
 
     //Setup a default timer to ensure that the RunLoop always has atleast one timer on it. This is to prevent the while loop
     //below to spin in tight loop when all input sources and session timers are shutdown during a reconnect sequence.
+    __weak typeof(self) weakSelf = self;
     self.defaultRunLoopTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:60.0]
-                                                            interval:60.0
-                                                              target:self
-                                                            selector:@selector(timerHandler:)
-                                                            userInfo:nil
-                                                             repeats:YES];
+                                                        interval:60.0
+                                                         repeats:YES
+                                                           block:^(NSTimer * _Nonnull timer) {
+        AWSDDLogVerbose(@"Default run loop timer executed on Thread: [%@]. isRunning = %@. isCancelled = %@", weakSelf, weakSelf.isRunning ? @"YES" : @"NO", weakSelf.isCancelled ? @"YES" : @"NO");
+    }];
     [self.runLoopForStreamsThread addTimer:self.defaultRunLoopTimer
                                    forMode:NSDefaultRunLoopMode];
 
@@ -82,7 +92,7 @@
     [self.session connectToInputStream:self.decoderInputStream
                           outputStream:self.encoderOutputStream];
 
-    while (self.isRunning && !self.isCancelled) {
+    while ([self shouldContinueRunning]) {
         //This will continue run until the thread is cancelled
         //Run one cycle of the runloop. This will return after a input source event or timer event is processed
         [self.runLoopForStreamsThread runMode:NSDefaultRunLoopMode
@@ -94,60 +104,76 @@
     AWSDDLogVerbose(@"Finished execution of Thread: [%@]", self);
 }
 
+- (BOOL)shouldContinueRunning {
+    __block BOOL shouldRun;
+    dispatch_sync(self.serialQueue, ^{
+        shouldRun = self.isRunning && !self.isCancelled && self.defaultRunLoopTimer != nil;
+    });
+    return shouldRun;
+}
+
 - (void)cancel {
     AWSDDLogVerbose(@"Issued Cancel on thread [%@]", (NSThread *)self);
-    self.isRunning = NO;
-    [super cancel];
+    dispatch_sync(self.serialQueue, ^{
+        self.isRunning = NO;
+        [super cancel];
+    });
 }
 
 - (void)cancelAndDisconnect:(BOOL)shouldDisconnect {
     AWSDDLogVerbose(@"Issued Cancel and Disconnect = [%@] on thread [%@]", shouldDisconnect ? @"YES" : @"NO", (NSThread *)self);
-    self.shouldDisconnect = shouldDisconnect;
-    self.isRunning = NO;
-    [super cancel];
+    dispatch_sync(self.serialQueue, ^{
+        self.shouldDisconnect = shouldDisconnect;
+        self.isRunning = NO;
+        [super cancel];
+    });
 }
 
 - (void)cleanUp {
-    if (self.defaultRunLoopTimer) {
-        [self.defaultRunLoopTimer invalidate];
-        self.defaultRunLoopTimer = nil;
-    }
-
-    if (self.shouldDisconnect) {
-        if (self.session) {
-            [self.session close];
-            self.session = nil;
+    dispatch_sync(self.serialQueue, ^{
+        if (self.didCleanUp) {
+            AWSDDLogVerbose(@"Clean up already called for thread: [%@]", (NSThread *)self);
+            return;
         }
 
-        if (self.outputStream) {
-            self.outputStream.delegate = nil;
-            [self.outputStream close];
-            [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
-                                         forMode:NSDefaultRunLoopMode];
-            self.outputStream = nil;
+        self.didCleanUp = YES;
+        if (self.defaultRunLoopTimer) {
+            [self.defaultRunLoopTimer invalidate];
+            self.defaultRunLoopTimer = nil;
         }
 
-        if (self.decoderInputStream) {
-            [self.decoderInputStream close];
-            self.decoderInputStream = nil;
+        if (self.shouldDisconnect) {
+            if (self.session) {
+                [self.session close];
+                self.session = nil;
+            }
+
+            if (self.outputStream) {
+                self.outputStream.delegate = nil;
+                [self.outputStream close];
+                [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
+                                             forMode:NSDefaultRunLoopMode];
+                self.outputStream = nil;
+            }
+
+            if (self.decoderInputStream) {
+                [self.decoderInputStream close];
+                self.decoderInputStream = nil;
+            }
+
+            if (self.encoderOutputStream) {
+                [self.encoderOutputStream close];
+                self.encoderOutputStream = nil;
+            }
+        } else {
+            AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
         }
 
-        if (self.encoderOutputStream) {
-            [self.encoderOutputStream close];
-            self.encoderOutputStream = nil;
+        if (self.onStop) {
+            self.onStop();
+            self.onStop = nil;
         }
-    } else {
-        AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
-    }
-
-    if (self.onStop) {
-        self.onStop();
-        self.onStop = nil;
-    }
-}
-
-- (void)timerHandler:(NSTimer*)theTimer {
-    AWSDDLogVerbose(@"Default run loop timer executed on Thread: [%@]. isRunning = %@. isCancelled = %@", self, self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO");
+    });
 }
 
 @end

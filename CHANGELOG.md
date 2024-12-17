@@ -4,6 +4,15 @@
 
 -Features for next release
 
+## 2.38.1
+
+### Bug Fixes
+
+- **AWSIoT** 
+  - Fixing race conditions during cleanup in `AWSIoTStreamThread` (#5477)
+  - Fixing a race condition when invalidating/creating the reconnect timer in `AWSIoTMQTTClient` (#5454)
+  - Fixing a potential race condition in the timer ring queue in `AWSMQTTSession` (#5461)
+
 ## 2.38.0
 
 ### Misc. Updates
