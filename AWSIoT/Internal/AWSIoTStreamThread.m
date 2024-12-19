@@ -148,7 +148,12 @@
                 self.session = nil;
             }
 
-            if (self.outputStream) {
+             // Before cleaning up the output stream, we must apply stricter stream status checks to avoid possible cocurrent access issue, because the same stream object is possible to be shared in mutliple threads.
+            if (
+                self.outputStream && 
+                self.outputStream.delegate && 
+                (self.outputStream.streamStatus != NSStreamStatusNotOpen && self.outputStream.streamStatus != NSStreamStatusClosed)
+            ) {
                 self.outputStream.delegate = nil;
                 [self.outputStream close];
                 [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread

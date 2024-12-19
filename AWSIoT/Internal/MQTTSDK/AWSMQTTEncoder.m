@@ -44,10 +44,13 @@
 }
 
 - (void)close {
-    AWSDDLogDebug(@"closing encoder stream.");
-    [self.stream close];
-    [self.stream setDelegate:nil];
-    self.stream = nil;
+    // Before cleaning up the stream, we must apply stricter stream status checks to avoid possible cocurrent access issue, because the same stream object is possible to be shared in multiple threads.
+    if (self.stream && self.stream.delegate && (self.stream.streamStatus != NSStreamStatusNotOpen && self.stream.streamStatus != NSStreamStatusClosed)) {
+        AWSDDLogDebug(@"closing encoder stream.");
+        self.stream.delegate = nil;
+        [self.stream close];
+        self.stream = nil;
+    }
 }
 
 //This is executed in the runLoop.

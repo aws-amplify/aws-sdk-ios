@@ -705,7 +705,12 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (void)cleanUpWebsocketOutputStream {
     @synchronized(self) {
-        if (self.websocketOutputStream) {
+        // Before cleaning up the websocket output stream, we must apply stricter stream status checks to avoid possible cocurrent access issue, because the same stream object is possible to be shared in multiple one thread, as for this stream, e.g. the `AWSIoTStreamThread`.
+        if (
+            self.websocketOutputStream && 
+            self.websocketOutputStream.delegate && 
+            (self.websocketOutputStream.streamStatus != NSStreamStatusNotOpen && self.websocketOutputStream.streamStatus != NSStreamStatusClosed)
+        ) {
             self.websocketOutputStream.delegate = nil;
             [self.websocketOutputStream close];
             [self.websocketOutputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -1258,7 +1263,17 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // Also, the webSocket can be set to nil
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
+    // Before cleaning up the stream, we must apply stricter stream status checks to avoid possible cocurrent access issue, because the same stream object is possible to be shared in multiple threads.
+    if (
+        self.encoderOutputStream && 
+        self.encoderOutputStream.delegate && 
+        (self.encoderOutputStream.streamStatus != NSStreamStatusNotOpen && self.encoderOutputStream.streamStatus != NSStreamStatusClosed)
+    ) {
+        self.encoderOutputStream.delegate = nil;
+        [self.encoderOutputStream close];
+        self.encoderOutputStream = nil;
+    }
+
     [self.webSocket close];
     self.webSocket = nil;
     
@@ -1296,7 +1311,17 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // The WebSocket has closed. The input/output streams can be closed here.
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
+    // Before cleaning up the stream, we must apply stricter stream status checks to avoid possible cocurrent access issue, because the same stream object is possible to be shared in multiple threads.
+    if (
+        self.encoderOutputStream && 
+        self.encoderOutputStream.delegate && 
+        (self.encoderOutputStream.streamStatus != NSStreamStatusNotOpen && self.encoderOutputStream.streamStatus != NSStreamStatusClosed)
+    ) {
+        self.encoderOutputStream.delegate = nil;
+        [self.encoderOutputStream close];
+        self.encoderOutputStream = nil;
+    }
+
     [self.webSocket close];
     self.webSocket = nil;
     
