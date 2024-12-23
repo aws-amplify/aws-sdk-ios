@@ -44,18 +44,34 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     }
 
     func testStreamingExampleEnglish() throws {
-        try transcribeAudio(languageCode: .enUS, fileName: "hello_world")
+        try transcribeAudio(
+            languageCode: .enUS,
+            fileName: "hello_world",
+            mediaSampleRateHertz: 8000
+        )
     }
 
     func testStreamingExampleDeutsche() throws {
-        try transcribeAudio(languageCode: .deDE, fileName: "guten_tag")
+        try transcribeAudio(
+            languageCode: .deDE,
+            fileName: "guten_tag",
+            mediaSampleRateHertz: 24000
+        )
     }
 
     func testStreamingExampleEspañol() throws {
-        try transcribeAudio(languageCode: .esES, fileName: "hola_mundo")
+        try transcribeAudio(
+            languageCode: .esES,
+            fileName: "hola_mundo",
+            mediaSampleRateHertz: 24000
+        )
     }
 
-    private func transcribeAudio(languageCode: AWSTranscribeStreamingLanguageCode, fileName: String) throws {
+    private func transcribeAudio(
+        languageCode: AWSTranscribeStreamingLanguageCode,
+        fileName: String,
+        mediaSampleRateHertz: NSNumber
+    ) throws {
         let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)
         guard let audioPath = bundle.path(forResource: fileName, ofType: "wav") else {
             XCTFail("Can't find audio path: \(fileName).wav")
@@ -72,7 +88,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
 
         request.languageCode = languageCode
         request.mediaEncoding = .pcm
-        request.mediaSampleRateHertz = 24000
+        request.mediaSampleRateHertz = mediaSampleRateHertz
 
         // Set up delegate and its expectations
         let delegate = MockTranscribeStreamingClientDelegate()
