@@ -598,6 +598,7 @@
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
+		680BA6182D1626CF00D69A6C /* hola_mundo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 680BA6172D1626CF00D69A6C /* hola_mundo.wav */; };
 		685AA2112CDA7843008EFC7B /* AWSMQTTTimerRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 685AA20F2CDA7843008EFC7B /* AWSMQTTTimerRing.h */; };
 		685AA2122CDA7843008EFC7B /* AWSMQTTTimerRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AA2102CDA7843008EFC7B /* AWSMQTTTimerRing.m */; };
 		687952932B8FE2C5001E8990 /* AWSDDLog+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */; };
@@ -3217,6 +3218,7 @@
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
+		680BA6172D1626CF00D69A6C /* hola_mundo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hola_mundo.wav; sourceTree = "<group>"; };
 		685AA20F2CDA7843008EFC7B /* AWSMQTTTimerRing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMQTTTimerRing.h; sourceTree = "<group>"; };
 		685AA2102CDA7843008EFC7B /* AWSMQTTTimerRing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSMQTTTimerRing.m; sourceTree = "<group>"; };
 		687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSDDLog+Optional.swift"; sourceTree = "<group>"; };
@@ -5409,6 +5411,7 @@
 				FA53331F22D4065800BD88AF /* AWSTranscribeStreamingTests-Bridging-Header.h */,
 				5C71F33E295672B8001183A4 /* guten_tag.wav */,
 				FABD9ED322D6661200BD4441 /* hello_world.wav */,
+				680BA6172D1626CF00D69A6C /* hola_mundo.wav */,
 				178A805122B097B900B167D6 /* Info.plist */,
 			);
 			path = AWSTranscribeStreamingTests;
@@ -11487,6 +11490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680BA6182D1626CF00D69A6C /* hola_mundo.wav in Resources */,
 				FABD9ED422D6661300BD4441 /* hello_world.wav in Resources */,
 				5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */,
 			);

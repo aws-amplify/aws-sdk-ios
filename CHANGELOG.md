@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### New features
+
+- **AWSTranscribeStreaming**
+  - Adding support for missing languages (#5483)
 
 ## 2.38.1
 
