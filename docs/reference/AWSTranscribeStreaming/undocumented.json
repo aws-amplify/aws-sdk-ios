@@ -353,41 +353,321 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 53,
-      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeHiIN",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
-      "line": 54,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeThTH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
-      "line": 57,
-      "symbol": "AWSTranscribeStreamingMediaEncoding",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 54,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEsES",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 55,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeArSA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 56,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodePtPT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 57,
-      "symbol": "AWSTranscribeStreamingMediaEncoding",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeCaES",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 58,
-      "symbol": "AWSTranscribeStreamingMediaEncoding.AWSTranscribeStreamingMediaEncodingUnknown",
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeArAE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 59,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeHiIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 60,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeZhHK",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 61,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeNlNL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 62,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeNoNO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 63,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeSvSE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 64,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodePlPL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 65,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeFiFI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 66,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeZhTW",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 67,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 68,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnIE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 69,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnNZ",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 70,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnAB",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 71,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnZA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 72,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnWL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 73,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeDeCH",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 74,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeAfZA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 75,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEuES",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 76,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeHrHR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 77,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeCsCZ",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 78,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeDaDK",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 79,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeFaIR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 80,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeGlES",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 81,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeElGR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 82,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeHeIL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 83,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeIdID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 84,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeLvLV",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 85,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeMsMY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 86,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeRoRO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 87,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeRuRU",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 88,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeSrRS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 89,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeSkSK",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 90,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeSoSO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 91,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeTlPH",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 92,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeUkUA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 93,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeViVN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 94,
+      "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeZuZA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 97,
+      "symbol": "AWSTranscribeStreamingMediaEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 97,
+      "symbol": "AWSTranscribeStreamingMediaEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 98,
+      "symbol": "AWSTranscribeStreamingMediaEncoding.AWSTranscribeStreamingMediaEncodingUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "line": 99,
       "symbol": "AWSTranscribeStreamingMediaEncoding.AWSTranscribeStreamingMediaEncodingPcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
