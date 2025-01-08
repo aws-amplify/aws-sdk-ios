@@ -25,7 +25,7 @@
 #import "AWSChimeSDKMessagingResources.h"
 
 static NSString *const AWSInfoChimeSDKMessaging = @"ChimeSDKMessaging";
-NSString *const AWSChimeSDKMessagingSDKVersion = @"2.38.2";
+NSString *const AWSChimeSDKMessagingSDKVersion = @"2.39.0";
 
 
 @interface AWSChimeSDKMessagingResponseSerializer : AWSJSONResponseSerializer
