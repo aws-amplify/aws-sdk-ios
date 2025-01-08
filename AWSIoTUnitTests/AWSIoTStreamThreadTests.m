@@ -19,6 +19,10 @@
 
 @interface AWSIoTStreamThread()
 @property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
+@property (nonatomic, assign) BOOL isRunning;
+@property (nonatomic, strong) dispatch_queue_t serialQueue;
+@property (nonatomic, assign) BOOL didCleanUp;
+@property (nonatomic, strong, nullable) NSTimer *defaultRunLoopTimer;
 @end
 
 
@@ -56,6 +60,7 @@
 }
 
 - (void)tearDown {
+    [self.thread cancelAndDisconnect:YES];
     self.thread = nil;
     self.session = nil;
     self.decoderInputStream = nil;
@@ -67,6 +72,7 @@
 /// When: The thread is started
 /// Then: The output stream is opened and the session is connected to the decoder and encoder streams
 - (void)testStart_shouldOpenStream_andInvokeConnectOnSession {
+    OCMVerify([self.outputStream scheduleInRunLoop:[OCMArg any] forMode:NSDefaultRunLoopMode]);
     OCMVerify([self.outputStream open]);
     OCMVerify([self.session connectToInputStream:[OCMArg any] outputStream:[OCMArg any]]);
 }
@@ -87,6 +93,7 @@
     OCMVerify([self.encoderOutputStream close]);
     OCMVerify([self.outputStream close]);
     OCMVerify([self.session close]);
+    XCTAssertFalse(self.thread.isRunning);
 }
 
 /// Given: A running AWSIoTStreamThread
@@ -108,9 +115,9 @@
         didInvokeDecoderInputStreamClose = YES;
     }];
 
-    __block BOOL didInvokeEncoderDecoderInputStreamClose = NO;
+    __block BOOL didInvokeEncoderOutputStreamClose = NO;
     [OCMStub([self.encoderOutputStream close]) andDo:^(NSInvocation *invocation) {
-        didInvokeEncoderDecoderInputStreamClose = YES;
+        didInvokeEncoderOutputStreamClose = YES;
     }];
 
     __block BOOL didInvokeOutputStreamClose = NO;
@@ -121,10 +128,41 @@
     [self.thread cancelAndDisconnect:NO];
     [self waitForExpectations:@[stopExpectation] timeout:1];
 
-    XCTAssertFalse(didInvokeSessionClose);
-    XCTAssertFalse(didInvokeDecoderInputStreamClose);
-    XCTAssertFalse(didInvokeEncoderDecoderInputStreamClose);
-    XCTAssertFalse(didInvokeOutputStreamClose);
+    XCTAssertFalse(didInvokeSessionClose, @"The `close` method on `session` should not be invoked");
+    XCTAssertFalse(didInvokeDecoderInputStreamClose, @"The `close` method on `decoderInputStream` should not be invoked");
+    XCTAssertFalse(didInvokeEncoderOutputStreamClose, @"The `close` method on `encoderOutputStream` should not be invoked");
+    XCTAssertFalse(didInvokeOutputStreamClose, @"The `close` method on `outputStream` should not be invoked");
+}
+
+- (void)testCancelAndDisconnect_shouldSetDidCleanUp_andInvalidateTimer {
+    XCTestExpectation *stopExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.onStop expectation"];
+    self.thread.onStop = ^{
+        [stopExpectation fulfill];
+    };
+
+    [self.thread cancelAndDisconnect:YES];
+
+    [self waitForExpectations:@[stopExpectation] timeout:1];
+    XCTAssertTrue(self.thread.didCleanUp, @"didCleanUp should be YES after cleanup");
+    XCTAssertNil(self.thread.defaultRunLoopTimer, @"defaultRunLoopTimer should be nil after invalidation");
+}
+
+- (void)testCancelAndDisconnect_shouldSynchronizeOnCleanupQueue {
+    XCTestExpectation *stopExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.onStop expectation"];
+    self.thread.onStop = ^{
+        [stopExpectation fulfill];
+    };
+
+    [self.thread cancelAndDisconnect:YES];
+
+    // Validate synchronization
+    __block BOOL didSynchronize = NO;
+    dispatch_sync(self.thread.serialQueue, ^{
+        didSynchronize = YES;
+    });
+
+    XCTAssertTrue(didSynchronize, @"The cleanupQueue should synchronize the operations");
+    [self waitForExpectations:@[stopExpectation] timeout:1];
 }
 
 @end

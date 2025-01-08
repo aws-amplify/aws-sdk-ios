@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSIoTStreamThread : NSThread
 
-@property(strong, nullable) void (^onStop)(void);
+@property(nonatomic, copy, nullable) void (^onStop)(void);
 
 -(instancetype)initWithSession:(nonnull AWSMQTTSession *)session
             decoderInputStream:(nonnull NSInputStream *)decoderInputStream

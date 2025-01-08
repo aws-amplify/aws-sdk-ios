@@ -326,7 +326,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
             [transfer setObject:[rs stringForColumn:@"etag"] forKey:@"etag"];
             [transfer setObject:[AWSS3TransferUtilityDatabaseHelper absolutePathFromRelativePath:[rs stringForColumn:@"file"]] forKey:@"file"];
             [transfer setObject:@([rs intForColumn:@"temporary_file_created"]) forKey:@"temporary_file_created"];
-            [transfer setObject:@([rs intForColumn:@"content_length"]) forKey:@"content_length"];
+            [transfer setObject:@([rs longForColumn:@"content_length"]) forKey:@"content_length"];
             [transfer setObject:@([rs intForColumn:@"retry_count"]) forKey:@"retry_count"];
             [transfer setObject:[rs stringForColumn:@"request_headers"] forKey:@"request_headers"];
             [transfer setObject:[rs stringForColumn:@"request_parameters"] forKey:@"request_parameters"];

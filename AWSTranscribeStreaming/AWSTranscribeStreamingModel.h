@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -50,8 +50,48 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingLanguageCode) {
     AWSTranscribeStreamingLanguageCodeJaJP,
     AWSTranscribeStreamingLanguageCodeKoKR,
     AWSTranscribeStreamingLanguageCodeZhCN,
-    AWSTranscribeStreamingLanguageCodeHiIN,
     AWSTranscribeStreamingLanguageCodeThTH,
+    AWSTranscribeStreamingLanguageCodeEsES,
+    AWSTranscribeStreamingLanguageCodeArSA,
+    AWSTranscribeStreamingLanguageCodePtPT,
+    AWSTranscribeStreamingLanguageCodeCaES,
+    AWSTranscribeStreamingLanguageCodeArAE,
+    AWSTranscribeStreamingLanguageCodeHiIN,
+    AWSTranscribeStreamingLanguageCodeZhHK,
+    AWSTranscribeStreamingLanguageCodeNlNL,
+    AWSTranscribeStreamingLanguageCodeNoNO,
+    AWSTranscribeStreamingLanguageCodeSvSE,
+    AWSTranscribeStreamingLanguageCodePlPL,
+    AWSTranscribeStreamingLanguageCodeFiFI,
+    AWSTranscribeStreamingLanguageCodeZhTW,
+    AWSTranscribeStreamingLanguageCodeEnIN,
+    AWSTranscribeStreamingLanguageCodeEnIE,
+    AWSTranscribeStreamingLanguageCodeEnNZ,
+    AWSTranscribeStreamingLanguageCodeEnAB,
+    AWSTranscribeStreamingLanguageCodeEnZA,
+    AWSTranscribeStreamingLanguageCodeEnWL,
+    AWSTranscribeStreamingLanguageCodeDeCH,
+    AWSTranscribeStreamingLanguageCodeAfZA,
+    AWSTranscribeStreamingLanguageCodeEuES,
+    AWSTranscribeStreamingLanguageCodeHrHR,
+    AWSTranscribeStreamingLanguageCodeCsCZ,
+    AWSTranscribeStreamingLanguageCodeDaDK,
+    AWSTranscribeStreamingLanguageCodeFaIR,
+    AWSTranscribeStreamingLanguageCodeGlES,
+    AWSTranscribeStreamingLanguageCodeElGR,
+    AWSTranscribeStreamingLanguageCodeHeIL,
+    AWSTranscribeStreamingLanguageCodeIdID,
+    AWSTranscribeStreamingLanguageCodeLvLV,
+    AWSTranscribeStreamingLanguageCodeMsMY,
+    AWSTranscribeStreamingLanguageCodeRoRO,
+    AWSTranscribeStreamingLanguageCodeRuRU,
+    AWSTranscribeStreamingLanguageCodeSrRS,
+    AWSTranscribeStreamingLanguageCodeSkSK,
+    AWSTranscribeStreamingLanguageCodeSoSO,
+    AWSTranscribeStreamingLanguageCodeTlPH,
+    AWSTranscribeStreamingLanguageCodeUkUA,
+    AWSTranscribeStreamingLanguageCodeViVN,
+    AWSTranscribeStreamingLanguageCodeZuZA,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeStreamingMediaEncoding) {
@@ -307,6 +347,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingMediaEncoding) {
  <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length. Break your audio stream into smaller chunks and try your request again.</p>
  */
 @property (nonatomic, strong) NSError* _Nullable limitExceededException;
+
+/**
+ <p>The service is currently unavailable. Try your request later.</p>
+ */
+@property (nonatomic, strong) NSError* _Nullable serviceUnavailableException;
 
 /**
  <p>A portion of the transcription of the audio stream. Events are sent periodically from Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio stream, or it can be the entire transcription of that portion of the audio stream. </p>
