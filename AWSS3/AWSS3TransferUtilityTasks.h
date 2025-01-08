@@ -87,6 +87,20 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
                                                             NSProgress *progress);
 
 
+/**
+ The suspend multipart upload completion handler.
+
+ @param error    Returns the error object when the suspending failed. Returns `nil` on success.
+ */
+typedef void (^AWSS3TransferUtilityMultiPartUploadSuspendBlock) (NSError * _Nullable error);
+
+/**
+ The resume multipart upload completion handler.
+
+ @param error    Returns the error object when the resume failed. Returns `nil` on success.
+ */
+typedef void (^AWSS3TransferUtilityMultiPartUploadResumeBlock) (NSError * _Nullable error);
+
 #pragma mark - AWSS3TransferUtilityTasks
 
 /**
@@ -139,6 +153,11 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  The HTTP response object. May be nil if no response has been received.
  */
 @property (nullable, readonly) NSHTTPURLResponse *response;
+
+/**
+ Error after operation.
+ */
+@property (nullable, readonly) NSError *error;
 
 /**
  Cancels the task.
