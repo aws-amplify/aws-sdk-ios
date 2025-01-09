@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.39.0
+
 ### New features
 - **AWSCore**
   - Support for `ap-southeast-7` - Asia Pacific (Bangkok) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
