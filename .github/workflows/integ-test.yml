@@ -47,6 +47,7 @@ jobs:
           - AWSKinesisVideoSignaling
           - AWSLambda
           - AWSLex
+          - AWSLocation
           - AWSPinpoint
           - AWSPolly
           - AWSRekognition
