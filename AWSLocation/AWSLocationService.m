@@ -62,27 +62,34 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-    	NSString *errorTypeString = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
+        if (!error) {
+            return responseObject;
+        }
+
+        NSString *errorTypeString = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
         NSString *errorTypeHeader = [[errorTypeString componentsSeparatedByString:@":"] firstObject];
 
         if ([errorTypeString length] > 0 && errorTypeHeader) {
-            if (errorCodeDictionary[errorTypeHeader]) {
-                if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
-                    *error = [NSError errorWithDomain:AWSLocationErrorDomain
-                                                 code:[[errorCodeDictionary objectForKey:errorTypeHeader] integerValue]
-                                             userInfo:userInfo];
-                }
-                return responseObject;
-            } else if (errorTypeHeader) {
-                if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
-                    *error = [NSError errorWithDomain:AWSLocationErrorDomain
-                                                 code:AWSLocationErrorUnknown
-                                             userInfo:userInfo];
-                }
-                return responseObject;
+            NSString *errorDomain = nil;
+            NSNumber *errorCode = nil;
+
+            if (errorCodeDictionary[errorTypeHeader]) { // First, check if it's a Location error
+                errorDomain = AWSLocationErrorDomain;
+                errorCode = errorCodeDictionary[errorTypeHeader];
+            } else if ([[AWSService errorCodeDictionary] objectForKey:errorTypeHeader]) { // Then, check if it's a Service error
+                errorDomain = AWSServiceErrorDomain;
+                errorCode = [[AWSService errorCodeDictionary] objectForKey:errorTypeHeader];
+            } else { // Finally, fallback to an unknown location error
+                errorDomain = AWSLocationErrorDomain;
+                errorCode = [[NSNumber alloc] initWithInt:AWSLocationErrorUnknown];
             }
+
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
+            *error = [NSError errorWithDomain:errorDomain
+                                         code:[errorCode integerValue]
+                                     userInfo:userInfo];
+
+            return responseObject;
         }
     }
 
