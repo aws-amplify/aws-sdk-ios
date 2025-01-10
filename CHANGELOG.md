@@ -2,7 +2,9 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+- **AWSLocation** 
+  - Fixing clock skew retries (#5491)
 
 ## 2.39.0
 
