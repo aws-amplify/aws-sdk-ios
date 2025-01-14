@@ -520,1967 +520,1974 @@
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 99,
+      "line": 97,
+      "symbol": "AWSS3BucketLocationConstraint.AWSS3BucketLocationConstraintMXCentral1",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
+      "line": 100,
       "symbol": "AWSS3BucketLogsPermission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 99,
+      "line": 100,
       "symbol": "AWSS3BucketLogsPermission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 100,
+      "line": 101,
       "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 101,
+      "line": 102,
       "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 102,
+      "line": 103,
       "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 103,
+      "line": 104,
       "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 106,
+      "line": 107,
       "symbol": "AWSS3BucketVersioningStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 106,
+      "line": 107,
       "symbol": "AWSS3BucketVersioningStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 107,
+      "line": 108,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 108,
+      "line": 109,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 109,
+      "line": 110,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusSuspended",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 112,
+      "line": 113,
       "symbol": "AWSS3CompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 112,
+      "line": 113,
       "symbol": "AWSS3CompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 113,
+      "line": 114,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 114,
+      "line": 115,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 115,
+      "line": 116,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 116,
+      "line": 117,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeBzip2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 119,
+      "line": 120,
       "symbol": "AWSS3DeleteMarkerReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 119,
+      "line": 120,
       "symbol": "AWSS3DeleteMarkerReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 120,
+      "line": 121,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 121,
+      "line": 122,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 122,
+      "line": 123,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 125,
+      "line": 126,
       "symbol": "AWSS3EncodingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 125,
+      "line": 126,
       "symbol": "AWSS3EncodingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 126,
+      "line": 127,
       "symbol": "AWSS3EncodingType.AWSS3EncodingTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 127,
+      "line": 128,
       "symbol": "AWSS3EncodingType.AWSS3EncodingTypeURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 130,
+      "line": 131,
       "symbol": "AWSS3Event",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 130,
+      "line": 131,
       "symbol": "AWSS3Event",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 131,
+      "line": 132,
       "symbol": "AWSS3Event.AWSS3EventUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 132,
+      "line": 133,
       "symbol": "AWSS3Event.AWSS3EventS3ReducedRedundancyLostObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 133,
+      "line": 134,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 134,
+      "line": 135,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 135,
+      "line": 136,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedPost",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 136,
+      "line": 137,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 137,
+      "line": 138,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedCompleteMultipartUpload",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 138,
+      "line": 139,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemoved",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 139,
+      "line": 140,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemovedDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 140,
+      "line": 141,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemovedDeleteMarkerCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 141,
+      "line": 142,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRestore",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 142,
+      "line": 143,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRestorePost",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 143,
+      "line": 144,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRestoreCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 144,
+      "line": 145,
       "symbol": "AWSS3Event.AWSS3EventS3Replication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 145,
+      "line": 146,
       "symbol": "AWSS3Event.AWSS3EventS3ReplicationOperationFailedReplication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 146,
+      "line": 147,
       "symbol": "AWSS3Event.AWSS3EventS3ReplicationOperationNotTracked",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 147,
+      "line": 148,
       "symbol": "AWSS3Event.AWSS3EventS3ReplicationOperationMissedThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 148,
+      "line": 149,
       "symbol": "AWSS3Event.AWSS3EventS3ReplicationOperationReplicatedAfterThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 151,
+      "line": 152,
       "symbol": "AWSS3ExistingObjectReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 151,
+      "line": 152,
       "symbol": "AWSS3ExistingObjectReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 152,
+      "line": 153,
       "symbol": "AWSS3ExistingObjectReplicationStatus.AWSS3ExistingObjectReplicationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 153,
+      "line": 154,
       "symbol": "AWSS3ExistingObjectReplicationStatus.AWSS3ExistingObjectReplicationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 154,
+      "line": 155,
       "symbol": "AWSS3ExistingObjectReplicationStatus.AWSS3ExistingObjectReplicationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 157,
+      "line": 158,
       "symbol": "AWSS3ExpirationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 157,
+      "line": 158,
       "symbol": "AWSS3ExpirationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 158,
+      "line": 159,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 159,
+      "line": 160,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 160,
+      "line": 161,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 163,
+      "line": 164,
       "symbol": "AWSS3ExpressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 163,
+      "line": 164,
       "symbol": "AWSS3ExpressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 164,
+      "line": 165,
       "symbol": "AWSS3ExpressionType.AWSS3ExpressionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 165,
+      "line": 166,
       "symbol": "AWSS3ExpressionType.AWSS3ExpressionTypeSql",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 168,
+      "line": 169,
       "symbol": "AWSS3FileHeaderInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 168,
+      "line": 169,
       "symbol": "AWSS3FileHeaderInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 169,
+      "line": 170,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 170,
+      "line": 171,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 171,
+      "line": 172,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoIgnore",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 172,
+      "line": 173,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 175,
+      "line": 176,
       "symbol": "AWSS3FilterRuleName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 175,
+      "line": 176,
       "symbol": "AWSS3FilterRuleName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 176,
+      "line": 177,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 177,
+      "line": 178,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNamePrefix",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 178,
+      "line": 179,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNameSuffix",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 181,
+      "line": 182,
       "symbol": "AWSS3InventoryFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 181,
+      "line": 182,
       "symbol": "AWSS3InventoryFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 182,
+      "line": 183,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 183,
+      "line": 184,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 184,
+      "line": 185,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatOrc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 185,
+      "line": 186,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatParquet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 188,
+      "line": 189,
       "symbol": "AWSS3InventoryFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 188,
+      "line": 189,
       "symbol": "AWSS3InventoryFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 189,
+      "line": 190,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 190,
+      "line": 191,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyDaily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 191,
+      "line": 192,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyWeekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 194,
+      "line": 195,
       "symbol": "AWSS3InventoryIncludedObjectVersions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 194,
+      "line": 195,
       "symbol": "AWSS3InventoryIncludedObjectVersions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 195,
+      "line": 196,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 196,
+      "line": 197,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 197,
+      "line": 198,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsCurrent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 200,
+      "line": 201,
       "symbol": "AWSS3InventoryOptionalField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 200,
+      "line": 201,
       "symbol": "AWSS3InventoryOptionalField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 201,
+      "line": 202,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 202,
+      "line": 203,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 203,
+      "line": 204,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldLastModifiedDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 204,
+      "line": 205,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 205,
+      "line": 206,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldETag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 206,
+      "line": 207,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldIsMultipartUploaded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 207,
+      "line": 208,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 208,
+      "line": 209,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldEncryptionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 209,
+      "line": 210,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockRetainUntilDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 210,
+      "line": 211,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 211,
+      "line": 212,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 212,
+      "line": 213,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldIntelligentTieringAccessTier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 215,
+      "line": 216,
       "symbol": "AWSS3JSONType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 215,
+      "line": 216,
       "symbol": "AWSS3JSONType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 216,
+      "line": 217,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 217,
+      "line": 218,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 218,
+      "line": 219,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeLines",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 221,
+      "line": 222,
       "symbol": "AWSS3MFADelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 221,
+      "line": 222,
       "symbol": "AWSS3MFADelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 222,
+      "line": 223,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 223,
+      "line": 224,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 224,
+      "line": 225,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 227,
+      "line": 228,
       "symbol": "AWSS3MFADeleteStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 227,
+      "line": 228,
       "symbol": "AWSS3MFADeleteStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 228,
+      "line": 229,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 229,
+      "line": 230,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 230,
+      "line": 231,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 233,
+      "line": 234,
       "symbol": "AWSS3MetadataDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 233,
+      "line": 234,
       "symbol": "AWSS3MetadataDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 234,
+      "line": 235,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 235,
+      "line": 236,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 236,
+      "line": 237,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveReplace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 239,
+      "line": 240,
       "symbol": "AWSS3MetricsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 239,
+      "line": 240,
       "symbol": "AWSS3MetricsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 240,
+      "line": 241,
       "symbol": "AWSS3MetricsStatus.AWSS3MetricsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 241,
+      "line": 242,
       "symbol": "AWSS3MetricsStatus.AWSS3MetricsStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 242,
+      "line": 243,
       "symbol": "AWSS3MetricsStatus.AWSS3MetricsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 245,
+      "line": 246,
       "symbol": "AWSS3ObjectCannedACL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 245,
+      "line": 246,
       "symbol": "AWSS3ObjectCannedACL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 246,
+      "line": 247,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 247,
+      "line": 248,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 248,
+      "line": 249,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPublicRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 249,
+      "line": 250,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPublicReadWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 250,
+      "line": 251,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLAuthenticatedRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 251,
+      "line": 252,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLAwsExecRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 252,
+      "line": 253,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLBucketOwnerRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 253,
+      "line": 254,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLBucketOwnerFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 256,
+      "line": 257,
       "symbol": "AWSS3ObjectLockEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 256,
+      "line": 257,
       "symbol": "AWSS3ObjectLockEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 257,
+      "line": 258,
       "symbol": "AWSS3ObjectLockEnabled.AWSS3ObjectLockEnabledUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 258,
+      "line": 259,
       "symbol": "AWSS3ObjectLockEnabled.AWSS3ObjectLockEnabledEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 261,
+      "line": 262,
       "symbol": "AWSS3ObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 261,
+      "line": 262,
       "symbol": "AWSS3ObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 262,
+      "line": 263,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 263,
+      "line": 264,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusOn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 264,
+      "line": 265,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 267,
+      "line": 268,
       "symbol": "AWSS3ObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 267,
+      "line": 268,
       "symbol": "AWSS3ObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 268,
+      "line": 269,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 269,
+      "line": 270,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeGovernance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 270,
+      "line": 271,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeCompliance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 273,
+      "line": 274,
       "symbol": "AWSS3ObjectLockRetentionMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 273,
+      "line": 274,
       "symbol": "AWSS3ObjectLockRetentionMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 274,
+      "line": 275,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 275,
+      "line": 276,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeGovernance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 276,
+      "line": 277,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeCompliance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 279,
+      "line": 280,
       "symbol": "AWSS3ObjectOwnership",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 279,
+      "line": 280,
       "symbol": "AWSS3ObjectOwnership",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 280,
+      "line": 281,
       "symbol": "AWSS3ObjectOwnership.AWSS3ObjectOwnershipUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 281,
+      "line": 282,
       "symbol": "AWSS3ObjectOwnership.AWSS3ObjectOwnershipBucketOwnerPreferred",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 282,
+      "line": 283,
       "symbol": "AWSS3ObjectOwnership.AWSS3ObjectOwnershipObjectWriter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 285,
+      "line": 286,
       "symbol": "AWSS3ObjectStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 285,
+      "line": 286,
       "symbol": "AWSS3ObjectStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 286,
+      "line": 287,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 287,
+      "line": 288,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 288,
+      "line": 289,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassReducedRedundancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 289,
+      "line": 290,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 290,
+      "line": 291,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 291,
+      "line": 292,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 292,
+      "line": 293,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 293,
+      "line": 294,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassDeepArchive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 294,
+      "line": 295,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassOutposts",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 297,
+      "line": 298,
       "symbol": "AWSS3ObjectVersionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 297,
+      "line": 298,
       "symbol": "AWSS3ObjectVersionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 298,
+      "line": 299,
       "symbol": "AWSS3ObjectVersionStorageClass.AWSS3ObjectVersionStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 299,
+      "line": 300,
       "symbol": "AWSS3ObjectVersionStorageClass.AWSS3ObjectVersionStorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 302,
+      "line": 303,
       "symbol": "AWSS3OwnerOverride",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 302,
+      "line": 303,
       "symbol": "AWSS3OwnerOverride",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 303,
+      "line": 304,
       "symbol": "AWSS3OwnerOverride.AWSS3OwnerOverrideUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 304,
+      "line": 305,
       "symbol": "AWSS3OwnerOverride.AWSS3OwnerOverrideDestination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 307,
+      "line": 308,
       "symbol": "AWSS3Payer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 307,
+      "line": 308,
       "symbol": "AWSS3Payer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 308,
+      "line": 309,
       "symbol": "AWSS3Payer.AWSS3PayerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 309,
+      "line": 310,
       "symbol": "AWSS3Payer.AWSS3PayerRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 310,
+      "line": 311,
       "symbol": "AWSS3Payer.AWSS3PayerBucketOwner",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 313,
+      "line": 314,
       "symbol": "AWSS3Permission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 313,
+      "line": 314,
       "symbol": "AWSS3Permission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 314,
+      "line": 315,
       "symbol": "AWSS3Permission.AWSS3PermissionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 315,
+      "line": 316,
       "symbol": "AWSS3Permission.AWSS3PermissionFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 316,
+      "line": 317,
       "symbol": "AWSS3Permission.AWSS3PermissionWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 317,
+      "line": 318,
       "symbol": "AWSS3Permission.AWSS3PermissionWriteAcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 318,
+      "line": 319,
       "symbol": "AWSS3Permission.AWSS3PermissionRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 319,
+      "line": 320,
       "symbol": "AWSS3Permission.AWSS3PermissionReadAcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 322,
+      "line": 323,
       "symbol": "AWSS3Protocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 322,
+      "line": 323,
       "symbol": "AWSS3Protocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 323,
+      "line": 324,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 324,
+      "line": 325,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsHTTP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 325,
+      "line": 326,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsHTTPS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 328,
+      "line": 329,
       "symbol": "AWSS3QuoteFields",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 328,
+      "line": 329,
       "symbol": "AWSS3QuoteFields",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 329,
+      "line": 330,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 330,
+      "line": 331,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsAlways",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 331,
+      "line": 332,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsAsneeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 334,
+      "line": 335,
       "symbol": "AWSS3ReplicationRuleStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 334,
+      "line": 335,
       "symbol": "AWSS3ReplicationRuleStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 335,
+      "line": 336,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 336,
+      "line": 337,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 337,
+      "line": 338,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 340,
+      "line": 341,
       "symbol": "AWSS3ReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 340,
+      "line": 341,
       "symbol": "AWSS3ReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 341,
+      "line": 342,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 342,
+      "line": 343,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 343,
+      "line": 344,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 344,
+      "line": 345,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 345,
+      "line": 346,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusReplica",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 348,
+      "line": 349,
       "symbol": "AWSS3ReplicationTimeStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 348,
+      "line": 349,
       "symbol": "AWSS3ReplicationTimeStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 349,
+      "line": 350,
       "symbol": "AWSS3ReplicationTimeStatus.AWSS3ReplicationTimeStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 350,
+      "line": 351,
       "symbol": "AWSS3ReplicationTimeStatus.AWSS3ReplicationTimeStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 351,
+      "line": 352,
       "symbol": "AWSS3ReplicationTimeStatus.AWSS3ReplicationTimeStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 354,
+      "line": 355,
       "symbol": "AWSS3RequestCharged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 354,
+      "line": 355,
       "symbol": "AWSS3RequestCharged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 355,
+      "line": 356,
       "symbol": "AWSS3RequestCharged.AWSS3RequestChargedUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 356,
+      "line": 357,
       "symbol": "AWSS3RequestCharged.AWSS3RequestChargedRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 359,
+      "line": 360,
       "symbol": "AWSS3RequestPayer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 359,
+      "line": 360,
       "symbol": "AWSS3RequestPayer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 360,
+      "line": 361,
       "symbol": "AWSS3RequestPayer.AWSS3RequestPayerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 361,
+      "line": 362,
       "symbol": "AWSS3RequestPayer.AWSS3RequestPayerRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 364,
+      "line": 365,
       "symbol": "AWSS3RestoreRequestType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 364,
+      "line": 365,
       "symbol": "AWSS3RestoreRequestType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 365,
+      "line": 366,
       "symbol": "AWSS3RestoreRequestType.AWSS3RestoreRequestTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 366,
+      "line": 367,
       "symbol": "AWSS3RestoreRequestType.AWSS3RestoreRequestTypeSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 369,
+      "line": 370,
       "symbol": "AWSS3ServerSideEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 369,
+      "line": 370,
       "symbol": "AWSS3ServerSideEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 370,
+      "line": 371,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 371,
+      "line": 372,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionAES256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 372,
+      "line": 373,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionAwsKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 375,
+      "line": 376,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 375,
+      "line": 376,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 376,
+      "line": 377,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 377,
+      "line": 378,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 378,
+      "line": 379,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 381,
+      "line": 382,
       "symbol": "AWSS3StorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 381,
+      "line": 382,
       "symbol": "AWSS3StorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 382,
+      "line": 383,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 383,
+      "line": 384,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 384,
+      "line": 385,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassReducedRedundancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 385,
+      "line": 386,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 386,
+      "line": 387,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 387,
+      "line": 388,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 388,
+      "line": 389,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 389,
+      "line": 390,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassDeepArchive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 390,
+      "line": 391,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassOutposts",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 393,
+      "line": 394,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 393,
+      "line": 394,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 394,
+      "line": 395,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion.AWSS3StorageClassAnalysisSchemaVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 395,
+      "line": 396,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion.AWSS3StorageClassAnalysisSchemaVersionV1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 398,
+      "line": 399,
       "symbol": "AWSS3TaggingDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 398,
+      "line": 399,
       "symbol": "AWSS3TaggingDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 399,
+      "line": 400,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 400,
+      "line": 401,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 401,
+      "line": 402,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveReplace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 404,
+      "line": 405,
       "symbol": "AWSS3Tier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 404,
+      "line": 405,
       "symbol": "AWSS3Tier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 405,
+      "line": 406,
       "symbol": "AWSS3Tier.AWSS3TierUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 406,
+      "line": 407,
       "symbol": "AWSS3Tier.AWSS3TierStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 407,
+      "line": 408,
       "symbol": "AWSS3Tier.AWSS3TierBulk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 408,
+      "line": 409,
       "symbol": "AWSS3Tier.AWSS3TierExpedited",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 411,
+      "line": 412,
       "symbol": "AWSS3TransitionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 411,
+      "line": 412,
       "symbol": "AWSS3TransitionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 412,
+      "line": 413,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 413,
+      "line": 414,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 414,
+      "line": 415,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 415,
+      "line": 416,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 416,
+      "line": 417,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 417,
+      "line": 418,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassDeepArchive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 420,
+      "line": 421,
       "symbol": "AWSS3Types",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 420,
+      "line": 421,
       "symbol": "AWSS3Types",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 421,
+      "line": 422,
       "symbol": "AWSS3Types.AWSS3TypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 422,
+      "line": 423,
       "symbol": "AWSS3Types.AWSS3TypesCanonicalUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 423,
+      "line": 424,
       "symbol": "AWSS3Types.AWSS3TypesAmazonCustomerByEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSS3/AWSS3Model.h",
-      "line": 424,
+      "line": 425,
       "symbol": "AWSS3Types.AWSS3TypesGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
