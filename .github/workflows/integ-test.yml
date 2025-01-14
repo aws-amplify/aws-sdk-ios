@@ -1,6 +1,7 @@
 name: Integration Test
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       identifier:
@@ -46,6 +47,7 @@ jobs:
           - AWSKinesisVideoSignaling
           - AWSLambda
           - AWSLex
+          - AWSLocation
           - AWSPinpoint
           - AWSPolly
           - AWSRekognition
@@ -62,7 +64,7 @@ jobs:
           - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
             scheme: AWSMobileClient
 
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - name: Checkout code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3

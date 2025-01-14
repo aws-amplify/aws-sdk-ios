@@ -40,160 +40,56 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         transcribeStreamingClient = AWSTranscribeStreaming(forKey: AWSTranscribeStreamingSwiftTests.transcribeClientKey)
 
         AWSDDLog.sharedInstance.logLevel = .info
-        AWSDDLog.sharedInstance.add(AWSDDTTYLogger.sharedInstance)
+        AWSDDLog.add(AWSDDOSLogger.sharedInstance)
     }
 
-    func testStreamingExample() throws {
-        AWSDDLog.sharedInstance.logLevel = .info
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
-        
-        let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)
-        guard let audioPath = bundle.path(forResource: "hello_world", ofType: "wav") else {
-            XCTFail("Can't find audio path")
-            return
-        }
-        
-        let audioURL = URL(fileURLWithPath: audioPath)
-        let audioData = try Data(contentsOf: audioURL)
-        
-        guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
-            XCTFail("request unexpectedly nil")
-            return
-        }
-
-        request.languageCode = .enUS
-        request.mediaEncoding = .pcm
-        request.mediaSampleRateHertz = 8000
-        
-        // Set up delegate and its expectations
-        let delegate = MockTranscribeStreamingClientDelegate()
-
-        // Connection open/close
-        let webSocketIsConnected = expectation(description: "Web socket is connected")
-        let webSocketIsClosed = expectation(description: "Web socket is closed")
-        delegate.connectionStatusCallback = { status, error in
-            if status == .connected {
-                DispatchQueue.main.async {
-                    webSocketIsConnected.fulfill()
-                }
-            }
-            
-            if status == .closed && error == nil {
-                DispatchQueue.main.async {
-                    webSocketIsClosed.fulfill()
-                }
-            }
-        }
-
-        // Event: for this test, we expect to only receive transcriptions, not errors
-        let receivedFinalTranscription = expectation(description: "Received final transcription")
-        delegate.receiveEventCallback = { event, error in
-            if let error = error {
-                XCTFail("Unexpected error receiving event: \(error)")
-                return
-            }
-            
-            guard let event = event else {
-                XCTFail("event unexpectedly nil")
-                return
-            }
-            
-            guard let transcriptEvent = event.transcriptEvent else {
-                XCTFail("transcriptEvent unexpectedly nil: event may be an error \(event)")
-                return
-            }
-
-            guard let results = transcriptEvent.transcript?.results else {
-                print("No results, waiting for next event")
-                return
-            }
-
-            guard let firstResult = results.first else {
-                print("firstResult nil--possibly a partial result: \(event)")
-                return
-            }
-
-            guard let isPartial = firstResult.isPartial as? Bool else {
-                XCTFail("isPartial unexpectedly nil, or cannot cast NSNumber to Bool")
-                return
-            }
-
-            guard !isPartial else {
-                print("Partial result received, waiting for next event (results: \(results))")
-                return
-            }
-
-            print("Received final transcription event (results: \(results))")
-            DispatchQueue.main.async {
-                receivedFinalTranscription.fulfill()
-            }
-        }
-        
-        let callbackQueue = DispatchQueue(label: "testStreamingExample")
-        transcribeStreamingClient.setDelegate(delegate, callbackQueue: callbackQueue)
-
-        // Now that we have a delegate ready to receive the "open" event, we can start the transcription request
-        transcribeStreamingClient.startTranscriptionWSS(request)
-
-        wait(for: [webSocketIsConnected], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
-
-        // Now that the web socket is connected, it is safe to proceed with streaming
-
-        let headers = [
-            ":content-type": "audio/wav",
-            ":message-type": "event",
-            ":event-type": "AudioEvent"
-        ]
-        
-        let chunkSize = 4096
-        let audioDataSize = audioData.count
-        
-        var currentStart = 0
-        var currentEnd = min(chunkSize, audioDataSize - currentStart)
-
-        while currentStart < audioDataSize {
-            let dataChunk = audioData[currentStart ..< currentEnd]
-            transcribeStreamingClient.send(dataChunk, headers: headers)
-
-            currentStart = currentEnd
-            currentEnd = min(currentStart + chunkSize, audioDataSize)
-        }
-        
-        print("Sending end frame")
-        self.transcribeStreamingClient.sendEndFrame()
-
-        print("Waiting for final transcription event")
-        wait(for: [receivedFinalTranscription], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
-        
-        print("Ending transcription")
-        transcribeStreamingClient.endTranscription()
-        
-        print("Waiting for websocket to close")
-        wait(for: [webSocketIsClosed], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
+    func testStreamingExampleEnglish() throws {
+        try transcribeAudio(
+            languageCode: .enUS,
+            fileName: "hello_world",
+            mediaSampleRateHertz: 8000
+        )
     }
-    
+
     func testStreamingExampleDeutsche() throws {
-        AWSDDLog.sharedInstance.logLevel = .info
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
-        
+        try transcribeAudio(
+            languageCode: .deDE,
+            fileName: "guten_tag",
+            mediaSampleRateHertz: 24000
+        )
+    }
+
+    func testStreamingExampleEspañol() throws {
+        try transcribeAudio(
+            languageCode: .esES,
+            fileName: "hola_mundo",
+            mediaSampleRateHertz: 24000
+        )
+    }
+
+    private func transcribeAudio(
+        languageCode: AWSTranscribeStreamingLanguageCode,
+        fileName: String,
+        mediaSampleRateHertz: NSNumber
+    ) throws {
         let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)
-        guard let audioPath = bundle.path(forResource: "guten_tag", ofType: "wav") else {
-            XCTFail("Can't find audio path")
+        guard let audioPath = bundle.path(forResource: fileName, ofType: "wav") else {
+            XCTFail("Can't find audio path: \(fileName).wav")
             return
         }
-        
+
         let audioURL = URL(fileURLWithPath: audioPath)
         let audioData = try Data(contentsOf: audioURL)
-        
+
         guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
             XCTFail("request unexpectedly nil")
             return
         }
 
-        request.languageCode = .deDE
+        request.languageCode = languageCode
         request.mediaEncoding = .pcm
-        request.mediaSampleRateHertz = 24000
-        
+        request.mediaSampleRateHertz = mediaSampleRateHertz
+
         // Set up delegate and its expectations
         let delegate = MockTranscribeStreamingClientDelegate()
 
@@ -206,7 +102,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
                     webSocketIsConnected.fulfill()
                 }
             }
-            
+
             if status == .closed && error == nil {
                 DispatchQueue.main.async {
                     webSocketIsClosed.fulfill()
@@ -221,12 +117,12 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
                 XCTFail("Unexpected error receiving event: \(error)")
                 return
             }
-            
+
             guard let event = event else {
                 XCTFail("event unexpectedly nil")
                 return
             }
-            
+
             guard let transcriptEvent = event.transcriptEvent else {
                 XCTFail("transcriptEvent unexpectedly nil: event may be an error \(event)")
                 return
@@ -257,7 +153,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
                 receivedFinalTranscription.fulfill()
             }
         }
-        
+
         let callbackQueue = DispatchQueue(label: "testStreamingExample")
         transcribeStreamingClient.setDelegate(delegate, callbackQueue: callbackQueue)
 
@@ -273,10 +169,10 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
             ":message-type": "event",
             ":event-type": "AudioEvent"
         ]
-        
+
         let chunkSize = 4096
         let audioDataSize = audioData.count
-        
+
         var currentStart = 0
         var currentEnd = min(chunkSize, audioDataSize - currentStart)
 
@@ -287,18 +183,17 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
             currentStart = currentEnd
             currentEnd = min(currentStart + chunkSize, audioDataSize)
         }
-        
+
         print("Sending end frame")
         self.transcribeStreamingClient.sendEndFrame()
 
         print("Waiting for final transcription event")
         wait(for: [receivedFinalTranscription], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
-        
+
         print("Ending transcription")
         transcribeStreamingClient.endTranscription()
-        
+
         print("Waiting for websocket to close")
         wait(for: [webSocketIsClosed], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
     }
-
 }

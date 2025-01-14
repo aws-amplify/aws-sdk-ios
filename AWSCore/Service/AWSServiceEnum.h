@@ -88,6 +88,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionAPSoutheast5 NS_SWIFT_NAME(APSoutheast5),
     /**
+     * Asia Pacific (Bangkok)
+     */
+    AWSRegionAPSoutheast7 NS_SWIFT_NAME(APSoutheast7),
+    /**
      *  Asia Pacific (Mumbai)
      */
     AWSRegionAPSouth1 NS_SWIFT_NAME(APSouth1),
