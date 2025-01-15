@@ -25,7 +25,7 @@
 #import "AWSLocationResources.h"
 
 static NSString *const AWSInfoLocation = @"Location";
-NSString *const AWSLocationSDKVersion = @"2.39.0";
+NSString *const AWSLocationSDKVersion = @"2.40.0";
 
 
 @interface AWSLocationResponseSerializer : AWSJSONResponseSerializer
