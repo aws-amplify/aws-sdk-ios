@@ -279,6 +279,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         if (!delegate.error
             && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
+            
+            for(id<AWSNetworkingHTTPResponseInterceptor>interceptor in delegate.request.responseInterceptors) {
+                [interceptor interceptResponse:httpResponse
+                                          data:nil
+                               originalRequest:sessionTask.originalRequest
+                                currentRequest:sessionTask.currentRequest];
+            }
 
             if (delegate.shouldWriteToFile) {
                 NSError *error = nil;
@@ -351,6 +358,14 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         if (delegate.error
             && ([sessionTask.response isKindOfClass:[NSHTTPURLResponse class]] || sessionTask.response == nil)
             && delegate.request.retryHandler) {
+            
+            for(id<AWSNetworkingHTTPResponseInterceptor>interceptor in delegate.request.responseInterceptors) {
+                [interceptor interceptResponse:(NSHTTPURLResponse *)sessionTask.response
+                                          data:nil
+                               originalRequest:sessionTask.originalRequest
+                                currentRequest:sessionTask.currentRequest];
+            }
+            
             AWSNetworkingRetryType retryType = [delegate.request.retryHandler shouldRetry:delegate.currentRetryCount
                                                                           originalRequest:delegate.request
                                                                                  response:(NSHTTPURLResponse *)sessionTask.response
