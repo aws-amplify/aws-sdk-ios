@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.40.1
+
 ### Bug Fixes
 - **AWSCore** 
   - call response interceptors in HTTP response handlers (#5495)
