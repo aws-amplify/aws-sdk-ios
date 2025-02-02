@@ -12,5 +12,8 @@
 #import "GIDProfileData.h"
 #import "GIDSignIn.h"
 #import "GIDSignInButton.h"
+#import "GIDConfiguration.h"
+#import "GIDToken.h"
+#import "GIDSignInResult.h"
 
 #endif

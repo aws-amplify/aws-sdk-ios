@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
    s.requires_arc = true
    s.dependency 'AWSAuthCore', '2.40.1'
    s.dependency 'AWSCore', '2.40.1'
+   s.dependency 'GoogleSignIn', '8.0.0'
    s.source_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.{h,m}', 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.h'
    s.private_header_files = 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
