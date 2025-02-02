@@ -16,17 +16,31 @@
 
 #import <Foundation/Foundation.h>
 
-@class OIDAuthState;
-
 NS_ASSUME_NONNULL_BEGIN
 
-// Internal class for GIDGoogleUser NSCoding backward compatibility.
-@interface GIDAuthentication : NSObject <NSSecureCoding>
+/// This class represents an OAuth2 or OpenID Connect token.
+@interface GIDToken : NSObject <NSSecureCoding>
 
-@property(nonatomic) OIDAuthState* authState;
+/// The token string.
+@property(nonatomic, copy, readonly) NSString *tokenString;
 
-- (instancetype)initWithAuthState:(OIDAuthState *)authState;
+/// The estimated expiration date of the token.
+@property(nonatomic, readonly, nullable) NSDate *expirationDate;
+
+/// Check if current token is equal to another one.
+///
+/// @param otherToken Another token to compare.
+- (BOOL)isEqualToToken:(GIDToken *)otherToken;
+
+/// Unavailable.
+/// :nodoc:
++ (instancetype)new NS_UNAVAILABLE;
+
+/// Unavailable.
+/// :nodoc:
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
