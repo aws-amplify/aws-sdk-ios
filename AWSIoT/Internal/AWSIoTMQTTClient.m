@@ -620,7 +620,6 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)disconnect {
-
     if (self.userDidIssueDisconnect ) {
         //Issuing disconnect multiple times. Turn this function into a noop by returning here.
         return;
@@ -637,8 +636,13 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     [self.session disconnect];
     self.connectionAgeInSeconds = 0;
 
-    //Cancel the current streams thread
-    [self.streamsThread cancelAndDisconnect:YES];
+    //Cancel the current streams thread - synchronize this to prevent race conditions
+    @synchronized(self) {
+        if (self.streamsThread && !self.streamsThread.isCancelled) {
+            AWSDDLogVerbose(@"Cancelling stream thread during disconnect: [%@]", self.streamsThread);
+            [self.streamsThread cancelAndDisconnect:YES];
+        }
+    }
 
     __weak AWSIoTMQTTClient *weakSelf = self;
     self.streamsThread.onStop = ^{
