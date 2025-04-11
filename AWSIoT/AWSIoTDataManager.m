@@ -357,7 +357,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         for (id key in userMetaDataMap) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
                 [userMetaDataString appendFormat:@"&%@", key];
-                if (!([userMetaDataMap objectForKey:key] isEqualToString:@""] || [userMetaDataMap objectForKey:key] == nil)){
+                if (!([(NSString *)[userMetaDataMap objectForKey:key] isEqualToString:@""] || [userMetaDataMap objectForKey:key] == nil)){
                     [userMetaDataString appendFormat:@"=%@", [userMetaDataMap objectForKey:key]];
                 }
             } else {
