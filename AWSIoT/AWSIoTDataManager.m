@@ -356,7 +356,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (userMetaDataMap) {
         for (id key in userMetaDataMap) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
-                [userMetaDataString appendFormat:@"&%@=%@", key, [userMetaDataMap objectForKey:key]];
+                [userMetaDataString appendFormat:@"&%@", key];
+                if (!([(NSString *)[userMetaDataMap objectForKey:key] isEqualToString:@""] || [userMetaDataMap objectForKey:key] == nil)){
+                    [userMetaDataString appendFormat:@"=%@", [userMetaDataMap objectForKey:key]];
+                }
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
             }
@@ -560,14 +563,37 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  statusCallback:callback];
 }
 
-- (void)disconnect{
-    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
-        //Have to be connected to make this call. noop this call by returning
-        return ;
+- (void)disconnect {
+    // Check if already disconnected to prevent multiple disconnect calls
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        // Already disconnected, no-op
+        return;
     }
+    
+    // Update state flags
     _userDidIssueConnect = NO;
     _userDidIssueDisconnect = YES;
-    [self.mqttClient disconnect];
+    
+    // Execute the disconnect on the main thread for stability
+    // The AWS IoT MQTT client uses NSRunLoop which works best on the main thread
+    if ([NSThread isMainThread]) {
+        // Already on main thread, call directly
+        [self.mqttClient disconnect];
+        
+        // Force a runloop cycle to allow disconnect processing to start
+        // This doesn't add a delay but ensures that disconnect processing has begun
+        CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, false);
+    } else {
+        // Not on main thread, dispatch to main thread and wait for it to complete
+        // This ensures the disconnect is processed before any potential credential clearing
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.mqttClient disconnect];
+            
+            // Force a runloop cycle to allow disconnect processing to start
+            // This doesn't add a delay but ensures that disconnect processing has begun
+            CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, false);
+        });
+    }
 }
 
 - (AWSIoTMQTTStatus) getConnectionStatus {

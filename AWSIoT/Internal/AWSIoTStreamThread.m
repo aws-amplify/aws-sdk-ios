@@ -143,16 +143,21 @@
         }
 
         if (self.shouldDisconnect) {
+            // Properly handle session closure first
             if (self.session) {
                 [self.session close];
                 self.session = nil;
             }
 
+            // Make sure we handle the streams in a thread-safe way
             if (self.outputStream) {
+                // Remove from runLoop first before closing
+                if (self.runLoopForStreamsThread) {
+                    [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
+                                                 forMode:NSDefaultRunLoopMode];
+                }
                 self.outputStream.delegate = nil;
                 [self.outputStream close];
-                [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
-                                             forMode:NSDefaultRunLoopMode];
                 self.outputStream = nil;
             }
 
@@ -169,9 +174,13 @@
             AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
         }
 
-        if (self.onStop) {
-            self.onStop();
+        // Make sure onStop is called on the main thread to avoid UI issues
+        void (^stopBlock)(void) = self.onStop;
+        if (stopBlock) {
             self.onStop = nil;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                stopBlock();
+            });
         }
     });
 }

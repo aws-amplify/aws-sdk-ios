@@ -592,6 +592,8 @@
 		48885FDD2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB22A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m */; };
 		48885FDE2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */; };
 		48885FDF2A0C20D50012EEB7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		48A5E8B82DA89B58000677AC /* AWSIoTDataDisconnectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5E8B62DA89B58000677AC /* AWSIoTDataDisconnectTests.m */; };
+		48A5E8B92DA89B58000677AC /* AWSIoTDataStressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5E8B72DA89B58000677AC /* AWSIoTDataStressTests.m */; };
 		48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		568BD1B62A29144A0084977E /* test-identity-password-is-abc123.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 568BD1B52A29144A0084977E /* test-identity-password-is-abc123.p12 */; };
 		568BD1B82A2915590084977E /* AWSIoTManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568BD1B72A2915590084977E /* AWSIoTManagerTests.m */; };
@@ -3213,6 +3215,8 @@
 		48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorageResources.h; sourceTree = "<group>"; };
 		48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48885FCB2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorageUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A5E8B62DA89B58000677AC /* AWSIoTDataDisconnectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataDisconnectTests.m; sourceTree = "<group>"; };
+		48A5E8B72DA89B58000677AC /* AWSIoTDataStressTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataStressTests.m; sourceTree = "<group>"; };
 		568BD1B52A29144A0084977E /* test-identity-password-is-abc123.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-identity-password-is-abc123.p12"; sourceTree = "<group>"; };
 		568BD1B72A2915590084977E /* AWSIoTManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTManagerTests.m; sourceTree = "<group>"; };
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -6925,6 +6929,8 @@
 		CE5604551C6BC91D00B4E00B /* AWSIoTUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				48A5E8B62DA89B58000677AC /* AWSIoTDataDisconnectTests.m */,
+				48A5E8B72DA89B58000677AC /* AWSIoTDataStressTests.m */,
 				CE5605321C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m */,
 				CE5605331C6BCE2700B4E00B /* AWSGeneralIoTTests.m */,
 				568BD1B72A2915590084977E /* AWSIoTManagerTests.m */,
@@ -13219,6 +13225,8 @@
 				FAFAF8C82540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m in Sources */,
 				FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */,
 				CE5604ED1C6BCA9A00B4E00B /* AWSTestUtility.m in Sources */,
+				48A5E8B82DA89B58000677AC /* AWSIoTDataDisconnectTests.m in Sources */,
+				48A5E8B92DA89B58000677AC /* AWSIoTDataStressTests.m in Sources */,
 				CE5605341C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m in Sources */,
 				FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */,
 				568BD1B82A2915590084977E /* AWSIoTManagerTests.m in Sources */,
