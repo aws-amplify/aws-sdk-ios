@@ -2,7 +2,13 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSIoT** 
+  - fix race conditions and crashes (#5511)
+
+- **Auth** 
+  - error handling around accessing credentials (#5509)
 
 ## 2.40.1
 
