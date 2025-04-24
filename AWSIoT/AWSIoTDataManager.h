@@ -359,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Objective-C*
 
- AWSIoTDataManager *IoTDataManager = [AWSIoTDataManager IoTDataManagerForKey:@"USWest2IoTDataManager"];
+     AWSIoTDataManager *IoTDataManager = [AWSIoTDataManager IoTDataManagerForKey:@"USWest2IoTDataManager"];
 
  @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
 
@@ -538,9 +538,10 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
                            statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
- Disconnect from a mqtt client (close current mqtt session)
+ Disconnect from the AWS IoT Service. This will also cancel any active 
+ subscriptions to topics.
  */
-- (void)disconnect;
+- (void) disconnect;
 
 /**
  Get the current connection status
