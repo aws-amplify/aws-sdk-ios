@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.40.2
+
 ### Bug Fixes
 
 - **AWSIoT** 
