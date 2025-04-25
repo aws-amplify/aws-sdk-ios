@@ -38,7 +38,6 @@
                                   tokensUri:(NSString *) tokensUri
                    signInUriQueryParameters:(NSDictionary<NSString *, NSString *> *) signInUriQueryParameters
                   signOutUriQueryParameters:(NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
-                    tokenUriQueryParameters:(NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
                          isProviderExternal:(BOOL) isProviderExternal
                cognitoUserPoolServiceConfig:(nullable AWSServiceConfiguration *) serviceConfig
                        signInPrivateSession:(BOOL)isSignInPrivateSession;
@@ -60,7 +59,6 @@
                           tokensUri:(nullable NSString *) tokensUri
            signInUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signInUriQueryParameters
           signOutUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
-            tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
        userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration
                signInPrivateSession:(BOOL)signInPrivateSession {
     BOOL isProviderExternal = YES;
@@ -83,7 +81,6 @@
                                    tokensUri:tokensUri
                     signInUriQueryParameters:signInUriQueryParameters
                    signOutUriQueryParameters:signOutUriQueryParameters
-                     tokenUriQueryParameters:tokenUriQueryParameters
                           isProviderExternal:isProviderExternal
                 cognitoUserPoolServiceConfig:serviceConfiguration
                         signInPrivateSession:signInPrivateSession];

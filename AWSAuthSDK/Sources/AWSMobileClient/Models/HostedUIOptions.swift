@@ -29,7 +29,6 @@ public struct HostedUIOptions {
     let federationProviderName: String?
 
     let signInURIQueryParameters: [String: String]?
-    let tokenURIQueryParameters: [String: String]?
     let signOutURIQueryParameters: [String: String]?
 
     let signInPrivateSession: Bool
@@ -43,7 +42,6 @@ public struct HostedUIOptions {
     ///   - idpIdentifier: The IdentityProvider identifier if using multiple instances of same identity provider.
     ///   - federationProviderName: If federating with Cognito Identity and using a provider like Auth0 specify the provider name, e.g. <your_domain>.auth0.com.
     ///   - signInURIQueryParameters: The additional query parameters apart from standard OAuth w/ open id connect parameters for signInURI. If specified here, the signInURIQueryParameters specified in `awsconfiguration.json` would be over-ridden.
-    ///   - tokenURIQueryParameters: The additional query parameters apart from standard OAuth w/ open id connect parameters for tokenURI. If specified here, the tokenURIQueryParameters specified in `awsconfiguration.json` would be over-ridden.
     ///   - signOutURIQueryParameters: The additional query parameters apart from standard OAuth w/ open id connect parameters for signOutURI. If specified here, the signOutURIQueryParameters specified in `awsconfiguration.json` would be over-ridden.
     public init(disableFederation: Bool = false,
                 scopes: [String]? = nil,
@@ -51,7 +49,6 @@ public struct HostedUIOptions {
                 idpIdentifier: String? = nil,
                 federationProviderName: String? = nil,
                 signInURIQueryParameters: [String: String]? = nil,
-                tokenURIQueryParameters: [String: String]? = nil,
                 signOutURIQueryParameters: [String: String]? = nil,
                 signInPrivateSession: Bool = false) {
         self.disableFederation = disableFederation
@@ -69,7 +66,6 @@ public struct HostedUIOptions {
         self.idpIdentifier = idpIdentifier
         self.federationProviderName = federationProviderName
         self.signInURIQueryParameters = signInURIQueryParameters
-        self.tokenURIQueryParameters = tokenURIQueryParameters
         self.signOutURIQueryParameters = signOutURIQueryParameters
         self.signInPrivateSession = signInPrivateSession
     }
