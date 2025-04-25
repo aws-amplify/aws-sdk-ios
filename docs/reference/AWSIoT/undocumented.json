@@ -51,112 +51,112 @@
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 757,
+      "line": 758,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 757,
+      "line": 758,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 764,
+      "line": 765,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 765,
+      "line": 766,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeGet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 766,
+      "line": 767,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 767,
+      "line": 768,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 768,
+      "line": 769,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 771,
+      "line": 772,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 771,
+      "line": 772,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 778,
+      "line": 779,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeAccepted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 779,
+      "line": 780,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 780,
+      "line": 781,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDelta",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 781,
+      "line": 782,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDocuments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 782,
+      "line": 783,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 783,
+      "line": 784,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeForeignUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
-      "line": 784,
+      "line": 785,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
