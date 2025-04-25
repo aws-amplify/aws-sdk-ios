@@ -75,7 +75,7 @@ jobs:
           python3 ./CircleciScripts/create_xcframeworks.py
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: xcframework
           path: xcframeworks/
@@ -103,7 +103,7 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: Download aratifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@f44cd7b40bfd40b6aa1cc1b9b5b7bf03d3c67110 # 4.1.0
         with:
           name: xcframework
           path: xcframeworks
@@ -128,7 +128,7 @@ jobs:
           $RELEASE_VERSION
 
       - name: Upload SPM checksums
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: spm-checksum
           path: ${{ github.workspace }}/aws-sdk-ios-spm/Package.swift
@@ -159,7 +159,7 @@ jobs:
           role-session-name: "release-spm.${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
 
       - name: Download SPM checksum
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@f44cd7b40bfd40b6aa1cc1b9b5b7bf03d3c67110 # 4.1.0
         with:
           name: spm-checksum
           path: /tmp/spm-checksum
@@ -194,7 +194,7 @@ jobs:
           persist-credentials: false
 
       - name: Download built xcframeworks
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@f44cd7b40bfd40b6aa1cc1b9b5b7bf03d3c67110 # 4.1.0
         with:
           name: xcframework
           path: xcframeworks
@@ -446,7 +446,7 @@ jobs:
           persist-credentials: false
 
       - name: Download aratifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@f44cd7b40bfd40b6aa1cc1b9b5b7bf03d3c67110 # 4.1.0
         with:
           name: xcframework
           path: xcframeworks
