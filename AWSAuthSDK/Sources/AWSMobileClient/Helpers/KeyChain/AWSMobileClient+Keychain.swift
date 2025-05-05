@@ -37,13 +37,11 @@ extension AWSMobileClient {
 
     internal func saveOAuthURIQueryParametersInKeychain() {
         self.keychain.setData(JSONHelper.dataFromDictionary(self.signInURIQueryParameters), forKey: AWSMobileClientConstants.SignInURIQueryParametersKey)
-        self.keychain.setData(JSONHelper.dataFromDictionary(self.tokenURIQueryParameters), forKey: AWSMobileClientConstants.TokenURIQueryParametersKey)
         self.keychain.setData(JSONHelper.dataFromDictionary(self.signOutURIQueryParameters), forKey: AWSMobileClientConstants.SignOutURIQueryParametersKey)
     }
 
     internal func loadOAuthURIQueryParametersFromKeychain() {
         self.signInURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: AWSMobileClientConstants.SignInURIQueryParametersKey))
-        self.tokenURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: AWSMobileClientConstants.TokenURIQueryParametersKey))
         self.signOutURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: AWSMobileClientConstants.SignOutURIQueryParametersKey))
     }
 
