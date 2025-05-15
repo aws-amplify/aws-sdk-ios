@@ -2,7 +2,8 @@
 
 ## Unreleased
 
--Features for next release
+**AWSCore**
+- Support for `ap-east-2` - Asia Pacific (Taipei) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
 ## 2.40.2
 
