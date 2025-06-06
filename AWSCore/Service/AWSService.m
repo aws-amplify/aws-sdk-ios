@@ -496,8 +496,6 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSRegionNameAPSouth2;
         case AWSRegionSAEast1:
             return AWSRegionNameSAEast1;
-        case AWSRegionAPEast2:
-            return AWSRegionNameAPEast2;
         case AWSRegionCNNorth1:
             return AWSRegionNameCNNorth1;
         case AWSRegionCACentral1:
