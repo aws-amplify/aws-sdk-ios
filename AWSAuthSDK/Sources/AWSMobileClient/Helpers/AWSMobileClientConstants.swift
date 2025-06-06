@@ -25,7 +25,6 @@ struct AWSMobileClientConstants {
     static let LoginsMapKey = "loginsMap"
     static let FederationProviderKey = "federationProvider"
     static let SignInURIQueryParametersKey = "signInURIQueryParameters"
-    static let TokenURIQueryParametersKey = "tokenURIQueryParameters"
     static let SignOutURIQueryParametersKey = "signOutURIQueryParameters"
     static let CustomRoleArnKey = "customRoleArn"
     static let FederationDisabledKey = "federationDisabled"
