@@ -29,7 +29,7 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 
 ## Include the SDK for iOS in an Existing Application
 
-We have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.
+We have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we call them: samples.
 
 There are several ways to integrate the AWS Mobile SDK for iOS into your own project:
 
