@@ -20,8 +20,6 @@ If you still wish to use the AWS SDK for iOS directly you can refer to [the AWS 
 
 ## Setup
 
-To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS](https://aws-amplify.github.io/docs/ios/start). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
-
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
 * Xcode 11.0 or later
