@@ -6,7 +6,7 @@ During this maintenance period:
 * Existing functionality will remain supported
 
 We recommend that you start using [AWS Amplify for Swift](https://github.com/aws-amplify/amplify-swift), our modern feature-rich library designed specifically for building cloud-connected apps powered by AWS. You can refer to the [AWS SDK for iOS migration guide](https://github.com/aws-amplify/amplify-swift/blob/main/MobileSDK_To_AmplifySwift_Guidance.md) to help you transition to AWS Amplify for Swift.
-This version is scheduled to reach End of Support on **August 1, 2026**. After this date, no further updates of any kind will be provided. See {published maintenance policy link} for more information about the Amplify Client Library lifecycle.
+This version is scheduled to reach End of Support on **August 1, 2026**. After this date, no further updates of any kind will be provided. See [maintenance policy](https://docs.amplify.aws/reference/maintenance-policy) for more information about the Amplify Client Library lifecycle.
 
 # AWS SDK for iOS
 
