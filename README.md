@@ -8,7 +8,7 @@ During this maintenance period:
 We recommend that you start using [AWS Amplify for Swift](https://github.com/aws-amplify/amplify-swift), our modern feature-rich library designed specifically for building cloud-connected apps powered by AWS. You can refer to the [AWS SDK for iOS migration guide](https://github.com/aws-amplify/amplify-swift/blob/main/MobileSDK_To_AmplifySwift_Guidance.md) to help you transition to AWS Amplify for Swift.
 This version is scheduled to reach End of Support on **August 1, 2026**. After this date, no further updates of any kind will be provided. See [maintenance policy](https://docs.amplify.aws/reference/maintenance-policy) for more information about the Amplify Client Library lifecycle.
 
-# AWS SDK for iOS
+To use the AWS SDK for iOS directly you can refer to [the AWS SDK Documentation here](https://docs.amplify.aws/sdk/q/platform/ios/) and follow the setup instructions below. You can also look at sample apps in [the AWS SDK for iOS Samples repo](https://github.com/awslabs/aws-sdk-ios-samples).
 
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
 [![Code Coverage](https://codecov.io/gh/aws-amplify/aws-sdk-ios/branch/main/graph/badge.svg)](https://codecov.io/gh/aws-amplify/aws-sdk-ios)
@@ -17,16 +17,6 @@ This version is scheduled to reach End of Support on **August 1, 2026**. After t
 [![Integration Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/integ-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
 [![Unit Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/unit-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
 [![Discord](https://img.shields.io/discord/308323056592486420?logo=discord)](https://discord.gg/jWVbPfC) 
-
-The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.
-
-We recommend using the latest v2 version of AWS Amplify Library for Swift to quickly implement common app use cases like Authentication, Storage, Push Notifications and more that follow patterns idiomatic to Swift like async/await. 
-
-Note: v2 of Amplify Library for Swift (currently GA) is built on top of the [AWS SDK for Swift](https://github.com/awslabs/aws-sdk-swift) and _only_ provides access to the AWS SDK for Swift which is currently in developer preview. You can access this underlying SDK via the Escape Hatch from AWS Amplify. 
-
-You can head to [the Amplify Library for Swift documentation](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) to learn more about all the features. You can also use AWS Amplify with [your existing AWS cloud resources](https://docs.amplify.aws/lib/project-setup/use-existing-resources/q/platform/ios/). If you are unable to find features you are looking for in Amplify please open an issue in [the Amplify Library for Swift GitHub repo](https://github.com/aws-amplify/amplify-swift/issues/new/choose) and we will be happy to consider you request.
-
-If you still wish to use the AWS SDK for iOS directly you can refer to [the AWS SDK Documentation here](https://docs.amplify.aws/sdk/q/platform/ios/) and follow the setup instructions below. You can also look at sample apps in [the AWS SDK for iOS Samples repo](https://github.com/awslabs/aws-sdk-ios-samples).
 
 ## Setup
 
