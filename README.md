@@ -1,4 +1,4 @@
-# ⚠️ The AWS SDK for iOS entered Maintenance Phase as of July 31, 2025.
+# ⚠️ The AWS SDK for iOS entered Maintenance Phase as of August 1, 2025.
 
 During this maintenance period:
 * Critical bug fixes and security patches will continue to be provided
