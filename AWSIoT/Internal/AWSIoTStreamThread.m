@@ -29,9 +29,40 @@
 @property(nonatomic, assign) BOOL shouldDisconnect;
 @property(nonatomic, strong) dispatch_queue_t serialQueue;
 @property(nonatomic, assign) BOOL didCleanUp;
+@property(nonatomic, assign) BOOL isDeallocationInProgress;
 @end
 
 @implementation AWSIoTStreamThread
+
+- (void)dealloc {
+    // Mark deallocation in progress to prevent race conditions
+    _isDeallocationInProgress = YES;
+    
+    // Ensure cleanup is called before deallocation
+    // Use dispatch_sync with a timeout to prevent deadlocks
+    if (_serialQueue && !_didCleanUp) {
+        dispatch_queue_t queue = _serialQueue;
+        dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC);
+        
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        dispatch_async(queue, ^{
+            [self cleanUp];
+            dispatch_semaphore_signal(semaphore);
+        });
+        
+        // Wait with timeout to prevent hanging during deallocation
+        dispatch_semaphore_wait(semaphore, timeout);
+    }
+    
+    // Safely nullify properties to prevent access during ARC cleanup
+    _session = nil;
+    _encoderOutputStream = nil;
+    _decoderInputStream = nil;
+    _outputStream = nil;
+    _defaultRunLoopTimer = nil;
+    _runLoopForStreamsThread = nil;
+    _onStop = nil;
+}
 
 - (nonnull instancetype)initWithSession:(nonnull AWSMQTTSession *)session
                      decoderInputStream:(nonnull NSInputStream *)decoderInputStream
@@ -55,6 +86,7 @@
         _shouldDisconnect = NO;
         _serialQueue = dispatch_queue_create("com.amazonaws.iot.streamthread.syncQueue", DISPATCH_QUEUE_SERIAL);
         _didCleanUp = NO;
+        _isDeallocationInProgress = NO;
     }
     return self;
 }
@@ -105,31 +137,52 @@
 }
 
 - (BOOL)shouldContinueRunning {
-    __block BOOL shouldRun;
-    dispatch_sync(self.serialQueue, ^{
-        shouldRun = self.isRunning && !self.isCancelled && self.defaultRunLoopTimer != nil;
-    });
+    // Quick check without queue if deallocation is in progress
+    if (self.isDeallocationInProgress) {
+        return NO;
+    }
+    
+    __block BOOL shouldRun = NO;
+    if (self.serialQueue) {
+        dispatch_sync(self.serialQueue, ^{
+            shouldRun = self.isRunning && !self.isCancelled && !self.isDeallocationInProgress && self.defaultRunLoopTimer != nil;
+        });
+    }
     return shouldRun;
 }
 
 - (void)cancel {
     AWSDDLogVerbose(@"Issued Cancel on thread [%@]", (NSThread *)self);
-    dispatch_sync(self.serialQueue, ^{
-        self.isRunning = NO;
+    if (self.serialQueue && !self.isDeallocationInProgress) {
+        dispatch_sync(self.serialQueue, ^{
+            self.isRunning = NO;
+            [super cancel];
+        });
+    } else {
         [super cancel];
-    });
+    }
 }
 
 - (void)cancelAndDisconnect:(BOOL)shouldDisconnect {
     AWSDDLogVerbose(@"Issued Cancel and Disconnect = [%@] on thread [%@]", shouldDisconnect ? @"YES" : @"NO", (NSThread *)self);
-    dispatch_sync(self.serialQueue, ^{
-        self.shouldDisconnect = shouldDisconnect;
-        self.isRunning = NO;
+    if (self.serialQueue && !self.isDeallocationInProgress) {
+        dispatch_sync(self.serialQueue, ^{
+            self.shouldDisconnect = shouldDisconnect;
+            self.isRunning = NO;
+            [super cancel];
+        });
+    } else {
         [super cancel];
-    });
+    }
 }
 
 - (void)cleanUp {
+    // If no serial queue or deallocation in progress, do minimal cleanup
+    if (!self.serialQueue || self.isDeallocationInProgress) {
+        [self performMinimalCleanup];
+        return;
+    }
+    
     dispatch_sync(self.serialQueue, ^{
         if (self.didCleanUp) {
             AWSDDLogVerbose(@"Clean up already called for thread: [%@]", (NSThread *)self);
@@ -137,6 +190,8 @@
         }
 
         self.didCleanUp = YES;
+        
+        // Invalidate timer first to stop run loop
         if (self.defaultRunLoopTimer) {
             [self.defaultRunLoopTimer invalidate];
             self.defaultRunLoopTimer = nil;
@@ -183,6 +238,39 @@
             });
         }
     });
+}
+
+- (void)performMinimalCleanup {
+    // Minimal cleanup without using serial queue (for deallocation scenarios)
+    if (self.defaultRunLoopTimer) {
+        [self.defaultRunLoopTimer invalidate];
+        self.defaultRunLoopTimer = nil;
+    }
+    
+    // Close streams without run loop operations
+    if (self.outputStream) {
+        self.outputStream.delegate = nil;
+        [self.outputStream close];
+        self.outputStream = nil;
+    }
+    
+    if (self.decoderInputStream) {
+        [self.decoderInputStream close];
+        self.decoderInputStream = nil;
+    }
+    
+    if (self.encoderOutputStream) {
+        [self.encoderOutputStream close];
+        self.encoderOutputStream = nil;
+    }
+    
+    if (self.session) {
+        [self.session close];
+        self.session = nil;
+    }
+    
+    self.onStop = nil;
+    self.didCleanUp = YES;
 }
 
 @end
