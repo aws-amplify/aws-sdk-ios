@@ -15,9 +15,6 @@
 
 #import "AWSIoTStreamThread.h"
 #import <AWSCore/AWSDDLogMacros.h>
-#if TARGET_OS_IOS && !TARGET_OS_WATCH
-#import <UIKit/UIKit.h>
-#endif
 
 @interface AWSIoTStreamThread()
 
@@ -38,10 +35,6 @@
 @property(nonatomic, assign) NSUInteger backgroundTransitionCount;
 
 // Private helper methods
-- (NSString *)safeAppStateString;
-#if TARGET_OS_IOS && !TARGET_OS_WATCH
-- (NSString *)stringForApplicationState:(UIApplicationState)state;
-#endif
 
 @end
 
@@ -49,54 +42,7 @@
 
 #pragma mark - Helper Methods
 
-/**
- * Returns a string representation of the current UIApplicationState.
- * This method safely handles App Extension contexts where UIApplication.sharedApplication is unavailable.
- * 
- * @return NSString representing the current app state:
- *         - "Active", "Background", "Inactive" for normal app states
- *         - "Extension" when running in an App Extension
- *         - "Unavailable" when UIApplication access fails
- *         - "N/A" on non-iOS platforms or when UIKit is unavailable
- */
-- (NSString *)safeAppStateString {
-#if TARGET_OS_IOS && !TARGET_OS_WATCH
-    // Fast check for App Extension context - extensions have file extensions in their bundle path
-    NSString *bundlePath = [NSBundle mainBundle].bundlePath;
-    if (bundlePath.pathExtension.length > 0) {
-        return @"Extension";
-    }
-    
-    // Safe UIApplication access with exception handling
-    @try {
-        UIApplication *app = [UIApplication sharedApplication];
-        if (app) {
-            return [self stringForApplicationState:app.applicationState];
-        }
-    } @catch (NSException *exception) {
-        // UIApplication.sharedApplication can throw in certain contexts
-        return @"Unavailable";
-    }
-#endif
-    return @"N/A";
-}
 
-/**
- * Converts UIApplicationState enum to string representation.
- * Separated into its own method for clarity and potential reuse.
- */
-- (NSString *)stringForApplicationState:(UIApplicationState)state {
-    switch (state) {
-        case UIApplicationStateActive:
-            return @"Active";
-        case UIApplicationStateBackground:
-            return @"Background";
-        case UIApplicationStateInactive:
-            return @"Inactive";
-        default:
-            return @"Unknown";
-    }
-}
 
 - (void)dealloc {
     // Enhanced logging for crash analysis
@@ -107,9 +53,7 @@
                  self, threadLifetime, runtimeDuration, (unsigned long)self.backgroundTransitionCount,
                  self.isRunning ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO", self.shouldDisconnect ? @"YES" : @"NO");
     
-    // Log current app state for context
-    NSString *appStateString = [self safeAppStateString];
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] App state during dealloc: %@", appStateString);
+    // Enhanced logging for crash analysis during deallocation
     
     // Remove notification observers first
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -170,25 +114,10 @@
         _backgroundTransitionCount = 0;
         
         // Log thread creation with context
-        NSString *appStateString = [self safeAppStateString];
-        AWSDDLogInfo(@"[CRASH-ANALYSIS] AWSIoTStreamThread created - Thread: %@, App State: %@, HasOutputStream: %@", 
-                     self, appStateString, outputStream ? @"YES" : @"NO");
+        AWSDDLogInfo(@"[CRASH-ANALYSIS] AWSIoTStreamThread created - Thread: %@, HasOutputStream: %@", 
+                     self, outputStream ? @"YES" : @"NO");
         
-        // Register for app state change notifications to track background transitions (if available)
-#if TARGET_OS_IOS && !TARGET_OS_WATCH && !defined(NS_EXTENSION_UNAVAILABLE_IOS)
-        if ([NSBundle mainBundle].bundlePath.pathExtension.length == 0) {
-            // Only register for notifications in main app, not in extensions
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                                                     selector:@selector(appDidEnterBackground:)
-                                                         name:UIApplicationDidEnterBackgroundNotification
-                                                       object:nil];
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                                                     selector:@selector(appWillEnterForeground:)
-                                                         name:UIApplicationWillEnterForegroundNotification
-                                                       object:nil];
-        }
-#endif
+        // Background transition tracking is handled externally
     }
     return self;
 }
@@ -202,10 +131,8 @@
     self.threadStartTime = [NSDate date];
     NSTimeInterval creationToStartDelay = [self.threadStartTime timeIntervalSinceDate:self.threadCreationTime];
     
-    NSString *appStateString = [self safeAppStateString];
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] Started execution of Thread: [%@], App State: %@, Creation-to-Start Delay: %.3fs, Background Transitions: %lu", 
-                 self, appStateString, creationToStartDelay, (unsigned long)self.backgroundTransitionCount);
+    AWSDDLogInfo(@"[CRASH-ANALYSIS] Started execution of Thread: [%@], Creation-to-Start Delay: %.3fs, Background Transitions: %lu", 
+                 self, creationToStartDelay, (unsigned long)self.backgroundTransitionCount);
     //This is invoked in a new thread by the webSocketDidOpen method or by the Connect method. Get the runLoop from the thread.
     self.runLoopForStreamsThread = [NSRunLoop currentRunLoop];
 
@@ -246,10 +173,8 @@
         // Log periodic status every 30 seconds to track thread health
         NSDate *now = [NSDate date];
         if ([now timeIntervalSinceDate:lastLogTime] >= 30.0) {
-            NSString *appStateString = [self safeAppStateString];
-            
-            AWSDDLogInfo(@"[CRASH-ANALYSIS] Thread health check - Thread: %@, RunLoop Cycles: %lu, App State: %@, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@", 
-                         self, (unsigned long)runLoopCycles, appStateString, (unsigned long)self.backgroundTransitionCount,
+            AWSDDLogInfo(@"[CRASH-ANALYSIS] Thread health check - Thread: %@, RunLoop Cycles: %lu, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@", 
+                         self, (unsigned long)runLoopCycles, (unsigned long)self.backgroundTransitionCount,
                          self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO");
             lastLogTime = now;
         }
@@ -290,10 +215,8 @@
 }
 
 - (void)cancel {
-    NSString *appStateString = [self safeAppStateString];
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] Issued Cancel on thread [%@], App State: %@, Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@", 
-                 (NSThread *)self, appStateString, (unsigned long)self.backgroundTransitionCount,
+    AWSDDLogInfo(@"[CRASH-ANALYSIS] Issued Cancel on thread [%@], Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@", 
+                 (NSThread *)self, (unsigned long)self.backgroundTransitionCount,
                  self.serialQueue ? @"YES" : @"NO", self.isDeallocationInProgress ? @"YES" : @"NO");
     
     if (self.serialQueue && !self.isDeallocationInProgress) {
@@ -308,10 +231,8 @@
 }
 
 - (void)cancelAndDisconnect:(BOOL)shouldDisconnect {
-    NSString *appStateString = [self safeAppStateString];
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] Issued Cancel and Disconnect = [%@] on thread [%@], App State: %@, Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@", 
-                 shouldDisconnect ? @"YES" : @"NO", (NSThread *)self, appStateString, (unsigned long)self.backgroundTransitionCount,
+    AWSDDLogInfo(@"[CRASH-ANALYSIS] Issued Cancel and Disconnect = [%@] on thread [%@], Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@", 
+                 shouldDisconnect ? @"YES" : @"NO", (NSThread *)self, (unsigned long)self.backgroundTransitionCount,
                  self.serialQueue ? @"YES" : @"NO", self.isDeallocationInProgress ? @"YES" : @"NO");
     
     if (self.serialQueue && !self.isDeallocationInProgress) {
@@ -327,10 +248,8 @@
 }
 
 - (void)cleanUp {
-    NSString *appStateString = [self safeAppStateString];
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] CleanUp called - Thread: %@, App State: %@, Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@, DidCleanUp: %@", 
-                 self, appStateString, (unsigned long)self.backgroundTransitionCount,
+    AWSDDLogInfo(@"[CRASH-ANALYSIS] CleanUp called - Thread: %@, Background Transitions: %lu, HasSerialQueue: %@, IsDeallocationInProgress: %@, DidCleanUp: %@", 
+                 self, (unsigned long)self.backgroundTransitionCount,
                  self.serialQueue ? @"YES" : @"NO", self.isDeallocationInProgress ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO");
     
     // If no serial queue or deallocation in progress, do minimal cleanup
@@ -440,43 +359,7 @@
     AWSDDLogInfo(@"[CRASH-ANALYSIS] Minimal cleanup completed - Thread: %@", self);
 }
 
-#pragma mark - App State Monitoring
 
-- (void)appDidEnterBackground:(NSNotification *)notification {
-    self.backgroundTransitionCount++;
-    NSTimeInterval threadAge = self.threadCreationTime ? [[NSDate date] timeIntervalSinceDate:self.threadCreationTime] : 0;
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] App entered background - Thread: %@, Age: %.2fs, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@, DidCleanUp: %@", 
-                 self, threadAge, (unsigned long)self.backgroundTransitionCount,
-                 self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO");
-}
-
-- (void)appWillEnterForeground:(NSNotification *)notification {
-    NSTimeInterval threadAge = self.threadCreationTime ? [[NSDate date] timeIntervalSinceDate:self.threadCreationTime] : 0;
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] App entering foreground - Thread: %@, Age: %.2fs, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@, DidCleanUp: %@", 
-                 self, threadAge, (unsigned long)self.backgroundTransitionCount,
-                 self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO");
-}
-
-#pragma mark - App State Monitoring
-
-- (void)appDidEnterBackground:(NSNotification *)notification {
-    self.backgroundTransitionCount++;
-    NSTimeInterval threadAge = self.threadCreationTime ? [[NSDate date] timeIntervalSinceDate:self.threadCreationTime] : 0;
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] App entered background - Thread: %@, Age: %.2fs, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@, DidCleanUp: %@", 
-                 self, threadAge, (unsigned long)self.backgroundTransitionCount,
-                 self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO");
-}
-
-- (void)appWillEnterForeground:(NSNotification *)notification {
-    NSTimeInterval threadAge = self.threadCreationTime ? [[NSDate date] timeIntervalSinceDate:self.threadCreationTime] : 0;
-    
-    AWSDDLogInfo(@"[CRASH-ANALYSIS] App entering foreground - Thread: %@, Age: %.2fs, Background Transitions: %lu, IsRunning: %@, IsCancelled: %@, DidCleanUp: %@", 
-                 self, threadAge, (unsigned long)self.backgroundTransitionCount,
-                 self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO", self.didCleanUp ? @"YES" : @"NO");
-}
 
 
 
