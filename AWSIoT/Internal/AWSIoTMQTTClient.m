@@ -118,8 +118,38 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (void)dealloc
 {
+    // Invalidate timers first to prevent callbacks
     [self.reconnectTimer invalidate];
+    self.reconnectTimer = nil;
     [self.connectionAgeTimer invalidate];
+    self.connectionAgeTimer = nil;
+    
+    // Cancel stream thread safely
+    if (self.streamsThread) {
+        [self.streamsThread cancelAndDisconnect:YES];
+        self.streamsThread = nil;
+    }
+    
+    // Close websocket if open
+    if (self.webSocket) {
+        [self.webSocket close];
+        self.webSocket = nil;
+    }
+    
+    // Clean up session
+    if (self.session) {
+        self.session.delegate = nil;
+        [self.session close];
+        self.session = nil;
+    }
+    
+    // Clear callbacks and delegates
+    self.connectStatusCallback = nil;
+    self.clientDelegate = nil;
+    
+    // Clear data structures
+    self.ackCallbackDictionary = nil;
+    self.topicListeners = nil;
 }
 
 - (instancetype)initWithDelegate:(id<AWSIoTMQTTClientDelegate>)delegate {
@@ -1262,9 +1292,19 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // Also, the webSocket can be set to nil
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
-    [self.webSocket close];
-    self.webSocket = nil;
+    @synchronized(self.encoderOutputStream) {
+        if (self.encoderOutputStream) {
+            [self.encoderOutputStream close];
+            self.encoderOutputStream = nil;
+        }
+    }
+    
+    @synchronized(self.webSocket) {
+        if (self.webSocket) {
+            [self.webSocket close];
+            self.webSocket = nil;
+        }
+    }
     
     // If this is not because of user initated disconnect, setup timer to retry.
     if (!self.userDidIssueDisconnect ) {
@@ -1300,9 +1340,19 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // The WebSocket has closed. The input/output streams can be closed here.
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
-    [self.webSocket close];
-    self.webSocket = nil;
+    @synchronized(self.encoderOutputStream) {
+        if (self.encoderOutputStream) {
+            [self.encoderOutputStream close];
+            self.encoderOutputStream = nil;
+        }
+    }
+    
+    @synchronized(self.webSocket) {
+        if (self.webSocket) {
+            [self.webSocket close];
+            self.webSocket = nil;
+        }
+    }
     
     // If this is not because of user initated disconnect, setup timer to retry.
     if (!self.userDidIssueDisconnect ) {
