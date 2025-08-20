@@ -25,7 +25,7 @@
 #import "AWSSimpleDBResources.h"
 
 static NSString *const AWSInfoSimpleDB = @"SimpleDB";
-NSString *const AWSSimpleDBSDKVersion = @"2.40.2";
+NSString *const AWSSimpleDBSDKVersion = @"2.41.0";
 
 
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer
