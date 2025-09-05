@@ -710,10 +710,15 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (void)cleanUpWebsocketOutputStream {
     @synchronized(self) {
         if (self.websocketOutputStream) {
-            self.websocketOutputStream.delegate = nil;
-            [self.websocketOutputStream close];
-            [self.websocketOutputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-            self.websocketOutputStream = nil;
+            // This `websocketOutputStream` object here is possible to be accessed by other threads
+            @synchronized(self.websocketOutputStream) {
+                if (self.websocketOutputStream) { // We'd better double check its existence after obtained the lock
+                    self.websocketOutputStream.delegate = nil;
+                    [self.websocketOutputStream close];
+                    [self.websocketOutputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+                    self.websocketOutputStream = nil;
+                }
+            }
         }
     }
 }
@@ -1262,7 +1267,10 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // Also, the webSocket can be set to nil
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
+    // This `encoderOutputStream` object here is possible to be accessed by other threads
+    @synchronized (self.encoderOutputStream) {
+        [self.encoderOutputStream close];
+    }
     [self.webSocket close];
     self.webSocket = nil;
     
@@ -1300,7 +1308,10 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     // The WebSocket has closed. The input/output streams can be closed here.
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
+    // This `encoderOutputStream` object here is possible to be accessed by other threads
+    @synchronized (self.encoderOutputStream) {
+        [self.encoderOutputStream close];
+    }
     [self.webSocket close];
     self.webSocket = nil;
     

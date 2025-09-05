@@ -150,25 +150,33 @@
             }
 
             // Make sure we handle the streams in a thread-safe way
-            if (self.outputStream) {
-                // Remove from runLoop first before closing
-                if (self.runLoopForStreamsThread) {
-                    [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
-                                                 forMode:NSDefaultRunLoopMode];
+            @synchronized(self.outputStream) {
+                if (self.outputStream) {
+                    // Remove from runLoop first before closing
+                    if (self.runLoopForStreamsThread) {
+                        [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
+                                                    forMode:NSDefaultRunLoopMode];
+                    }
+                    self.outputStream.delegate = nil;
+                    [self.outputStream close];
+                    self.outputStream = nil;
                 }
-                self.outputStream.delegate = nil;
-                [self.outputStream close];
-                self.outputStream = nil;
             }
 
-            if (self.decoderInputStream) {
-                [self.decoderInputStream close];
-                self.decoderInputStream = nil;
+            // Make sure we handle the streams in a thread-safe way
+            @synchronized(self.decoderInputStream) {
+                if (self.decoderInputStream) {
+                    [self.decoderInputStream close];
+                    self.decoderInputStream = nil;
+                }
             }
 
-            if (self.encoderOutputStream) {
-                [self.encoderOutputStream close];
-                self.encoderOutputStream = nil;
+            // Make sure we handle the streams in a thread-safe way
+            @synchronized(self.encoderOutputStream) {
+                if (self.encoderOutputStream) {
+                    [self.encoderOutputStream close];
+                    self.encoderOutputStream = nil;
+                }
             }
         } else {
             AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
