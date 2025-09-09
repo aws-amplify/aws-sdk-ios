@@ -42,6 +42,9 @@
 @property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
 @property NSString *responseData;
 @property (atomic) BOOL cancelled;
+
+// Modify by Dark: remember stop status
+@property BOOL stopped;
 @property BOOL temporaryFileCreated;
 
 @end
@@ -52,6 +55,9 @@
 @property (strong, nonatomic) AWSS3TransferUtilityMultiPartUploadExpression *expression;
 @property (copy) NSString * uploadID;
 @property BOOL cancelled;
+
+// Modify by Dark: add stopped status, it will cancel uploading
+@property BOOL stopped;
 @property BOOL temporaryFileCreated;
 @property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;

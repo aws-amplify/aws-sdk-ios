@@ -145,6 +145,9 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 - (void)cancel;
 
+// Modify by Dart: it will cancel NSURLSessionTask, but not remove task record from DB, in order to be recover later
+- (void)stop;
+
 /**
  Resumes the task, if it is suspended.
  */
