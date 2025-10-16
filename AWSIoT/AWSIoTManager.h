@@ -15,6 +15,7 @@
 
 #import "AWSIoTService.h"
 #import "AWSIoTKeyChainTypes.h"
+#import "AWSIoTKeychain.h"
 
 //CreateCertificateWithResponse
 @interface AWSIoTCreateCertificateResponse : AWSModel
@@ -209,6 +210,23 @@
 + (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId;
 
 /**
+ * Imports a complete identity from PKCS#12 data into the keychain, validating against a specific algorithm type.
+ *
+ * This function extracts the certificate, public key, and private key, then validates their internal consistency and
+ * matches them against the expected algorithm type provided by the caller.
+ * Supports RSA, EC, ECPrimeRandom key algorithms.
+ *
+ * @param pkcs12Data The identity data in PKCS#12 format.
+ * @param passPhrase The password for the PKCS#12 data.
+ * @param certificateId A unique identifier used to construct the final tags for the keychain items.
+ * @param keyAlgorithmType The expected algorithm of the key pair. The function will fail if the actual
+ * key type in the data does not match this parameter.
+ *
+ * @return `YES` if the entire identity was validated and imported successfully, `NO` otherwise.
+ */
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
+
+/**
  *  Validates the certificate with the given identifier of certificate.
  *
  *  @param certificateId The certificate identifier
@@ -218,6 +236,20 @@
 + (BOOL)isValidCertificate:(NSString *)certificateId;
 
 /**
+ * Check if a valid certificate identity exists for a given certificateId and algorithm type.
+ *
+ * This function constructs the appropriate private key tag and certificate
+ * label based on the provided algorithm type and certificate ID, then calls a more detailed
+ * validation method to confirm the identity's presence and integrity in the keychain.
+ *
+ * @param certificateId The unique identifier used to construct the full keychain tags.
+ * @param keyAlgorithmType The algorithm of the key pair associated with the certificate.
+ *
+ * @return `YES` if a valid identity is found, `NO` otherwise.
+ */
++ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
+
+/**
  *  Deletes keys and certificate
  *
 *  @return TRUE if certificate is deleted, else FALSE
@@ -225,6 +257,20 @@
 + (BOOL)deleteCertificate;
 
 + (BOOL)deleteCertificateWithCertificateId:(NSString*)certificateId NS_SWIFT_NAME(deleteCertificate(certificateId:));
+
+/**
+ * Deletes a complete identity (certificate and key pair) from the keychain.
+ *
+ * This function constructs the necessary unique tags based on the certificate ID and algorithm type,
+ * and then attempts to remove both the certificate and its associated asymmetric key pair.
+ *
+ * @param certificateId The unique identifier for the identity to be deleted.
+ * @param keyAlgorithmType The algorithm of the key pair to be deleted.
+ *
+ * @return `YES` if all components were successfully deleted (or were already not present),
+ * `NO` if a critical deletion error occurred for any component.
+ */
++ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString*)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType NS_SWIFT_NAME(deleteCertificate(certificateId:keyAlgorithmType:));
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 

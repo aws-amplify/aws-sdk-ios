@@ -60,8 +60,8 @@ unsigned char setTag = 0x31;
         return nil;
     }
     
-    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
-    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+    NSString *publicTag = [AWSIoTKeychain.rsaPublicKeyTag stringByAppendingString:certificateId];
+    NSString *privateTag = [AWSIoTKeychain.rsaPrivateKeyTag stringByAppendingString:certificateId];
     
     _publicKeyBits = [AWSIoTKeychain getPublicKeyBits:publicTag];
     if (!_publicKeyBits) {

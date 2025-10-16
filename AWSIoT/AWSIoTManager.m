@@ -143,7 +143,7 @@ static BOOL _tagCertificateEnabled = NO;
 
 + (NSString *)certTagWithCertificateId:(NSString *)certificateId {
     // tagCertificateEnabled property defaults to legacy behavior
-    return [AWSIoTKeychain.certTag stringByAppendingString: AWSIoTManager.tagCertificateEnabled ? certificateId : @""];
+    return [AWSIoTKeychain.rsaCertTag stringByAppendingString: AWSIoTManager.tagCertificateEnabled ? certificateId : @""];
 }
 
 - (void)createKeysAndCertificateFromCsr:(NSDictionary<NSString *, NSString*> *)csrDictionary callback:(void (^)(AWSIoTCreateCertificateResponse *mainResponse))callback {
@@ -159,8 +159,8 @@ static BOOL _tagCertificateEnabled = NO;
     }
     
     NSString *uuid = [[NSUUID UUID] UUIDString];
-    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:uuid];
-    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:uuid];
+    NSString *publicTag = [AWSIoTKeychain.rsaPublicKeyTag stringByAppendingString:uuid];
+    NSString *privateTag = [AWSIoTKeychain.rsaPrivateKeyTag stringByAppendingString:uuid];
     [AWSIoTKeychain generateKeyPairWithPublicTag:publicTag privateTag:privateTag];
 
     AWSIoTCSR *csr = [[AWSIoTCSR alloc] initWithCommonName: commonName countryName:countryName organizationName: organizationName organizationalUnitName: organizationalUnitName ];
@@ -198,8 +198,8 @@ static BOOL _tagCertificateEnabled = NO;
             AWSDDLogInfo(@"certificatePem: %@", certificatePem);
 
             if (certificatePem != nil && certificateArn != nil && certificateId != nil) {
-                NSString *newPublicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
-                NSString *newPrivateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+                NSString *newPublicTag = [AWSIoTKeychain.rsaPublicKeyTag stringByAppendingString:certificateId];
+                NSString *newPrivateTag = [AWSIoTKeychain.rsaPrivateKeyTag stringByAppendingString:certificateId];
 
                 // tagCertificateEnabled property defaults to legacy behavior
                 NSString *newCertTag = [AWSIoTManager certTagWithCertificateId:certificateId];
@@ -208,7 +208,7 @@ static BOOL _tagCertificateEnabled = NO;
                 SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
                 SecIdentityRef identityRef = nil;
 
-                if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag] &&
+                if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:KeyAlgorithmTypeRSA] &&
                     [AWSIoTKeychain addPrivateKeyRef:privateKeyRef tag:newPrivateTag] &&
                     [AWSIoTKeychain addPublicKeyRef:publicKeyRef tag:newPublicTag] &&
                     [AWSIoTKeychain addCertificateToKeychain:certificatePem tag:newCertTag] &&
@@ -263,8 +263,8 @@ static BOOL _tagCertificateEnabled = NO;
         return NO;
     }
 
-    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
-    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+    NSString *publicTag = [AWSIoTKeychain.rsaPublicKeyTag stringByAppendingString:certificateId];
+    NSString *privateTag = [AWSIoTKeychain.rsaPrivateKeyTag stringByAppendingString:certificateId];
     NSString *certTag = [AWSIoTManager certTagWithCertificateId:certificateId];
 
     if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag]) {
@@ -282,6 +282,101 @@ static BOOL _tagCertificateEnabled = NO;
 
     if (![AWSIoTKeychain addCertificateRef:certRef tag:certTag]) {
         [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
+        cleanup();
+        AWSDDLogError(@"Unable to add certificate");
+        return NO;
+    }
+
+    cleanup();
+    return YES;
+}
+
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    __block SecKeyRef privateKey = NULL;
+    __block SecKeyRef publicKey = NULL;
+    __block SecCertificateRef certRef = NULL;
+
+    void (^cleanup)(void) = ^void {
+        if (certRef) {
+            CFRelease(certRef);
+        }
+        if (privateKey) {
+            CFRelease(privateKey);
+        }
+        if (publicKey) {
+            CFRelease(publicKey);
+        }
+    };
+
+    if (keyAlgorithmType == KeyAlgorithmTypeUnknown) {
+        AWSDDLogError(@"keyAlgorithmType value is not valid");
+        return NO;
+    }
+    
+    [AWSIoTManager readPk12:pkcs12Data passPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
+
+    if (!certRef || !privateKey || !publicKey) {
+        cleanup();
+        AWSDDLogError(@"Unable to extract PKCS12 data. Ensure the passPhrase is correct.");
+        return NO;
+    }
+    
+    KeyAlgorithmType privateKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:privateKey];
+    KeyAlgorithmType publicKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:publicKey];
+    
+    if (privateKeyType == KeyAlgorithmTypeUnknown || publicKeyType == KeyAlgorithmTypeUnknown) {
+        cleanup();
+        AWSDDLogError(@"Could not determine key algorithm from the PKCS12 data.");
+        return NO;
+    }
+    if (privateKeyType != publicKeyType) {
+        cleanup();
+        AWSDDLogError(@"Mismatched key algorithms in the PKCS12 data.");
+        return NO;
+    }
+    if (privateKeyType != keyAlgorithmType) {
+        cleanup();
+        AWSDDLogError(@"The provided keyAlgorithmType does not match the actual key type found in the PKCS12 data.");
+        return NO;
+    }
+
+    NSString *publicTagPrefix = [AWSIoTKeychain getPublicKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!publicTagPrefix) {
+        AWSDDLogError(@"Unable to get public key tag prefix");
+        return NO;
+    }
+    NSString *privateTagPrefix = [AWSIoTKeychain getPrivateKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!privateTagPrefix) {
+        AWSDDLogError(@"Unable to get private key tag prefix");
+        return NO;
+    }
+    NSString *certTagPrefix = [AWSIoTKeychain getCertificateTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!certTagPrefix) {
+        AWSDDLogError(@"Unable to get certificate tag prefix");
+        return NO;
+    }
+    
+    NSString *publicTag = [publicTagPrefix stringByAppendingString:certificateId];
+    NSString *privateTag = [privateTagPrefix stringByAppendingString:certificateId];
+    NSString *certTag = [certTagPrefix stringByAppendingString:certificateId];
+
+    if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag]) {
+        cleanup();
+        AWSDDLogError(@"Unable to add private key");
+        return NO;
+    }
+
+    if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag]) {
+        // can use privateKeyType since it is the same as publicKeyType
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:privateKeyType];
+        cleanup();
+        AWSDDLogError(@"Unable to add public key");
+        return NO;
+    }
+
+    if (![AWSIoTKeychain addCertificateRef:certRef tag:certTag]) {
+        // can use privateKeyType since it is the same as publicKeyType
+        [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:privateKeyType];
         cleanup();
         AWSDDLogError(@"Unable to add certificate");
         return NO;
@@ -388,23 +483,72 @@ static BOOL _tagCertificateEnabled = NO;
 }
 
 + (BOOL)deleteCertificate {
-    return [AWSIoTKeychain removeCertificateWithTag:AWSIoTKeychain.certTag];
+    return [AWSIoTKeychain removeCertificateWithTag:AWSIoTKeychain.rsaCertTag];
 }
 
 + (BOOL)deleteCertificateWithCertificateId:(NSString*)certificateId {
     NSString *certTag = [AWSIoTManager certTagWithCertificateId:certificateId];
-    NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
-    NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
+    NSString *publicTag = [AWSIoTKeychain.rsaPublicKeyTag stringByAppendingString:certificateId];
+    NSString *privateTag = [AWSIoTKeychain.rsaPrivateKeyTag stringByAppendingString:certificateId];
 
     return [AWSIoTKeychain removeCertificateWithTag:certTag] && [AWSIoTKeychain
                                                                  deleteAsymmetricKeysWithPublicTag:publicTag
-                                                                 privateTag:privateTag];
+                                                                 privateTag:privateTag
+                                                                 keyAlgorithmType:KeyAlgorithmTypeRSA];
+}
+
++ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    NSString *certTagPrefix = [AWSIoTKeychain getCertificateTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!certTagPrefix) {
+        AWSDDLogError(@"Unable to get certificate tag prefix");
+        return NO;
+    }
+    NSString *publicTagPrefix = [AWSIoTKeychain getPublicKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!publicTagPrefix) {
+        AWSDDLogError(@"Unable to get public key tag prefix");
+        return NO;
+    }
+    NSString *privateTagPrefix = [AWSIoTKeychain getPrivateKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!privateTagPrefix) {
+        AWSDDLogError(@"Unable to get private key tag prefix");
+        return NO;
+    }
+    NSString *certTag = [certTagPrefix stringByAppendingString:certificateId];
+    NSString *publicTag = [publicTagPrefix stringByAppendingString:certificateId];
+    NSString *privateTag = [privateTagPrefix stringByAppendingString:certificateId];
+        
+    return [AWSIoTKeychain removeCertificateWithTag:certTag] && [AWSIoTKeychain
+                                                                 deleteAsymmetricKeysWithPublicTag:publicTag
+                                                                 privateTag:privateTag
+                                                                 keyAlgorithmType:keyAlgorithmType];
 }
 
 + (BOOL)isValidCertificate:(NSString *)certificateId {
-    NSString *tag = [NSString stringWithFormat:@"%@%@", [AWSIoTKeychain privateKeyTag], certificateId];
+    NSString *tag = [NSString stringWithFormat:@"%@%@", [AWSIoTKeychain rsaPrivateKeyTag], certificateId];
     NSString *certLabel = [AWSIoTManager certTagWithCertificateId:certificateId];
     return [AWSIoTKeychain isValidCertificate:tag certificateLabel:certLabel];
+}
+
++ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    if (keyAlgorithmType == KeyAlgorithmTypeUnknown) {
+        AWSDDLogError(@"keyAlgorithmType value is not valid");
+        return NO;
+    }
+    
+    NSString *privateTagPrefix = [AWSIoTKeychain getPrivateKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!privateTagPrefix) {
+        AWSDDLogError(@"Unable to get private key tag prefix");
+        return NO;
+    }
+    NSString *certTagPrefix = [AWSIoTKeychain getCertificateTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!certTagPrefix) {
+        AWSDDLogError(@"Unable to get certificate tag prefix");
+        return NO;
+    }
+    
+    NSString *tag = [NSString stringWithFormat:@"%@%@", privateTagPrefix, certificateId];
+    NSString *certLabel = [NSString stringWithFormat:@"%@%@", certTagPrefix, certificateId];
+    return [AWSIoTKeychain isValidCertificate:tag certificateLabel:certLabel keyAlgorithmType:keyAlgorithmType];
 }
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility {

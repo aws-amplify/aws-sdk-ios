@@ -16,6 +16,7 @@
 #import "AWSIoTDataService.h"
 #import "AWSIoTService.h"
 #import "AWSIoTMQTTTypes.h"
+#import "AWSIoTKeychain.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -472,6 +473,23 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
+ Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
+
+ @param clientId The Client Identifier identifies the Client to the Server.
+ @param cleanSession specifies if the server should discard previous session information.
+ @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain
+ @param keyAlgorithmType The algorithm of the key pair.
+ @param callback When new mqtt session status is received callback will be called with new connection status.\
+ 
+ @return true if initialise finished with success
+ */
+- (BOOL)connectWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+              certificateId:(NSString *)certificateId
+           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+
+/**
  Initialises the MQTT session and connects to AWS IoT on port 443 using certificate-based mutual authentication
  and ALPN (Application Layer Protocol Negotiation)
  
@@ -491,6 +509,25 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
               certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
              API_AVAILABLE(ios(11), macosx(10.13));
+
+/**
+ Initialises the MQTT session and connects to AWS IoT on port 443 using certificate-based mutual authentication
+ and ALPN (Application Layer Protocol Negotiation)
+ 
+ @param clientId The Client Identifier identifies the Client to the Server.
+ @param cleanSession specifies if the server should discard previous session information.
+ @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain.
+ @param keyAlgorithmType The algorithm of the key pair.
+ @param callback When new mqtt session status is received callback will be called with new connection status.
+ 
+ @return true if initialise finished with success
+ */
+- (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
+                        cleanSession:(BOOL)cleanSession
+                       certificateId:(NSString *)certificateId
+                    keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+                      statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+API_AVAILABLE(ios(11), macosx(10.13));
 
 /**
  Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication. IAM

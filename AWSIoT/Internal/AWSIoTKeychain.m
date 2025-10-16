@@ -26,16 +26,40 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 
 @implementation AWSIoTKeychain
 
-+ (NSString*)publicKeyTag {
++ (NSString*)rsaPublicKeyTag {
     return [NSString stringWithFormat:@"%@.RSAPublicTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
-+ (NSString*)privateKeyTag {
++ (NSString *)ecPublicKeyTag {
+    return [NSString stringWithFormat:@"%@.ECPublicTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString *)ecPrimeRandomPublicKeyTag {
+    return [NSString stringWithFormat:@"%@.ECPrimeRandomPublicTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString*)rsaPrivateKeyTag {
     return [NSString stringWithFormat:@"%@.RSAPrivateTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
-+ (NSString*)certTag {
++ (NSString*)ecPrivateKeyTag {
+    return [NSString stringWithFormat:@"%@.ECPrivateTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString*)ecPrimeRandomPrivateKeyTag {
+    return [NSString stringWithFormat:@"%@.ECPrimeRandomPrivateTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString*)rsaCertTag {
     return [NSString stringWithFormat:@"%@.RSACertTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString*)ecCertTag {
+    return [NSString stringWithFormat:@"%@.ECCertTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
+}
+
++ (NSString *)ecPrimeRandomCertTag {
+    return [NSString stringWithFormat:@"%@.ECPrimeRandomCertTag.",[[NSBundle bundleForClass:[self class]] bundleIdentifier]];
 }
 
 + (NSString*)base64Encode:(NSData*)data {
@@ -131,6 +155,57 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return status;
 }
 
++ (BOOL)deleteAsymmetricKeysWithPublicTag:(NSString*)publicTag privateTag:(NSString*)privateTag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    BOOL status = YES;
+    
+    if (keyAlgorithmType == KeyAlgorithmTypeUnknown) {
+        AWSDDLogError(@"Cannot not delete keys of unknown algorithm type");
+        return NO;
+    }
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+        
+    OSStatus sanityCheck = noErr;
+    NSMutableDictionary * queryPublicKey = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary * queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPublicKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPublicKey setObject:publicTag forKey:(id)kSecAttrApplicationTag];
+    [queryPublicKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [queryPublicKey setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
+    
+    [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPrivateKey setObject:privateTag forKey:(id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [queryPrivateKey setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    
+    sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
+    if (sanityCheck != noErr) {
+        if (sanityCheck == errSecItemNotFound) {
+            AWSDDLogError(@"Error removing private key errSecItemNotFound");
+        } else {
+            AWSDDLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
+            status = NO;
+        }
+    }
+    
+    sanityCheck = SecItemDelete((CFDictionaryRef)queryPublicKey);
+    if (sanityCheck != noErr) {
+        if (sanityCheck == errSecItemNotFound) {
+            AWSDDLogError(@"Error removing public key: errSecItemNotFound");
+        } else {
+            AWSDDLogError(@"Error removing public key, OSStatus == %d.", (int)sanityCheck);
+            status = NO;
+        }
+    }
+
+    return status;
+}
+
 + (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel {
     
     SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel];
@@ -139,6 +214,25 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
         CFRelease(identityRef);
         if (status == noErr) {
+            return YES;
+        } else {
+            AWSDDLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
+        }
+    }
+    return NO;
+}
+
++ (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel keyAlgorithmType:keyAlgorithmType];
+    if (identityRef) {
+        SecCertificateRef cert = NULL;
+        OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
+        CFRelease(identityRef);
+        if (status == noErr) {
+            if (cert) {
+                CFRelease(cert);
+            }
             return YES;
         } else {
             AWSDDLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
@@ -160,7 +254,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 }
 
 + (BOOL)addCertificateToKeychain:(NSString*)cert {
-    return [AWSIoTKeychain addCertificateToKeychain:cert tag:[AWSIoTKeychain certTag]];
+    return [AWSIoTKeychain addCertificateToKeychain:cert tag:[AWSIoTKeychain rsaCertTag]];
 }
 
 + (BOOL)addCertificateToKeychain:(NSString*)cert tag:(NSString*)tag {
@@ -196,7 +290,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 }
 
 + (BOOL)addCertificate:(NSData *)cert {
-    return [AWSIoTKeychain addCertificate:cert withTag:[AWSIoTKeychain certTag]];
+    return [AWSIoTKeychain addCertificate:cert withTag:[AWSIoTKeychain rsaCertTag]];
 }
 
 + (BOOL)addCertificate:(NSData*)cert withTag:(NSString*)tag {
@@ -212,7 +306,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 }
 
 + (BOOL)addCertificateRef:(SecCertificateRef)certRef {
-    return [AWSIoTKeychain addCertificateRef:certRef tag:[AWSIoTKeychain certTag]];
+    return [AWSIoTKeychain addCertificateRef:certRef tag:[AWSIoTKeychain rsaCertTag]];
 }
 
 + (BOOL)addCertificateRef:(SecCertificateRef)certRef tag:(NSString*)tag {
@@ -235,7 +329,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
     
     [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
-    [queryCertificate setObject:[AWSIoTKeychain certTag] forKey:(id)kSecAttrLabel];
+    [queryCertificate setObject:[AWSIoTKeychain rsaCertTag] forKey:(id)kSecAttrLabel];
     
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryCertificate);
     if (sanityCheck != noErr) {
@@ -290,6 +384,33 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return publicKeyReference;
 }
 
++ (SecKeyRef)getPublicKeyRef:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    OSStatus sanityCheck = noErr;
+    SecKeyRef publicKeyReference = NULL;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NULL;
+    }
+    
+    NSMutableDictionary * queryPublicKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPublicKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPublicKey setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
+    [queryPublicKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPublicKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [queryPublicKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
+    
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, (CFTypeRef *)&publicKeyReference);
+    
+    if (sanityCheck != noErr) {
+        AWSDDLogError(@"getPublicKeyRef error: %d",(int)sanityCheck);
+    }
+    
+    return publicKeyReference;
+}
+
 + (NSData *)getPublicKeyBits:(NSString*)tag {
     OSStatus sanityCheck = noErr;
     CFTypeRef publicKeyRef = NULL;
@@ -299,6 +420,46 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     [queryPublicKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
     [queryPublicKey setObject:tag forKey:(id)kSecAttrApplicationTag];
     [queryPublicKey setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    [queryPublicKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnData];
+    
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, &publicKeyRef);
+    
+    if (sanityCheck != noErr){
+        AWSDDLogError(@"getPublicKeyBits error: %d",(int)sanityCheck);
+        publicKeyRef = NULL;
+    }
+    
+    return (__bridge_transfer NSData *)publicKeyRef;
+}
+
+/**
+ * Retrieves the raw data (bits) of a public key from the keychain.
+ *
+ * This function finds a public key matching a specific
+ * application tag and algorithm type, and returns its raw data representation.
+ *
+ * @param tag The unique application tag used to store the key.
+ * @param keyAlgorithmType The algorithm type of the key.
+ *
+ * @return An `NSData` object containing the key's data on success, or `NULL` if the key is
+ * not found or an error occurs.
+ */
++ (NSData *)getPublicKeyBits:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    OSStatus sanityCheck = noErr;
+    CFTypeRef publicKeyRef = NULL;
+            
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NULL;
+    }
+    
+    NSMutableDictionary * queryPublicKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPublicKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPublicKey setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
+    [queryPublicKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPublicKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
     [queryPublicKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnData];
     
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPublicKey, &publicKeyRef);
@@ -332,6 +493,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return privateKeyReference;
 }
 
++ (SecKeyRef)getPrivateKeyRef:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    OSStatus sanityCheck = noErr;
+    SecKeyRef privateKeyReference = NULL;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NULL;
+    }
+    
+    NSMutableDictionary * queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPrivateKey setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    [queryPrivateKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [queryPrivateKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
+    
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPrivateKey, (CFTypeRef *)&privateKeyReference);
+    
+    if (sanityCheck != noErr) {
+        AWSDDLogError(@"getPrivateKeyRef error: %d",(int)sanityCheck);
+        privateKeyReference = NULL;
+    }
+    
+    return privateKeyReference;
+}
+
 + (NSData *)getPrivateKeyBits:(NSString*)tag {
     OSStatus sanityCheck = noErr;
     CFTypeRef privateKeyBits = NULL;
@@ -341,6 +530,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
     [queryPrivateKey setObject:tag forKey:(id)kSecAttrApplicationTag];
     [queryPrivateKey setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    [queryPrivateKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnData];
+    
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPrivateKey, &privateKeyBits);
+    
+    if (sanityCheck != noErr){
+        AWSDDLogError(@"getPrivateKeyBits error: %d",(int)sanityCheck);
+        privateKeyBits = NULL;
+    }
+    
+    return (__bridge_transfer NSData *)privateKeyBits;
+}
+
++ (NSData *)getPrivateKeyBits:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    OSStatus sanityCheck = noErr;
+    CFTypeRef privateKeyBits = NULL;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NULL;
+    }
+    
+    NSMutableDictionary * queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPrivateKey setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    [queryPrivateKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
     [queryPrivateKey setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnData];
     
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryPrivateKey, &privateKeyBits);
@@ -374,6 +591,33 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return identityRef;
 }
 
++ (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    OSStatus sanityCheck = noErr;
+    SecIdentityRef identityRef = NULL;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NULL;
+    }
+        
+    NSMutableDictionary * queryIdentityRef = [[NSMutableDictionary alloc] init];
+    
+    [queryIdentityRef setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
+    [queryIdentityRef setObject:privateKeyTag forKey:(id)kSecAttrApplicationTag];
+    [queryIdentityRef setObject:certificateLabel forKey:(id)kSecAttrLabel];
+    [queryIdentityRef setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [queryIdentityRef setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
+    
+    sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryIdentityRef, (CFTypeRef *)&identityRef);
+    if (sanityCheck != noErr){
+        AWSDDLogError(@"getIdentityRef error: %d",(int)sanityCheck);
+        return nil;
+    }
+    
+    return identityRef;
+}
+
 + (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString*)tag {
     
     OSStatus sanityCheck = noErr;
@@ -382,6 +626,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     
     [publicKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
     [publicKeyAttr setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    [publicKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [publicKeyAttr setObject:(__bridge id _Nonnull)(pubkeyRef) forKey:(id)kSecValueRef];
+    [publicKeyAttr setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
+    [publicKeyAttr setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnPersistentRef];
+    [publicKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
+
+    sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, nil);
+    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
+        AWSDDLogError(@"addPublicKeyRef error: %d",(int)sanityCheck);
+        return NO;
+    }
+    
+    return YES;
+}
+
++ (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    OSStatus sanityCheck = noErr;
+    NSMutableDictionary * publicKeyAttr = [[NSMutableDictionary alloc] init];
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+    
+    [publicKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [publicKeyAttr setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
     [publicKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
     [publicKeyAttr setObject:(__bridge id _Nonnull)(pubkeyRef) forKey:(id)kSecValueRef];
     [publicKeyAttr setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
@@ -421,6 +693,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return YES;
 }
 
++ (BOOL)addPublicKey:(NSData*)pubkey tag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    OSStatus sanityCheck = noErr;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+    
+    NSMutableDictionary * publicKeyAttr = [[NSMutableDictionary alloc] init];
+    
+    [publicKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [publicKeyAttr setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [publicKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [publicKeyAttr setObject:pubkey forKey:(id)kSecValueData];
+    [publicKeyAttr setObject:(id)kSecAttrKeyClassPublic forKey:(id)kSecAttrKeyClass];
+    [publicKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
+
+    sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, nil);
+    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
+        AWSDDLogError(@"addPublicKey error: %d",(int)sanityCheck);
+        return NO;
+    }
+    
+    return YES;
+}
+
 + (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString*)tag {
     
     OSStatus sanityCheck = noErr;
@@ -428,6 +728,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     
     [privateKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
     [privateKeyAttr setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
+    [privateKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [privateKeyAttr setObject:(__bridge id _Nonnull)(privkeyRef) forKey:(id)kSecValueRef];
+    [privateKeyAttr setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    [privateKeyAttr setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnPersistentRef];
+    [privateKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
+
+    sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, nil);
+    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
+        AWSDDLogError(@"addPrivateKeyRef error: %d",(int)sanityCheck);
+        return NO;
+    }
+    
+    return YES;
+}
+
++ (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    OSStatus sanityCheck = noErr;
+    NSMutableDictionary * privateKeyAttr = [[NSMutableDictionary alloc] init];
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+    
+    [privateKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [privateKeyAttr setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
     [privateKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
     [privateKeyAttr setObject:(__bridge id _Nonnull)(privkeyRef) forKey:(id)kSecValueRef];
     [privateKeyAttr setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
@@ -459,6 +787,34 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     [privateKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
 
     sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, (CFTypeRef *)&persistPeer);
+    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
+        AWSDDLogError(@"addPrivateKey error: %d",(int)sanityCheck);
+        return NO;
+    }
+    
+    return YES;
+}
+
++ (BOOL)addPrivateKey:(NSData*)privkey tag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    OSStatus sanityCheck = noErr;
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+    
+    NSMutableDictionary * privateKeyAttr = [[NSMutableDictionary alloc] init];
+    
+    [privateKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [privateKeyAttr setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    [privateKeyAttr setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [privateKeyAttr setObject:privkey forKey:(id)kSecValueData];
+    [privateKeyAttr setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    [privateKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
+
+    sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, nil);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
         AWSDDLogError(@"addPrivateKey error: %d",(int)sanityCheck);
         return NO;
@@ -518,8 +874,173 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return YES;
 }
 
++ (BOOL)deletePrivateKeyWithTag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType");
+        return NO;
+    }
+    
+    NSMutableDictionary * queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPrivateKey setObject:(id)kSecClassKey forKey:(id)kSecClass];
+    [queryPrivateKey setObject:(id)kSecAttrKeyClassPrivate forKey:(id)kSecAttrKeyClass];
+    [queryPrivateKey setObject:tag forKey:(id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)keyType forKey:(id)kSecAttrKeyType];
+    
+    OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
+    if (sanityCheck != noErr) {
+        if (sanityCheck == errSecItemNotFound) {
+            AWSDDLogError(@"Error removing private key: errSecItemNotFound");
+        } else {
+            AWSDDLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility {
     _accessibility = accessibility;
+}
+
++ (KeyAlgorithmType)getKeyAlgorithmTypeFromTag:(NSString *)keyTag {
+    if (!keyTag || keyTag.length == 0) {
+        return KeyAlgorithmTypeUnknown;
+    }
+    
+    if ([keyTag containsString:[AWSIoTKeychain rsaPublicKeyTag]] || [keyTag containsString:[AWSIoTKeychain rsaPrivateKeyTag]]) {
+        return KeyAlgorithmTypeRSA;
+    }
+    
+    else if ([keyTag containsString:[AWSIoTKeychain ecPublicKeyTag]] || [keyTag containsString:[AWSIoTKeychain ecPrivateKeyTag]]) {
+        return KeyAlgorithmTypeEC;
+    }
+    
+    else if ([keyTag containsString:[AWSIoTKeychain ecPrimeRandomPublicKeyTag]] || [keyTag containsString:[AWSIoTKeychain ecPrimeRandomPrivateKeyTag]]) {
+        return KeyAlgorithmTypeECPrimeRandom;
+    }
+    
+    return KeyAlgorithmTypeUnknown;
+}
+
++ (CFStringRef)getKeyTypeFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    switch (keyAlgorithmType) {
+        case KeyAlgorithmTypeRSA:
+            return kSecAttrKeyTypeRSA;
+        case KeyAlgorithmTypeEC:
+            return kSecAttrKeyTypeEC;
+        case KeyAlgorithmTypeECPrimeRandom:
+            return kSecAttrKeyTypeECSECPrimeRandom;
+        case KeyAlgorithmTypeUnknown:
+            return NULL;
+        default:
+            AWSDDLogError(@"Unhandled KeyAlgorithmType");
+            return NULL;
+    }
+}
+
+/**
+ * A convenience method that determines the Security framework key type constant directly from a keychain tag string.
+ *
+ * This function encapsulates the two-step process of first identifying the high-level
+ * algorithm type (e.g., RSA/EC) from the tag's format, and then converting that
+ * type into the specific CFStringRef constant (e.g., kSecAttrKeyTypeRSA) required
+ * by the Security framework for keychain queries.
+ *
+ * @param keyTag The keychain tag string to inspect (e.g., from `rsaPublicKeyTag` or `ecPrivateKeyTag`).
+ *
+ * @return The corresponding kSecAttrKeyType constant (e.g., kSecAttrKeyTypeRSA),
+ * or `NULL` if the tag does not match a known algorithm pattern.
+ */
++ (CFStringRef)getKeyTypeFromKeyTag:(NSString *)keyTag {
+    
+    KeyAlgorithmType keyAlgorithmType = [self getKeyAlgorithmTypeFromTag:keyTag];
+        
+    CFStringRef keyType = [self getKeyTypeFromKeyAlgorithmType:keyAlgorithmType];
+    if (keyType == NULL) {
+        AWSDDLogError(@"Could not determine a valid kSecAttrKeyType from the key tag: '%@'", keyTag);
+        return NULL;
+    }
+    return keyType;
+}
+
++ (KeyAlgorithmType)getKeyAlgorithmTypeFromKeyRef:(SecKeyRef)keyRef {
+    if (keyRef == NULL) {
+        return KeyAlgorithmTypeUnknown;
+    }
+    
+    CFDictionaryRef attributes = SecKeyCopyAttributes(keyRef);
+    if (attributes == NULL) {
+        AWSDDLogError(@"Could not read attributes from the provided SecKeyRef.");
+        return KeyAlgorithmTypeUnknown;
+    }
+    
+    KeyAlgorithmType algorithmType = KeyAlgorithmTypeUnknown;
+
+    CFStringRef keyType = CFDictionaryGetValue(attributes, kSecAttrKeyType);
+    if (keyType != NULL) {
+        if (CFEqual(keyType, kSecAttrKeyTypeRSA)) {
+            algorithmType = KeyAlgorithmTypeRSA;
+        } else if (CFEqual(keyType, kSecAttrKeyTypeEC)) {
+            algorithmType = KeyAlgorithmTypeEC;
+        } else if (CFEqual(keyType, kSecAttrKeyTypeECSECPrimeRandom)) {
+            algorithmType = KeyAlgorithmTypeECPrimeRandom;
+        }
+    }
+    CFRelease(attributes);
+    
+    return algorithmType;
+}
+
++ (NSString *)getCertificateTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    switch (keyAlgorithmType) {
+        case KeyAlgorithmTypeRSA:
+            return [self rsaCertTag];
+        case KeyAlgorithmTypeEC:
+            return [self ecCertTag];
+        case KeyAlgorithmTypeECPrimeRandom:
+            return [self ecPrimeRandomCertTag];
+        case KeyAlgorithmTypeUnknown:
+            return NULL;
+        default:
+            AWSDDLogError(@"Unhandled KeyAlgorithmType");
+            return NULL;
+    }
+}
+
++ (NSString *)getPublicKeyTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    switch (keyAlgorithmType) {
+        case KeyAlgorithmTypeRSA:
+            return [self rsaPublicKeyTag];
+        case KeyAlgorithmTypeEC:
+            return [self ecPublicKeyTag];
+        case KeyAlgorithmTypeECPrimeRandom:
+            return [self ecPrimeRandomPublicKeyTag];
+        case KeyAlgorithmTypeUnknown:
+            return NULL;
+        default:
+            AWSDDLogError(@"Unhandled KeyAlgorithmType");
+            return NULL;
+    }
+}
+
++ (NSString *)getPrivateKeyTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
+    switch (keyAlgorithmType) {
+        case KeyAlgorithmTypeRSA:
+            return [self rsaPrivateKeyTag];
+        case KeyAlgorithmTypeEC:
+            return [self ecPrivateKeyTag];
+        case KeyAlgorithmTypeECPrimeRandom:
+            return [self ecPrimeRandomPrivateKeyTag];
+        case KeyAlgorithmTypeUnknown:
+            return NULL;
+        default:
+            AWSDDLogError(@"Unhandled KeyAlgorithmType");
+            return NULL;
+    }
 }
 
 // The following keys are deprecated, but they still need to be supported:

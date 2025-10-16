@@ -18,6 +18,7 @@
 #import "AWSIoTDataManager.h"
 #import "AWSSRWebSocket.h"
 #import "AWSIoTMQTTTypes.h"
+#import "AWSIoTKeychain.h"
 
 @interface AWSIoTMQTTTopicModel : NSObject
 @property (nonatomic, strong) NSString *topic;
@@ -118,6 +119,19 @@
                        port:(UInt32)port
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+
+- (BOOL)connectWithClientId:(NSString *)clientId
+                     toHost:(NSString *)host
+                       port:(UInt32)port
+               cleanSession:(BOOL)cleanSession
+              certificateId:(NSString *)certificateId
+           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
                   keepAlive:(UInt16)theKeepAliveInterval
                   willTopic:(NSString*)willTopic
                     willMsg:(NSData*)willMsg
