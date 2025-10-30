@@ -120,6 +120,7 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
              @"isPartial" : @"IsPartial",
              @"resultId" : @"ResultId",
              @"startTime" : @"StartTime",
+             @"confidence" : @"Confidence",
              };
 }
 
