@@ -18,6 +18,7 @@
 #import "AWSIoTDataManager.h"
 #import "AWSSRWebSocket.h"
 #import "AWSIoTMQTTTypes.h"
+#import "AWSIoTKeyAlgorithmType.h"
 
 @class AWSIoTKeychain;
 

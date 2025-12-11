@@ -16,6 +16,7 @@
 #import "AWSIoTDataService.h"
 #import "AWSIoTService.h"
 #import "AWSIoTMQTTTypes.h"
+#import "AWSIoTKeyAlgorithmType.h"
 
 @class AWSIoTKeychain;
 
