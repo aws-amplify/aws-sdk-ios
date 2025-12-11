@@ -18,7 +18,8 @@
 #import "AWSIoTDataManager.h"
 #import "AWSSRWebSocket.h"
 #import "AWSIoTMQTTTypes.h"
-#import "AWSIoTKeychain.h"
+
+@class AWSIoTKeychain;
 
 @interface AWSIoTMQTTTopicModel : NSObject
 @property (nonatomic, strong) NSString *topic;

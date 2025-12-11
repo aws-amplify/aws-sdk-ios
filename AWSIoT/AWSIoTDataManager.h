@@ -16,7 +16,8 @@
 #import "AWSIoTDataService.h"
 #import "AWSIoTService.h"
 #import "AWSIoTMQTTTypes.h"
-#import "AWSIoTKeychain.h"
+
+@class AWSIoTKeychain;
 
 NS_ASSUME_NONNULL_BEGIN
 
