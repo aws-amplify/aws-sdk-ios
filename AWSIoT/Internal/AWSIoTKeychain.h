@@ -18,6 +18,7 @@
 #import <Security/Security.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
+#import "AWSIoTKeyAlgorithmType.h"
 #import "AWSIoTKeyChainTypes.h"
 
 FOUNDATION_EXPORT NSString *const AWSIoTKeychainStartPrivateKeyTag;
@@ -25,18 +26,6 @@ FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndPrivateKeyTag;
 
 FOUNDATION_EXPORT NSString *const AWSIoTKeychainStartCertKeyTag;
 FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndCertKeyTag;
-
-/**
- * Represents common cryptographic key algorithms.
- * This enum provides a high-level abstraction for the low-level constants
- * (e.g., kSecAttrKeyTypeRSA) used by the Security framework.
- */
-typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
-    KeyAlgorithmTypeUnknown,
-    KeyAlgorithmTypeRSA,
-    KeyAlgorithmTypeEC,
-    KeyAlgorithmTypeECPrimeRandom
-};
 
 @interface AWSIoTKeychain : NSObject
 
@@ -72,7 +61,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return `YES` if both keys were either successfully deleted or were already not present.
  * Returns `NO` if a critical, unexpected error occurred during either deletion operation.
  */
-+ (BOOL)deleteAsymmetricKeysWithPublicTag:(NSString *)publicTag privateTag:(NSString *)privateTag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)deleteAsymmetricKeysWithPublicTag:(NSString *)publicTag privateTag:(NSString *)privateTag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel;
 
@@ -94,7 +83,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return `YES` if an identity is found and a certificate can be successfully extracted from it.
  * Returns `NO` if the identity is not found or if the certificate extraction fails.
  */
-+ (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)addCertificateToKeychain:(NSString *)cert;
 + (BOOL)addCertificateToKeychain:(NSString*)cert tag:(NSString*)tag;
@@ -121,7 +110,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  *
  * @return A `SecKeyRef` on success, or `NULL` if the key is not found or an error occurs.
  */
-+ (SecKeyRef)getPublicKeyRef:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (SecKeyRef)getPublicKeyRef:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (NSData *)getPublicKeyBits:(NSString *)tag;
 
@@ -136,7 +125,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return `NSData` object containing the key's data on success, or `NULL` if the key is
  * not found or an error occurs.
  */
-+ (NSData *)getPublicKeyBits:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (NSData *)getPublicKeyBits:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (SecKeyRef)getPrivateKeyRef:(NSString *)tag;
 
@@ -152,7 +141,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  *
  * @return A `SecKeyRef` on success, or `NULL` if the key is not found or an error occurs.
  */
-+ (SecKeyRef)getPrivateKeyRef:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (SecKeyRef)getPrivateKeyRef:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (NSData *)getPrivateKeyBits:(NSString *)tag;
 
@@ -167,7 +156,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return `NSData` object containing the key's data on success, or `NULL` if the key is
  * not found or an error occurs.
  */
-+ (NSData *)getPrivateKeyBits:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (NSData *)getPrivateKeyBits:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel;
 
@@ -184,7 +173,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  *
  * @return A `SecIdentityRef` on success, or `NULL` if the identity is not found or an error occurs.
  */
-+ (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString *)tag;
 
@@ -197,7 +186,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  *
  * @return `YES` if the key was successfully stored in the keychain, `NO` otherwise.
  */
-+ (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)addPublicKey:(NSData *)pubkey tag:(NSString *)tag;
 
@@ -210,7 +199,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  *
  * @return `YES` if the key was successfully stored in the keychain, `NO` otherwise.
  */
-+ (BOOL)addPublicKey:(NSData *)pubkey tag:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)addPublicKey:(NSData *)pubkey tag:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString *)tag;
 
@@ -222,7 +211,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @param keyAlgorithmType The algorithm type of the key.
  * @return `YES` if the key was successfully stored, `NO` otherwise.
  */
-+ (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)addPrivateKey:(NSData *)privkey tag:(NSString *)tag;
 
@@ -234,7 +223,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @param keyAlgorithmType The algorithm type of the key.
  * @return `YES` if the key was successfully stored, `NO` otherwise.
  */
-+ (BOOL)addPrivateKey:(NSData *)privkey tag:(NSString *)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)addPrivateKey:(NSData *)privkey tag:(NSString *)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (BOOL)deletePrivateKeyWithTag:(NSString*)tag;
 
@@ -249,7 +238,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return `YES` if the key was successfully deleted or was already not present. Returns `NO`
  * if a critical, unexpected error occurred during the deletion operation.
  */
-+ (BOOL)deletePrivateKeyWithTag:(NSString*)tag keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)deletePrivateKeyWithTag:(NSString*)tag keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 
@@ -260,7 +249,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return The corresponding kSecAttrKeyType constant (e.g., kSecAttrKeyTypeRSA) on success,
  * or `NULL` if the type is KeyAlgorithmTypeUnknown or otherwise unhandled.
  */
-+ (CFStringRef)getKeyTypeFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (CFStringRef)getKeyTypeFromKeyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 /**
  * Determines the key algorithm type by inspecting the provided keychain tag string.
@@ -276,7 +265,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * `KeyAlgorithmTypeEC`). Returns `KeyAlgorithmTypeUnknown` if the tag is `nil`,
  * empty, or does not match a known algorithm pattern.
  */
-+ (KeyAlgorithmType)getKeyAlgorithmTypeFromTag:(NSString *)keyTag;
++ (AWSIoTKeyAlgorithmType)getKeyAlgorithmTypeFromTag:(NSString *)keyTag;
 
 /**
  * Inspects a SecKeyRef and returns its algorithm type as a high-level enum.
@@ -288,7 +277,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return The corresponding `KeyAlgorithmType` enum value (e.g., `KeyAlgorithmTypeRSA`).
  * Returns `KeyAlgorithmTypeUnknown` if the key reference is NULL or its type cannot be determined.
  */
-+ (KeyAlgorithmType)getKeyAlgorithmTypeFromKeyRef:(SecKeyRef)keyRef;
++ (AWSIoTKeyAlgorithmType)getKeyAlgorithmTypeFromKeyRef:(SecKeyRef)keyRef;
 
 /**
  * A factory method that returns the appropriate certificate tag string for a given algorithm type.
@@ -301,7 +290,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return An `NSString` containing the fully-formed certificate tag. Returns `nil` if the
  * algorithm type is `KeyAlgorithmTypeUnknown` or another unhandled value.
  */
-+ (NSString *)getCertificateTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (NSString *)getCertificateTagFromKeyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 /**
  * A factory method that returns the appropriate public key tag string for a given algorithm type.
@@ -314,7 +303,7 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return An `NSString` containing the fully-formed public key tag. Returns `nil` if the
  * algorithm type is `KeyAlgorithmTypeUnknown` or another unhandled value.
  */
-+ (NSString *)getPublicKeyTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (NSString *)getPublicKeyTagFromKeyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 /**
  * A factory method that returns the appropriate private key tag string for a given algorithm type.
@@ -327,6 +316,6 @@ typedef NS_ENUM(NSInteger, KeyAlgorithmType) {
  * @return An `NSString` containing the fully-formed public key tag. Returns `nil` if the
  * algorithm type is `KeyAlgorithmTypeUnknown` or another unhandled value.
  */
-+ (NSString *)getPrivateKeyTagFromKeyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (NSString *)getPrivateKeyTagFromKeyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 @end

@@ -296,7 +296,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                        port:(UInt32)port
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString*)certificateId
-           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+           keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
                   keepAlive:(UInt16)theKeepAliveInterval
                   willTopic:(NSString*)willTopic
                     willMsg:(NSData*)willMsg
