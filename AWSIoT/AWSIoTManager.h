@@ -15,7 +15,8 @@
 
 #import "AWSIoTService.h"
 #import "AWSIoTKeyChainTypes.h"
-#import "AWSIoTKeychain.h"
+
+@class AWSIoTKeychain;
 
 //CreateCertificateWithResponse
 @interface AWSIoTCreateCertificateResponse : AWSModel
