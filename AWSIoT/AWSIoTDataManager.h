@@ -486,7 +486,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 - (BOOL)connectWithClientId:(NSString *)clientId
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
-           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+           keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
@@ -525,7 +525,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 - (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
                         cleanSession:(BOOL)cleanSession
                        certificateId:(NSString *)certificateId
-                    keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+                    keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
                       statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
 API_AVAILABLE(ios(11), macosx(10.13));
 

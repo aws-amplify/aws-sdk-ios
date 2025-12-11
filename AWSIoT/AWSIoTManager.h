@@ -15,6 +15,7 @@
 
 #import "AWSIoTService.h"
 #import "AWSIoTKeyChainTypes.h"
+#import "AWSIoTKeyAlgorithmType.h"
 
 @class AWSIoTKeychain;
 
@@ -225,7 +226,7 @@
  *
  * @return `YES` if the entire identity was validated and imported successfully, `NO` otherwise.
  */
-+ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 /**
  *  Validates the certificate with the given identifier of certificate.
@@ -248,7 +249,7 @@
  *
  * @return `YES` if a valid identity is found, `NO` otherwise.
  */
-+ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType;
++ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType;
 
 /**
  *  Deletes keys and certificate
@@ -271,7 +272,7 @@
  * @return `YES` if all components were successfully deleted (or were already not present),
  * `NO` if a critical deletion error occurred for any component.
  */
-+ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString*)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType NS_SWIFT_NAME(deleteCertificate(certificateId:keyAlgorithmType:));
++ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString*)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType NS_SWIFT_NAME(deleteCertificate(certificateId:keyAlgorithmType:));
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 

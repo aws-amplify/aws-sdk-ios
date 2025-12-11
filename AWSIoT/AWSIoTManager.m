@@ -208,7 +208,7 @@ static BOOL _tagCertificateEnabled = NO;
                 SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
                 SecIdentityRef identityRef = nil;
 
-                if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:KeyAlgorithmTypeRSA] &&
+                if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:AWSIoTKeyAlgorithmTypeRSA] &&
                     [AWSIoTKeychain addPrivateKeyRef:privateKeyRef tag:newPrivateTag] &&
                     [AWSIoTKeychain addPublicKeyRef:publicKeyRef tag:newPublicTag] &&
                     [AWSIoTKeychain addCertificateToKeychain:certificatePem tag:newCertTag] &&
@@ -291,7 +291,7 @@ static BOOL _tagCertificateEnabled = NO;
     return YES;
 }
 
-+ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
++ (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType {
     __block SecKeyRef privateKey = NULL;
     __block SecKeyRef publicKey = NULL;
     __block SecCertificateRef certRef = NULL;
@@ -308,7 +308,7 @@ static BOOL _tagCertificateEnabled = NO;
         }
     };
 
-    if (keyAlgorithmType == KeyAlgorithmTypeUnknown) {
+    if (keyAlgorithmType == AWSIoTKeyAlgorithmTypeUnknown) {
         AWSDDLogError(@"keyAlgorithmType value is not valid");
         return NO;
     }
@@ -321,10 +321,10 @@ static BOOL _tagCertificateEnabled = NO;
         return NO;
     }
     
-    KeyAlgorithmType privateKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:privateKey];
-    KeyAlgorithmType publicKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:publicKey];
+    AWSIoTKeyAlgorithmType privateKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:privateKey];
+    AWSIoTKeyAlgorithmType publicKeyType = [AWSIoTKeychain getKeyAlgorithmTypeFromKeyRef:publicKey];
     
-    if (privateKeyType == KeyAlgorithmTypeUnknown || publicKeyType == KeyAlgorithmTypeUnknown) {
+    if (privateKeyType == AWSIoTKeyAlgorithmTypeUnknown || publicKeyType == AWSIoTKeyAlgorithmTypeUnknown) {
         cleanup();
         AWSDDLogError(@"Could not determine key algorithm from the PKCS12 data.");
         return NO;
@@ -494,10 +494,10 @@ static BOOL _tagCertificateEnabled = NO;
     return [AWSIoTKeychain removeCertificateWithTag:certTag] && [AWSIoTKeychain
                                                                  deleteAsymmetricKeysWithPublicTag:publicTag
                                                                  privateTag:privateTag
-                                                                 keyAlgorithmType:KeyAlgorithmTypeRSA];
+                                                                 keyAlgorithmType:AWSIoTKeyAlgorithmTypeRSA];
 }
 
-+ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
++ (BOOL)deleteCertificateWithCertificateIdAndKeyAlgorithmType:(NSString *)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType {
     NSString *certTagPrefix = [AWSIoTKeychain getCertificateTagFromKeyAlgorithmType:keyAlgorithmType];
     if (!certTagPrefix) {
         AWSDDLogError(@"Unable to get certificate tag prefix");
@@ -529,8 +529,8 @@ static BOOL _tagCertificateEnabled = NO;
     return [AWSIoTKeychain isValidCertificate:tag certificateLabel:certLabel];
 }
 
-+ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType {
-    if (keyAlgorithmType == KeyAlgorithmTypeUnknown) {
++ (BOOL)isValidCertificate:(NSString *)certificateId keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType {
+    if (keyAlgorithmType == AWSIoTKeyAlgorithmTypeUnknown) {
         AWSDDLogError(@"keyAlgorithmType value is not valid");
         return NO;
     }

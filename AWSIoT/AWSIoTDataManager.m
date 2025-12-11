@@ -426,7 +426,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
                         cleanSession:(BOOL)cleanSession
                        certificateId:(NSString *)certificateId
-                    keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+                    keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
                       statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
 {
     return [self connectWithClientId:clientId
@@ -452,7 +452,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (BOOL)connectWithClientId:(NSString*)clientId
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
-           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+           keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
 {
     return [self connectWithClientId:clientId
@@ -512,7 +512,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (BOOL)connectWithClientId:(NSString*)clientId
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
-           keyAlgorithmType:(KeyAlgorithmType)keyAlgorithmType
+           keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
                        port:(UInt32)port
 {
