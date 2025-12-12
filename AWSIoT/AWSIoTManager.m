@@ -360,13 +360,13 @@ static BOOL _tagCertificateEnabled = NO;
     NSString *privateTag = [privateTagPrefix stringByAppendingString:certificateId];
     NSString *certTag = [certTagPrefix stringByAppendingString:certificateId];
 
-    if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag]) {
+    if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag keyAlgorithmType:privateKeyType]) {
         cleanup();
         AWSDDLogError(@"Unable to add private key");
         return NO;
     }
 
-    if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag]) {
+    if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag keyAlgorithmType:publicKeyType]) {
         // can use privateKeyType since it is the same as publicKeyType
         [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag keyAlgorithmType:privateKeyType];
         cleanup();
