@@ -86,7 +86,7 @@ jobs:
 
       - name: ${{ matrix.scheme }}
         run: |
-          xcodebuild test -project ${{ matrix.project }} \
+          arch -x86_64 xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
           -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
@@ -95,7 +95,7 @@ jobs:
       - name: Additional AWSMobileClient integration test targets
         if: ${{ matrix.scheme == 'AWSMobileClient' }}
         run: |
-          xcodebuild test -project ${{ matrix.project }} \
+          arch -x86_64 xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
           -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
