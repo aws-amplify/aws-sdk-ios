@@ -64,7 +64,7 @@ jobs:
           - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
             scheme: AWSMobileClient
 
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Checkout code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
@@ -89,7 +89,7 @@ jobs:
           xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
           -only-testing:"${{ matrix.scheme }}Tests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
 
       - name: Additional AWSMobileClient integration test targets
@@ -98,5 +98,5 @@ jobs:
           xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
           -only-testing:AWSMobileClientCustomAuthTests | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}

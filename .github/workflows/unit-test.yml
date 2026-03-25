@@ -81,7 +81,7 @@ jobs:
         run: |
           xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
-          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
           -sdk iphonesimulator \
           -only-testing:"${{ matrix.scheme }}UnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
 
@@ -90,7 +90,7 @@ jobs:
         run: |
           xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
-          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
           -sdk iphonesimulator \
           -only-testing:AWSCoreServiceConfigurationTest \
           -only-testing:AWSCoreConfigurationTest | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
