@@ -86,17 +86,17 @@ jobs:
 
       - name: ${{ matrix.scheme }}
         run: |
-          arch -x86_64 xcodebuild test -project ${{ matrix.project }} \
+          xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
           -only-testing:"${{ matrix.scheme }}Tests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
 
       - name: Additional AWSMobileClient integration test targets
         if: ${{ matrix.scheme == 'AWSMobileClient' }}
         run: |
-          arch -x86_64 xcodebuild test -project ${{ matrix.project }} \
+          xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 15,arch=x86_64,OS=latest" \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
           -only-testing:AWSMobileClientCustomAuthTests | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
