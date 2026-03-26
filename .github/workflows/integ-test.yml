@@ -73,7 +73,7 @@ jobs:
           persist-credentials: false
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-duration-seconds: 3600
@@ -83,6 +83,13 @@ jobs:
       - name: Build testconfiguration
         run: ./Scripts/generate-test-config.sh -p ios -v
         shell: bash
+
+      - name: Fix OCMock for Apple Silicon simulator
+        run: |
+          # Remove the arm64 slice (tagged as iOS device) to prevent linker mismatch
+          # on Apple Silicon where the simulator also uses arm64
+          cd AWSCoreTests/OCMock
+          lipo libOCMock.a -remove arm64 -output libOCMock.a
 
       - name: ${{ matrix.scheme }}
         run: |
