@@ -89,8 +89,8 @@ jobs:
           xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
-          OTHER_LDFLAGS='$(inherited) -ObjC -Wl,-ld_classic' \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest,arch=x86_64" \
+          EXCLUDED_ARCHS[sdk=iphonesimulator*]=arm64 \
           -only-testing:"${{ matrix.scheme }}Tests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
 
       - name: Additional AWSMobileClient integration test targets
@@ -99,6 +99,6 @@ jobs:
           xcodebuild test -project ${{ matrix.project }} \
           -scheme ${{ matrix.scheme }} \
           -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
-          OTHER_LDFLAGS='$(inherited) -ObjC -Wl,-ld_classic' \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest,arch=x86_64" \
+          EXCLUDED_ARCHS[sdk=iphonesimulator*]=arm64 \
           -only-testing:AWSMobileClientCustomAuthTests | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
