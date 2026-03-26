@@ -79,9 +79,9 @@ jobs:
 
       - name: ${{ matrix.scheme }}
         run: |
-          xcodebuild test -project "${{ matrix.project }}" \
+          arch -x86_64 xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
-          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest,arch=x86_64" \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
           -sdk iphonesimulator \
           EXCLUDED_ARCHS[sdk=iphonesimulator*]=arm64 \
           -only-testing:"${{ matrix.scheme }}UnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
@@ -89,9 +89,9 @@ jobs:
       - name: Additional AWSCore unit test
         if: ${{ matrix.scheme == 'AWSCore' }}
         run: |
-          xcodebuild test -project "${{ matrix.project }}" \
+          arch -x86_64 xcodebuild test -project "${{ matrix.project }}" \
           -scheme ${{ matrix.scheme }} \
-          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest,arch=x86_64" \
+          -destination "platform=iOS Simulator,name=iPhone 15,OS=latest" \
           -sdk iphonesimulator \
           EXCLUDED_ARCHS[sdk=iphonesimulator*]=arm64 \
           -only-testing:AWSCoreServiceConfigurationTest \
