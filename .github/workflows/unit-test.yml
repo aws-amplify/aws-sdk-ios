@@ -77,13 +77,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Fix OCMock for Apple Silicon simulator
-        run: |
-          # Remove the arm64 slice (tagged as iOS device) to prevent linker mismatch
-          # on Apple Silicon where the simulator also uses arm64
-          cd AWSCoreTests/OCMock
-          lipo libOCMock.a -remove arm64 -output libOCMock.a
-
       - name: ${{ matrix.scheme }}
         run: |
           xcodebuild test -project "${{ matrix.project }}" \
