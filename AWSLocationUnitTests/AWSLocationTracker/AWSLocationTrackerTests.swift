@@ -52,6 +52,10 @@ class AWSLocationTrackerTests: XCTestCase {
         XCTAssertEqual(locationTracker.trackerOptions?.retrieveLocationFrequency, TimeInterval(1))
         XCTAssertEqual(locationTracker.trackerOptions?.emitLocationFrequency, TimeInterval(2))
         wait(for: [requestLocationExpectation], timeout: 10)
+        // Keep strong references alive until after the wait, since the tracker
+        // holds its delegate weakly and the timer fires on a background queue.
+        _ = delegate
+        _ = locationTracker
     }
     
     func testStartTrackingForTrackingEnabledWillReturnFailure() {
