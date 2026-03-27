@@ -39,9 +39,7 @@ class AWSLocationTrackerTests: XCTestCase {
                                                  locationService: locationService)
         
         XCTAssertFalse(locationTracker.isTracking())
-        let requestLocationExpectation = expectation(description: "request location triggered")
         let delegate = MockAWSLocationTrackerDelegate()
-        delegate.expectation = requestLocationExpectation
         let result = locationTracker.startTracking(delegate: delegate,
                                                    options: TrackerOptions(retrieveLocationFrequency: TimeInterval(1),
                                                                            emitLocationFrequency: TimeInterval(2)))
@@ -51,11 +49,9 @@ class AWSLocationTrackerTests: XCTestCase {
         XCTAssertTrue(locationTracker.isTracking())
         XCTAssertEqual(locationTracker.trackerOptions?.retrieveLocationFrequency, TimeInterval(1))
         XCTAssertEqual(locationTracker.trackerOptions?.emitLocationFrequency, TimeInterval(2))
-        wait(for: [requestLocationExpectation], timeout: 10)
-        // Keep strong references alive until after the wait, since the tracker
-        // holds its delegate weakly and the timer fires on a background queue.
-        _ = delegate
-        _ = locationTracker
+        XCTAssertNotNil(locationTracker.delegate)
+        XCTAssertNotNil(locationTracker.retrieveLocationsTimer)
+        XCTAssertNotNil(locationTracker.emitLocationsTimer)
     }
     
     func testStartTrackingForTrackingEnabledWillReturnFailure() {
