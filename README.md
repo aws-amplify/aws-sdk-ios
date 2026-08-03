@@ -1,9 +1,4 @@
-# ⚠️ The AWS SDK for iOS entered Maintenance Phase as of August 1, 2025.
-
-During this maintenance period:
-* Critical bug fixes and security patches will continue to be provided
-* No new features or enhancements will be added
-* Existing functionality will remain supported
+# ⚠️ The AWS SDK for iOS is Deprecated.
 
 We recommend that you start using [AWS Amplify for Swift](https://github.com/aws-amplify/amplify-swift), our modern feature-rich library designed specifically for building cloud-connected apps powered by AWS. You can refer to the [AWS SDK for iOS migration guide](https://github.com/aws-amplify/amplify-swift/blob/main/MobileSDK_To_AmplifySwift_Guidance.md) to help you transition to AWS Amplify for Swift.
 This version is scheduled to reach End of Support on **August 1, 2026**. After this date, no further updates of any kind will be provided. See [maintenance policy](https://docs.amplify.aws/reference/maintenance-policy) for more information about the Amplify Client Library lifecycle.
