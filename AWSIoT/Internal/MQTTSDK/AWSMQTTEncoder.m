@@ -38,6 +38,8 @@
 
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
+    if (self.stream == nil)
+        return;
     [self.stream setDelegate:self];
     [self.stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [self.stream open];
@@ -45,6 +47,8 @@
 
 - (void)close {
     AWSDDLogDebug(@"closing encoder stream.");
+    if (self.stream == nil)
+        return;
     [self.stream close];
     [self.stream setDelegate:nil];
     self.stream = nil;

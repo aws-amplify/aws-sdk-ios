@@ -22,16 +22,62 @@
 @property(nonatomic, strong, nullable) NSOutputStream *encoderOutputStream;
 @property(nonatomic, strong, nullable) NSInputStream  *decoderInputStream;
 @property(nonatomic, strong, nullable) NSOutputStream *outputStream;
-@property(nonatomic, strong, nullable) NSTimer *defaultRunLoopTimer;
-@property(nonatomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
+@property(atomic, strong, nullable) NSTimer *defaultRunLoopTimer;
+@property(atomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
 @property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
-@property(nonatomic, assign) BOOL isRunning;
-@property(nonatomic, assign) BOOL shouldDisconnect;
-@property(nonatomic, strong) dispatch_queue_t serialQueue;
-@property(nonatomic, assign) BOOL didCleanUp;
+@property(atomic, assign) BOOL isRunning;
+@property(atomic, assign) BOOL shouldDisconnect;
+@property(atomic, assign) BOOL didCleanUp;
+@property(atomic, assign) BOOL isDeallocationInProgress;
+
 @end
 
 @implementation AWSIoTStreamThread
+
+- (void)dealloc {
+    _isDeallocationInProgress = YES;
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // ALWAYS use minimal cleanup during dealloc to avoid crashes
+    // - Minimal cleanup is safer during object destruction
+    // - Avoids runloop operations that could crash during dealloc
+    // - Ignores shouldDisconnect flag for safety
+    [self performMinimalCleanup];
+}
+
+- (void)performMinimalCleanup {
+    if (_didCleanUp) {
+        return;
+    }
+    _didCleanUp = YES;
+    
+    // Stop timer to prevent callbacks during/after deallocation
+    if (_defaultRunLoopTimer) {
+        [_defaultRunLoopTimer invalidate];
+        _defaultRunLoopTimer = nil;
+    }
+
+    if (_outputStream) {
+        _outputStream.delegate = nil;
+        _outputStream = nil;
+    }
+    
+    if (_decoderInputStream) {
+        _decoderInputStream = nil;
+    }
+    
+    if (_encoderOutputStream) {
+        _encoderOutputStream = nil;
+    }
+    
+    if (_session) {
+        _session = nil;
+    }
+    
+    // Clear callback to break retain cycles
+    _onStop = nil;
+}
 
 - (nonnull instancetype)initWithSession:(nonnull AWSMQTTSession *)session
                      decoderInputStream:(nonnull NSInputStream *)decoderInputStream
@@ -53,8 +99,8 @@
         _outputStream = outputStream;
         _defaultRunLoopTimeInterval = 10;
         _shouldDisconnect = NO;
-        _serialQueue = dispatch_queue_create("com.amazonaws.iot.streamthread.syncQueue", DISPATCH_QUEUE_SERIAL);
         _didCleanUp = NO;
+        _isDeallocationInProgress = NO;
     }
     return self;
 }
@@ -92,11 +138,13 @@
     [self.session connectToInputStream:self.decoderInputStream
                           outputStream:self.encoderOutputStream];
 
-    while ([self shouldContinueRunning]) {
-        //This will continue run until the thread is cancelled
-        //Run one cycle of the runloop. This will return after a input source event or timer event is processed
-        [self.runLoopForStreamsThread runMode:NSDefaultRunLoopMode
-                                   beforeDate:[NSDate dateWithTimeIntervalSinceNow:self.defaultRunLoopTimeInterval]];
+    // Capture values locally to prevent crashes if self is deallocated
+    NSRunLoop *runLoop = self.runLoopForStreamsThread;
+    NSTimeInterval interval = self.defaultRunLoopTimeInterval;
+    
+    while ([self shouldContinueRunning] && runLoop) {
+        [runLoop runMode:NSDefaultRunLoopMode
+              beforeDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
     }
 
     [self cleanUp];
@@ -105,76 +153,101 @@
 }
 
 - (BOOL)shouldContinueRunning {
-    __block BOOL shouldRun;
-    dispatch_sync(self.serialQueue, ^{
-        shouldRun = self.isRunning && !self.isCancelled && self.defaultRunLoopTimer != nil;
-    });
-    return shouldRun;
+    if (self.isDeallocationInProgress) {
+        return NO;
+    }
+    
+    if (!self.runLoopForStreamsThread || !self.defaultRunLoopTimer) {
+        return NO;
+    }
+    
+    return self.isRunning && !self.isCancelled;
 }
 
 - (void)cancel {
     AWSDDLogVerbose(@"Issued Cancel on thread [%@]", (NSThread *)self);
-    dispatch_sync(self.serialQueue, ^{
-        self.isRunning = NO;
-        [super cancel];
-    });
+    
+    if (self.isDeallocationInProgress) {
+        return;
+    }
+    
+    // Invalidate timer immediately to break retain cycle
+    if (self.defaultRunLoopTimer) {
+        [self.defaultRunLoopTimer invalidate];
+        self.defaultRunLoopTimer = nil;
+    }
+    
+    // Atomic property, no synchronization needed
+    self.isRunning = NO;
+    [super cancel];
 }
 
 - (void)cancelAndDisconnect:(BOOL)shouldDisconnect {
     AWSDDLogVerbose(@"Issued Cancel and Disconnect = [%@] on thread [%@]", shouldDisconnect ? @"YES" : @"NO", (NSThread *)self);
-    dispatch_sync(self.serialQueue, ^{
-        self.shouldDisconnect = shouldDisconnect;
-        self.isRunning = NO;
-        [super cancel];
-    });
+    
+    if (self.isDeallocationInProgress) {
+        return;
+    }
+    
+    // Invalidate timer immediately to break retain cycle
+    if (self.defaultRunLoopTimer) {
+        [self.defaultRunLoopTimer invalidate];
+        self.defaultRunLoopTimer = nil;
+    }
+    
+    // Set flags and cancel - properties are atomic
+    self.shouldDisconnect = shouldDisconnect;
+    self.isRunning = NO;
+    [super cancel];
 }
 
 - (void)cleanUp {
-    dispatch_sync(self.serialQueue, ^{
-        if (self.didCleanUp) {
-            AWSDDLogVerbose(@"Clean up already called for thread: [%@]", (NSThread *)self);
-            return;
+    if (self.didCleanUp) {
+        return;
+    }
+    self.didCleanUp = YES;
+    
+    // Stop timer to prevent callbacks
+    if (self.defaultRunLoopTimer) {
+        [self.defaultRunLoopTimer invalidate];
+        self.defaultRunLoopTimer = nil;
+    }
+    // Conditional cleanup based on shouldDisconnect flag
+    if (self.shouldDisconnect) {
+        if (self.outputStream) {
+            if (self.runLoopForStreamsThread) {
+                [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
+                                             forMode:NSDefaultRunLoopMode];
+            }
+            self.outputStream.delegate = nil;
+            [self.outputStream close];
+            self.outputStream = nil;
         }
 
-        self.didCleanUp = YES;
-        if (self.defaultRunLoopTimer) {
-            [self.defaultRunLoopTimer invalidate];
-            self.defaultRunLoopTimer = nil;
+        if (self.decoderInputStream) {
+            [self.decoderInputStream close];
+            self.decoderInputStream = nil;
         }
 
-        if (self.shouldDisconnect) {
-            // Properly handle session closure first
-            if (self.session) {
-                [self.session close];
-                self.session = nil;
-            }
-
-            // Make sure we handle the streams in a thread-safe way
-            if (self.outputStream) {
-                // Remove from runLoop first before closing
-                if (self.runLoopForStreamsThread) {
-                    [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
-                                                 forMode:NSDefaultRunLoopMode];
-                }
-                self.outputStream.delegate = nil;
-                [self.outputStream close];
-                self.outputStream = nil;
-            }
-
-            if (self.decoderInputStream) {
-                [self.decoderInputStream close];
-                self.decoderInputStream = nil;
-            }
-
+        if (self.session) {
+            [self.session close];
+            self.session = nil;
+        }
+        
+        @synchronized(self.encoderOutputStream) {
             if (self.encoderOutputStream) {
                 [self.encoderOutputStream close];
                 self.encoderOutputStream = nil;
             }
-        } else {
-            AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
         }
+    } else {
+        AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
+    }
 
-        // Make sure onStop is called on the main thread to avoid UI issues
+    self.runLoopForStreamsThread = nil;
+    
+    // Handle onStop callback on main thread (skip during deallocation to avoid async operations)
+    if (!self.isDeallocationInProgress) {
         void (^stopBlock)(void) = self.onStop;
         if (stopBlock) {
             self.onStop = nil;
@@ -182,7 +255,7 @@
                 stopBlock();
             });
         }
-    });
+    }
 }
 
 @end

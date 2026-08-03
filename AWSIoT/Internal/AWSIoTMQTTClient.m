@@ -37,6 +37,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 @interface AWSIoTMQTTClient() <AWSSRWebSocketDelegate, NSStreamDelegate, AWSMQTTSessionDelegate>
 
+@property (atomic, assign) BOOL isBeingDeallocated;
+
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
 @property(nonatomic, strong) AWSMQTTSession* session;
 @property(nonatomic, strong) AWSIoTAtomicDictionary *topicListeners;
@@ -61,7 +63,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 @property(atomic, assign) NSTimeInterval currentReconnectTime; // current recconect time, based on exponential backoff
 @property NSInteger connectionAgeInSeconds; //Age of current connection
 
-@property(nonatomic, strong)NSTimer *reconnectTimer; //Timer for reconnect logic
+// Reconnect: switch to GCD timer to avoid NSTimer/runloop misuse on background threads.
+@property(nonatomic) dispatch_source_t reconnectTimerSource;
 @property(nonatomic, strong)NSTimer *connectionAgeTimer; //Timer to reset currentReconnectTime based on connection life
 
 @property UInt16 keepAliveInterval;
@@ -79,7 +82,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 @property (nonatomic, copy) StatusCallback connectStatusCallback;
 
 @property (nonatomic, strong) AWSIoTStreamThread *streamsThread;
-@property (nonatomic, strong) NSThread *reconnectThread;
+// reconnectThread removed; use GCD timer instead
 
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
 @property (strong,atomic) dispatch_queue_t timerQueue;
@@ -112,14 +115,53 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
         _timerSemaphore = dispatch_semaphore_create(1);
         _timerQueue = dispatch_queue_create("com.amazon.aws.iot.timer-queue", DISPATCH_QUEUE_SERIAL);
         _streamsThread = nil;
+        _reconnectTimerSource = nil;
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [self.reconnectTimer invalidate];
+    self.isBeingDeallocated = YES;
+    
+    // Invalidate timers first to prevent callbacks
     [self.connectionAgeTimer invalidate];
+    self.connectionAgeTimer = nil;
+    [self cleanupReconnectTimer];
+    
+    // Cancel stream thread safely
+    if (self.streamsThread) {
+        [self.streamsThread cancelAndDisconnect:YES];
+        self.streamsThread = nil;
+    }
+
+    if (self.websocketOutputStream) {
+        self.websocketOutputStream.delegate = nil;
+        [self.websocketOutputStream close];
+        self.websocketOutputStream = nil;
+    }
+
+    // Close websocket if open
+    if (self.webSocket) {
+        self.webSocket.delegate = nil;
+        [self.webSocket close];
+        self.webSocket = nil;
+    }
+    
+    // Clean up session
+    if (self.session) {
+        self.session.delegate = nil;
+        [self.session close];
+        self.session = nil;
+    }
+    
+    // Clear callbacks and delegates
+    self.connectStatusCallback = nil;
+    self.clientDelegate = nil;
+    
+    // Clear data structures
+    self.ackCallbackDictionary = nil;
+    self.topicListeners = nil;
 }
 
 - (instancetype)initWithDelegate:(id<AWSIoTMQTTClientDelegate>)delegate {
@@ -137,6 +179,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                            regionName:(NSString *)regionName
                           serviceName:(NSString *)serviceName;
 {
+    if (self.isBeingDeallocated) return nil;
+    
     // AWS4 uses a series of derived keys, formed by hashing different pieces of data
     NSString *kSecret = [NSString stringWithFormat:@"AWS4%@", secretKey];
     NSData *kDate = [AWSSignatureSignerUtility sha256HMacWithData:[dateStamp dataUsingEncoding:NSUTF8StringEncoding]
@@ -164,6 +208,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                                     now:(NSString *)now
                              sessionKey:(NSString *)sessionKey;
 {
+    if (self.isBeingDeallocated) return nil;
+    
     NSString *payloadHash = [AWSSignatureSignerUtility hexEncode:[AWSSignatureSignerUtility hashString:payload]];
     NSString *canonicalRequest = [NSString stringWithFormat:@"%@\n%@\n%@\nhost:%@\n\nhost\n%@",
                                   method,
@@ -214,6 +260,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                                     secretKey:(NSString *)secretKey
                                    sessionKey:(NSString *)sessionKey
 {
+    if (self.isBeingDeallocated) return nil;
     NSDate *date          = [NSDate aws_clockSkewFixedDate];
     NSString *now         = [date aws_stringValue:AWSDateISO8601DateFormat2];
     NSString *today       = [date aws_stringValue:AWSDateShortDateFormat1];
@@ -257,6 +304,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                     willQoS:(UInt8)willQoS
              willRetainFlag:(BOOL)willRetainFlag
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback {
+    if (self.isBeingDeallocated) return NO;
     
     if (self.userDidIssueConnect ) {
         //Issuing connect multiple times. Not allowed.
@@ -292,6 +340,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (BOOL) connectWithCert {
+    if (self.isBeingDeallocated) return NO;
+    
     self.mqttStatus = AWSIoTMQTTStatusConnecting;
     
     if (self.cleanSession) {
@@ -356,9 +406,9 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                                          &kCFTypeDictionaryKeyCallBacks,
                                          &kCFTypeDictionaryValueCallBacks);
     }
-    CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, sslSettings);
-    CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
     if (sslSettings) {
+        CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, sslSettings);
+        CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
         CFRelease(sslSettings);
     }
 
@@ -368,15 +418,20 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
         if (@available(iOS 11.0, *)) {
             //Get the SSL Context
             SSLContextRef context = (__bridge SSLContextRef) [inputStream propertyForKey: (__bridge NSString *) kCFStreamPropertySSLContext ];
-
-            //Set ALPN protocol list
-            CFStringRef strs[1];
-            strs[0] = CFSTR("x-amzn-mqtt-ca");
-            CFArrayRef protocols = CFArrayCreate(NULL, (void *)strs, 1, &kCFTypeArrayCallBacks);
-
-            SSLSetALPNProtocols(context, protocols);
-            if (protocols) {
-                CFRelease(protocols);
+            if (context != NULL) {
+                //Set ALPN protocol list
+                CFStringRef strs[1];
+                strs[0] = CFSTR("x-amzn-mqtt-ca");
+                CFArrayRef protocols = CFArrayCreate(NULL, (void *)strs, 1, &kCFTypeArrayCallBacks);
+                if (protocols != NULL) {
+                    OSStatus alpnStatus = SSLSetALPNProtocols(context, protocols);
+                    if (alpnStatus != noErr) {
+                        AWSDDLogWarn(@"SSLSetALPNProtocols failed with status: %d", (int)alpnStatus);
+                    }
+                    CFRelease(protocols);
+                }
+            } else {
+                AWSDDLogWarn(@"kCFStreamPropertySSLContext returned NULL; skipping ALPN setup");
             }
         }
     }
@@ -405,6 +460,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
              willRetainFlag:(BOOL)willRetainFlag
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 {
+    if (self.isBeingDeallocated) return NO;
+    
     if (self.userDidIssueConnect ) {
         //Issuing connect multiple times. Not allowed.
         return NO;
@@ -430,6 +487,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (BOOL)connectWithClientId:(NSString *)clientId
                presignedURL:(NSString *)presignedURL
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback {
+    if (self.isBeingDeallocated) return NO;
+    
     if (clientId != nil && presignedURL != nil) {
         // currently using the last given URL on subscribe call
         self.presignedURL = presignedURL;
@@ -465,6 +524,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                     willQoS:(UInt8)willQoS
              willRetainFlag:(BOOL)willRetainFlag
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback {
+    if (self.isBeingDeallocated) return NO;
+    
     if (self.userDidIssueConnect ) {
         // Issuing connect multiple times. Not allowed.
         return NO;
@@ -494,9 +555,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (BOOL) webSocketConnectWithClientId {
+    if (self.isBeingDeallocated) return NO;
     AWSDDLogInfo(@"AWSIoTMQTTClient: connecting via websocket. ");
     
     if (self.webSocket) {
+        self.webSocket.delegate = nil;
         [self.webSocket close];
         self.webSocket = nil;
     }
@@ -526,13 +589,9 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
         //Get Credentials from credentials provider.
         [[self.configuration.credentialsProvider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
             
-            //If an error occured when trying to get credentials, setup a timer to retry the connection after self.currentReconnectTime seconds and schedule it on the reconnect Thread.
+            //If an error occured when trying to get credentials, schedule a GCD reconnect.
             if (task.error) {
-                @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
-                    [self.reconnectThread start];
-                }
-                
+                [self scheduleReconnectGCD];
                 AWSDDLogError(@"Unable to connect to MQTT due to an error fetching credentials from the Credentials Provider. Will try again in %f seconds", self.currentReconnectTime);
                 return nil;
             }
@@ -556,6 +615,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)initWebSocketConnectionForURL:(NSString *)urlString {
+    if (self.isBeingDeallocated) return;
+    
     // Set status to "Connecting"
     self.mqttStatus = AWSIoTMQTTStatusConnecting;
     
@@ -592,18 +653,9 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     
     // Add the HTTP headers for custom authorizer name, token value and signature
     if (self.customAuthorizerName != nil) {
-        // Add IoT custom authorizer headers to the request
-        // x-amz-customauthorizer-name: <authorizer-name>
-        [urlRequest addValue:self.customAuthorizerName
-          forHTTPHeaderField:@"x-amz-customauthorizer-name"];
-        
-        // <token-key-name>: <some-token>
-        [urlRequest addValue:self.tokenValue
-          forHTTPHeaderField:self.tokenKeyName];
-        
-        // x-amz-customauthorizer-signature: <token-signature>
-        [urlRequest addValue:self.tokenSignature
-          forHTTPHeaderField:@"x-amz-customauthorizer-signature"];
+        [urlRequest addValue:self.customAuthorizerName forHTTPHeaderField:@"x-amz-customauthorizer-name"];
+        [urlRequest addValue:self.tokenValue forHTTPHeaderField:self.tokenKeyName];
+        [urlRequest addValue:self.tokenSignature forHTTPHeaderField:@"x-amz-customauthorizer-signature"];
     }
     
     //Create the webSocket and setup the MQTTClient object as the delegate
@@ -615,13 +667,13 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     //Open the web socket
     [self.webSocket open];
     
-    // Now that the WebSocket is created and opened, it will send its delegate, i.e., this MQTTclient object the messages.
     AWSDDLogVerbose(@"Websocket is created and opened.");
 }
 
 - (void)disconnect {
+    if (self.isBeingDeallocated) return;
+    
     if (self.userDidIssueDisconnect ) {
-        //Issuing disconnect multiple times. Turn this function into a noop by returning here.
         return;
     }
 
@@ -647,24 +699,21 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     __weak AWSIoTMQTTClient *weakSelf = self;
     self.streamsThread.onStop = ^{
         __strong AWSIoTMQTTClient *strongSelf = weakSelf;
-        //If the userDidIssueDisconnect has been set to NO, it means a new connection has been requested,
-        //so we should disregard these updates
         if (!strongSelf || !strongSelf.userDidIssueDisconnect) {
             return;
         }
 
-        //Invalidate connection age timer and close socket
         if (strongSelf.connectionAgeTimer != nil) {
             [strongSelf.connectionAgeTimer invalidate];
             strongSelf.connectionAgeTimer = nil;
         }
 
         if (strongSelf.webSocket) {
+            strongSelf.webSocket.delegate = nil;
             [strongSelf.webSocket close];
             strongSelf.webSocket = nil;
         }
 
-        //Notify disconnected status.
         strongSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
         [strongSelf notifyConnectionStatus];
     };
@@ -673,55 +722,33 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 /**
- Invalidates and removes reference to the reconnect timer on the correct thread to avoid
- creating a memory leak.
-
- @discussion If called on any thread other than the reconnect thread the work is queued up on
- the reconnect thread but the method returns without waiting for the invalidation to be completed.
- This is called initially on the thread the consumer is calling the client's disconnect method on.
+ Cleanup reconnect timer source safely.
  */
 - (void)cleanupReconnectTimer {
-    if (self.reconnectTimer == nil) {
-        return;
-    }
-
-    if (self.reconnectThread) {
-        if (!self.reconnectThread.isFinished && ![[NSThread currentThread] isEqual:self.reconnectThread]) {
-            // Move to reconnect thread to cleanup only if it's still running
-            [self performSelector:@selector(cleanupReconnectTimer)
-                         onThread:self.reconnectThread
-                       withObject:nil
-                    waitUntilDone:NO];
-            return;
-        }
-
-        [self invalidateReconnectTimer];
-    }
-}
-
-- (void)invalidateReconnectTimer {
-    __weak AWSIoTMQTTClient *weakSelf = self;
+    if (self.isBeingDeallocated) return;
     dispatch_async(self.timerQueue, ^{
-        [weakSelf.reconnectTimer invalidate];
-        weakSelf.reconnectTimer = nil;
+        if (self.reconnectTimerSource) {
+            dispatch_source_cancel(self.reconnectTimerSource);
+            self.reconnectTimerSource = nil;
+        }
     });
 }
 
 - (void)cleanUpWebsocketOutputStream {
+    if (self.isBeingDeallocated) return;
+    
     @synchronized(self) {
         if (self.websocketOutputStream) {
             self.websocketOutputStream.delegate = nil;
             [self.websocketOutputStream close];
-            [self.websocketOutputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
             self.websocketOutputStream = nil;
         }
     }
 }
 
 - (void)reconnectToSession {
+    if (self.isBeingDeallocated) return;
     
-    self.reconnectTimer = nil;
-
     //Check if the user has issued a disconnect. If so, don't retry.
     if (self.userDidIssueDisconnect  )  {
         return;
@@ -734,10 +761,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
     AWSDDLogInfo(@"Attempting to reconnect.");
     
-    // Double the reconnect time which will be used on the next reconnection if this one fails to connect.
-    // Note that there is a maximum reconnection time beyond which
-    // it can no longer increase, and that the base (default) reconnection time will
-    // be restored once the connection remains up for the minimum connection time.
+    // Exponential backoff
     self.currentReconnectTime *= 2;
     if (self.currentReconnectTime > self.maximumReconnectTime) {
         self.currentReconnectTime = self.maximumReconnectTime;
@@ -757,12 +781,14 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)notifyConnectionStatus {
-    //Set the connection status on the callback.
     AWSIoTMQTTStatus mqttStatus = self.mqttStatus;
     __weak AWSIoTMQTTClient *weakSelf = self;
     __weak StatusCallback connectStatusCallback = weakSelf.connectStatusCallback;
     __weak id<AWSIoTMQTTClientDelegate> clientDelegate = weakSelf.clientDelegate;
-    dispatch_barrier_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        __strong AWSIoTMQTTClient *strongSelf = weakSelf;
+        if (!strongSelf) return;
+        
         __strong StatusCallback callback = connectStatusCallback;
         if (callback != nil) {
             callback(mqttStatus);
@@ -777,19 +803,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (void)initiateReconnectTimer: (id) sender
 {
+    if (self.isBeingDeallocated) return;
     if (_userDidIssueDisconnect ) {
         return;
     }
-    
-    //Make sure that only one thread can setup the timer at one time.
-    //Set the timeout to 1800 seconds, which is 1.5x of the max keep-alive 1200 seconds.
-    //The unit of measure for the dispatch_time function is nano seconds.
-
-    dispatch_assert_queue_not(self.timerQueue);
-    __weak AWSIoTMQTTClient *weakSelf = self;
-    dispatch_async(self.timerQueue, ^{
-        [weakSelf scheduleReconnection];
-    });
+    [self scheduleReconnectGCD];
 }
 
 #pragma mark - publish methods -
@@ -797,11 +815,12 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (void)publishString:(NSString*)str
               onTopic:(NSString*)topic
           ackCallback:(AWSIoTMQTTAckBlock)ackCallBack {
+    if (self.isBeingDeallocated) return;
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic];
-    
 }
 
 - (void)publishString:(NSString*)str onTopic:(NSString*)topic {
+    if (self.isBeingDeallocated) return;
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic];
 }
 
@@ -809,9 +828,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                   qos:(UInt8)qos
               onTopic:(NSString*)topic
           ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (self.isBeingDeallocated) return;
+    
     if (qos == 0 && ackCallback != nil) {
-        [NSException raise:NSInvalidArgumentException
-                    format:@"Cannot specify `ackCallback` block for QoS = 0."];
+        AWSDDLogError(@"Cannot specify `ackCallback` block for QoS = 0.");
+        return;
     }
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding]
                   qos:qos
@@ -820,17 +841,24 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)publishString:(NSString*)str qos:(UInt8)qos onTopic:(NSString*)topic {
+    if (self.isBeingDeallocated) return;
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] qos:qos onTopic:topic];
 }
 
 - (void)publishData:(NSData*)data
             onTopic:(NSString*)topic {
+    if (self.isBeingDeallocated) return;
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"publishData called while not connected; ignoring");
+        return;
+    }
     [self.session publishData:data onTopic:topic];
 }
 
 - (void)publishData:(NSData *)data
                 qos:(UInt8)qos
             onTopic:(NSString *)topic {
+    if (self.isBeingDeallocated) return;
     [self publishData:data qos:qos onTopic:topic ackCallback:nil];
 }
 
@@ -838,6 +866,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                 qos:(UInt8)qos
             onTopic:(NSString*)topic
         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback {
+    if (self.isBeingDeallocated) return;
     [self publishData:data qos:qos onTopic:topic retain:NO ackCallback:ackCallback];
 }
 
@@ -846,14 +875,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
             onTopic:(NSString*)topic
              retain:(BOOL)retain
         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback {
-    if (!_userDidIssueConnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call publish before connecting to the server"];
-    }
+    if (self.isBeingDeallocated) return;
     
-    if (_userDidIssueDisconnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call publish after disconnecting from the server"];
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"Cannot call publish when not connected.");
+        return;
     }
     
     if (qos < 0 || qos > 2) {
@@ -861,8 +887,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
         return;
     }
     if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce && ackCallback != nil) {
-        [NSException raise:NSInvalidArgumentException
-                    format:@"Cannot specify `ackCallback` block for QoS = 0."];
+        AWSDDLogError(@"Cannot specify `ackCallback` block for QoS = 0.");
+        return;
     }
 
     AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
@@ -888,24 +914,21 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 #pragma mark - subscribe methods -
 
 - (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos messageCallback:(AWSIoTMQTTNewMessageBlock)callback {
+    if (self.isBeingDeallocated) return;
     [self subscribeToTopic:topic
                        qos:qos
            messageCallback:callback
                ackCallback:nil];
-    
 }
 
 - (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos
          messageCallback:(AWSIoTMQTTNewMessageBlock)callback
              ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
-    if (!_userDidIssueConnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe before connecting to the server"];
-    }
+    if (self.isBeingDeallocated) return;
     
-    if (_userDidIssueDisconnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe after disconnecting from the server"];
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"Cannot call subscribe before connecting to the server");
+        return;
     }
     AWSDDLogInfo(@"Subscribing to topic %@ with messageCallback", topic);
     AWSIoTMQTTTopicModel *topicModel = [AWSIoTMQTTTopicModel new];
@@ -919,6 +942,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (void)subscribeToTopic:(NSString*)topic
                      qos:(UInt8)qos
         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback {
+    if (self.isBeingDeallocated) return;
     [self subscribeToTopic:topic
                        qos:qos
           extendedCallback:callback
@@ -929,14 +953,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                      qos:(UInt8)qos
         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
              ackCallback:(AWSIoTMQTTAckBlock)ackCallback{
-    if (!_userDidIssueConnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe before connecting to the server"];
-    }
+    if (self.isBeingDeallocated) return;
     
-    if (_userDidIssueDisconnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe after disconnecting from the server"];
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"Cannot call subscribe before connecting to the server");
+        return;
     }
     
     AWSDDLogInfo(@"Subscribing to topic %@ with ExtendedmessageCallback", topic);
@@ -951,6 +972,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (void)subscribeToTopic:(NSString*)topic
                      qos:(UInt8)qos
             fullCallback:(AWSIoTMQTTFullMessageBlock)callback {
+    if (self.isBeingDeallocated) return;
     [self subscribeToTopic:topic
                        qos:qos
               fullCallback:callback
@@ -961,14 +983,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
                      qos:(UInt8)qos
             fullCallback:(AWSIoTMQTTFullMessageBlock)callback
              ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
-    if (!_userDidIssueConnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe before connecting to the server"];
-    }
-
-    if (_userDidIssueDisconnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call subscribe after disconnecting from the server"];
+    if (self.isBeingDeallocated) return;
+    
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"Cannot call subscribe before connecting to the server");
+        return;
     }
 
     AWSDDLogInfo(@"Subscribing to topic %@ with ExtendedmessageCallback", topic);
@@ -983,6 +1002,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 // Private
 - (void)subscribeWithTopicModel:(AWSIoTMQTTTopicModel *)topicModel
                     ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (self.isBeingDeallocated) return;
+    
     [self.topicListeners setObject:topicModel forKey:topicModel.topic];
 
     UInt16 messageId = [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
@@ -995,14 +1016,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 - (void)unsubscribeTopic:(NSString*)topic
              ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
-    if (!_userDidIssueConnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call unsubscribe before connecting to the server"];
-    }
+    if (self.isBeingDeallocated) return;
     
-    if (_userDidIssueDisconnect) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot call unsubscribe after disconnecting from the server"];
+    if (!_userDidIssueConnect || _userDidIssueDisconnect) {
+        AWSDDLogError(@"Cannot call unsubscribe before connecting to the server");
+        return;
     }
     AWSDDLogInfo(@"Unsubscribing from topic %@", topic);
     UInt16 messageId = [self.session unsubscribeTopic:topic];
@@ -1014,117 +1032,118 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)unsubscribeTopic:(NSString*)topic {
+    if (self.isBeingDeallocated) return;
     [self unsubscribeTopic:topic ackCallback:nil];
 }
 
 #pragma mark - MQTTSessionDelegate -
 
 - (void)connectionAgeTimerHandler:(NSTimer*)theTimer {
-    self.connectionAgeInSeconds++;
-    AWSDDLogVerbose(@"Connection Age: %ld", (long)self.connectionAgeInSeconds);
-    if (self.connectionAgeInSeconds >= self.minimumConnectionTime) {
-        AWSDDLogVerbose(@"Connection Age threshold reached. Resetting reconnect time to [%fs]", self.baseReconnectTime);
-        self.currentReconnectTime = self.baseReconnectTime;
-        [theTimer invalidate];
-    }
+    __weak AWSIoTMQTTClient *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong AWSIoTMQTTClient *strongSelf = weakSelf;
+        if (!strongSelf || !theTimer.isValid) return;
+
+        strongSelf.connectionAgeInSeconds++;
+        AWSDDLogVerbose(@"Connection Age: %ld", (long)strongSelf.connectionAgeInSeconds);
+        if (strongSelf.connectionAgeInSeconds >= strongSelf.minimumConnectionTime) {
+            AWSDDLogVerbose(@"Connection Age threshold reached. Resetting reconnect time to [%fs]", strongSelf.baseReconnectTime);
+            strongSelf.currentReconnectTime = strongSelf.baseReconnectTime;
+            [theTimer invalidate];
+        }
+    });
 }
 
 - (void)session:(AWSMQTTSession*)session handleEvent:(AWSMQTTSessionEvent)eventCode {
-    AWSDDLogVerbose(@"MQTTSessionDelegate handleEvent: %i",eventCode);
-
-    switch (eventCode) {
-        case AWSMQTTSessionEventConnected:
-            AWSDDLogInfo(@"MQTT session connected.");
-            self.mqttStatus = AWSIoTMQTTStatusConnected;
-            [self notifyConnectionStatus];
-          
-            if (self.connectionAgeTimer != nil) {
-                [self.connectionAgeTimer invalidate];
-            }
-            self.connectionAgeTimer = [ NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(connectionAgeTimerHandler:) userInfo:nil repeats:YES];
-
-            //Subscribe to prior topics
-            if (_autoResubscribe) {
-                AWSDDLogInfo(@"Auto-resubscribe is enabled. Resubscribing to topics.");
-                for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
-                    [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
-                }
-            }
-            break;
-            
-        case AWSMQTTSessionEventConnectionRefused:
-            AWSDDLogWarn(@"MQTT session refused.");
-            self.mqttStatus = AWSIoTMQTTStatusConnectionRefused;
-            [self notifyConnectionStatus];
-            break;
-        case AWSMQTTSessionEventConnectionClosed:
-            AWSDDLogInfo(@"MQTTSessionEventConnectionClosed: MQTT session closed.");
-            
-            self.connectionAgeInSeconds = 0;
-            if (self.connectionAgeTimer != nil ) {
-                [self.connectionAgeTimer invalidate];
-                self.connectionAgeTimer = nil;
-            }
+    __weak AWSIoTMQTTClient *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong AWSIoTMQTTClient *strongSelf = weakSelf;
+        if (!strongSelf) return;
+        
+        AWSDDLogVerbose(@"MQTTSessionDelegate handleEvent: %i",eventCode);
+        
+        switch (eventCode) {
+            case AWSMQTTSessionEventConnected: {
+                AWSDDLogInfo(@"MQTT session connected.");
+                strongSelf.mqttStatus = AWSIoTMQTTStatusConnected;
+                [strongSelf notifyConnectionStatus];
                 
-            //Check if user issued a disconnect
-            if (self.userDidIssueDisconnect ) {
-                //Clear all session state here.
-                [self.topicListeners removeAllObjects];
-                self.mqttStatus = AWSIoTMQTTStatusDisconnected;
-                [self notifyConnectionStatus];
-            }
-            else {
-                //Connection was closed unexpectedly.
-
-                //Notify
-                self.mqttStatus = AWSIoTMQTTStatusConnectionError;
-                [self notifyConnectionStatus];
-
-                //Retry
-                @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
-                    [self.reconnectThread start];
+                if (strongSelf.connectionAgeTimer != nil) {
+                    [strongSelf.connectionAgeTimer invalidate];
                 }
-            }
-            break;
-        case AWSMQTTSessionEventConnectionError:
-            AWSDDLogError(@"MQTTSessionEventConnectionError: Received an MQTT session connection error");
-            
-            self.connectionAgeInSeconds = 0;
-            if (self.connectionAgeTimer != nil ) {
-                [self.connectionAgeTimer invalidate];
-                self.connectionAgeTimer = nil;
-            }
-            if (self.userDidIssueDisconnect ) {
-                //Clear all session state here.
-                [self.topicListeners removeAllObjects];
-                self.mqttStatus = AWSIoTMQTTStatusDisconnected;
-                [self notifyConnectionStatus];
-            }
-            else {
-                //Connection errored out unexpectedly.
-
-                //Notify
-                self.mqttStatus = AWSIoTMQTTStatusConnectionError;
-                [self notifyConnectionStatus];
-
-                //Retry
-                @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
-                    [self.reconnectThread start];
+                __weak AWSIoTMQTTClient *weakSelf2 = strongSelf;
+                strongSelf.connectionAgeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer *timer) {
+                    __strong AWSIoTMQTTClient *strongSelf2 = weakSelf2;
+                    if (!strongSelf2) {
+                        [timer invalidate];
+                        return;
+                    }
+                    [strongSelf2 connectionAgeTimerHandler:timer];
+                }];
+                
+                if (strongSelf->_autoResubscribe) {
+                    AWSDDLogInfo(@"Auto-resubscribe is enabled. Resubscribing to topics.");
+                    for (AWSIoTMQTTTopicModel *topic in strongSelf.topicListeners.allValues) {
+                        [strongSelf.session subscribeToTopic:topic.topic atLevel:topic.qos];
+                    }
                 }
+                break;
             }
-            break;
-        case AWSMQTTSessionEventProtocolError:
-            AWSDDLogError(@"MQTT session protocol error");
-            self.mqttStatus = AWSIoTMQTTStatusProtocolError;
-            [self notifyConnectionStatus];
-            AWSDDLogError(@"Disconnecting.");
-            [self disconnect];
-            break;
-        default:
-            break;
-    }
+            case AWSMQTTSessionEventConnectionRefused:
+                AWSDDLogWarn(@"MQTT session refused.");
+                strongSelf.mqttStatus = AWSIoTMQTTStatusConnectionRefused;
+                [strongSelf notifyConnectionStatus];
+                break;
+            case AWSMQTTSessionEventConnectionClosed:
+                AWSDDLogInfo(@"MQTTSessionEventConnectionClosed: MQTT session closed.");
+                
+                strongSelf.connectionAgeInSeconds = 0;
+                if (strongSelf.connectionAgeTimer != nil ) {
+                    [strongSelf.connectionAgeTimer invalidate];
+                    strongSelf.connectionAgeTimer = nil;
+                }
+                
+                if (strongSelf.userDidIssueDisconnect ) {
+                    [strongSelf.topicListeners removeAllObjects];
+                    strongSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
+                    [strongSelf notifyConnectionStatus];
+                }
+                else {
+                    strongSelf.mqttStatus = AWSIoTMQTTStatusConnectionError;
+                    [strongSelf notifyConnectionStatus];
+                    [strongSelf scheduleReconnectGCD];
+                }
+                break;
+            case AWSMQTTSessionEventConnectionError:
+                AWSDDLogError(@"MQTTSessionEventConnectionError: Received an MQTT session connection error");
+                
+                strongSelf.connectionAgeInSeconds = 0;
+                if (strongSelf.connectionAgeTimer != nil ) {
+                    [strongSelf.connectionAgeTimer invalidate];
+                    strongSelf.connectionAgeTimer = nil;
+                }
+                if (strongSelf.userDidIssueDisconnect ) {
+                    [strongSelf.topicListeners removeAllObjects];
+                    strongSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
+                    [strongSelf notifyConnectionStatus];
+                }
+                else {
+                    strongSelf.mqttStatus = AWSIoTMQTTStatusConnectionError;
+                    [strongSelf notifyConnectionStatus];
+                    [strongSelf scheduleReconnectGCD];
+                }
+                break;
+            case AWSMQTTSessionEventProtocolError:
+                AWSDDLogError(@"MQTT session protocol error");
+                strongSelf.mqttStatus = AWSIoTMQTTStatusProtocolError;
+                [strongSelf notifyConnectionStatus];
+                AWSDDLogError(@"Disconnecting.");
+                [strongSelf disconnect];
+                break;
+            default:
+                break;
+        }
+    });
 
 }
 
@@ -1133,6 +1152,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 - (void)session:(AWSMQTTSession*)session
      newMessage:(AWSMQTTMessage*)message
         onTopic:(NSString*)topic {
+    if (self.isBeingDeallocated) return;
+    
     AWSDDLogVerbose(@"MQTTSessionDelegate newMessage: %@ onTopic: %@",[[NSString alloc] initWithData:message.data encoding:NSUTF8StringEncoding], topic);
 
     NSArray *topicParts = [topic componentsSeparatedByString: @"/"];
@@ -1200,12 +1221,13 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 #pragma mark - callback handler -
 
 - (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId {
+    if (self.isBeingDeallocated) return;
+    
     AWSDDLogVerbose(@"MQTTSessionDelegate new ack for msgId: %d", msgId);
     NSNumber *msgIdNumber = [NSNumber numberWithInt:msgId];
     AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:msgIdNumber];
     
     if(callback) {
-        // Give callback to the client on a background thread
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             callback();
         });
@@ -1216,20 +1238,19 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 #pragma mark - AWSSRWebSocketDelegate -
 
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
+    if (self.isBeingDeallocated) return;
+    
+    if (!webSocket || webSocket != self.webSocket) {
+        AWSDDLogError(@"webSocketDidOpen called with invalid webSocket reference");
+        return;
+    }
+    
     AWSDDLogInfo(@"Websocket did open and is connected.");
     
-    // The WebSocket is connected; at this point we need to create streams
-    // for MQTT encode/decode and then instantiate the MQTT client.
+    // Create bound pair for decoder
     CFReadStreamRef decoderReadStream;
     CFWriteStreamRef decoderWriteStream;
 
-    // CFStreamCreateBoundPair() requires addresses, so use the ivars for
-    // these properties.  128KB is the maximum message size for AWS IoT (see https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
-    // The streams should be able to buffer an entire maximum-sized message
-    // since the MQTT client isn't capable of dealing with partial reads.
-    
-    //Create a bound pair of read and write streams. Any data written to the write stream is received by the read stream.
-    // i.e., whatever is written to the "websocketOutputStream" is received by the "inputStream".
     CFStreamCreateBoundPair(nil, &decoderReadStream, &decoderWriteStream, 128*1024);    // 128KB buffer size
     NSInputStream *inputStream = (__bridge_transfer NSInputStream *)decoderReadStream;
     self.websocketOutputStream = (__bridge_transfer NSOutputStream *)decoderWriteStream;
@@ -1237,6 +1258,11 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
     //Create write stream to write to the WebSocket.
     self.encoderOutputStream = [AWSIoTWebSocketOutputStreamFactory createAWSIoTWebSocketOutputStreamWithWebSocket:webSocket];
+    
+    if (!inputStream || !self.websocketOutputStream || !self.encoderOutputStream) {
+        AWSDDLogError(@"Failed to create required streams for WebSocket connection");
+        return;
+    }
     
     //Cancel previous streams thread if necessary
     @synchronized(self) {
@@ -1254,39 +1280,61 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 }
 
-
 - (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
+    if (self.isBeingDeallocated) return;
+    if (!webSocket || webSocket != self.webSocket) {
+        AWSDDLogError(@"webSocket:didFailWithError called with invalid webSocket");
+        return;
+    }
+    
     AWSDDLogError(@"didFailWithError: Websocket failed With Error %@", error);
 
-    // The WebSocket has failed.The input/output streams can be closed here.
-    // Also, the webSocket can be set to nil
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
-    [self.webSocket close];
-    self.webSocket = nil;
+    @synchronized(self) {
+        if (self.encoderOutputStream) {
+            [self.encoderOutputStream close];
+            self.encoderOutputStream = nil;
+        }
+    }
     
-    // If this is not because of user initated disconnect, setup timer to retry.
+    @synchronized(self) {
+        if (self.webSocket) {
+            self.webSocket.delegate = nil;
+            [self.webSocket close];
+            self.webSocket = nil;
+        }
+    }
+    
     if (!self.userDidIssueDisconnect ) {
         self.mqttStatus = AWSIoTMQTTStatusConnectionError;
-        // Indicate an error to the connection status callback.
         [self notifyConnectionStatus];
-
-        @synchronized(self) {
-            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
-            [self.reconnectThread start];
-        }
+        [self scheduleReconnectGCD];
     }
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+    if (self.isBeingDeallocated) return;
+    if (!webSocket || webSocket != self.webSocket) {
+        AWSDDLogError(@"webSocket:didReceiveMessage called with invalid webSocket");
+        return;
+    }
+    NSOutputStream *wsOut = nil;
+    @synchronized (self) {
+        wsOut = self.websocketOutputStream;
+    }
+    if (!wsOut) {
+        return;
+    }
+
     if ([message isKindOfClass:[NSData class]])
     {
         NSData *messageData = (NSData *)message;
         AWSDDLogVerbose(@"Websocket didReceiveMessage: Received %lu bytes", (unsigned long)messageData.length);
     
-        // When a message is received, write it to the Decoder's input stream.
-        [self.websocketOutputStream write:[messageData bytes] maxLength:messageData.length];
+        @synchronized (wsOut) {
+            [wsOut write:[messageData bytes] maxLength:messageData.length];
+        }
     }
     else
     {
@@ -1295,48 +1343,73 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    if (self.isBeingDeallocated) return;
+    if (!webSocket || webSocket != self.webSocket) {
+        AWSDDLogError(@"webSocket:didCloseWithCode called with invalid webSocket");
+        return;
+    }
+    
     AWSDDLogInfo(@"WebSocket closed with code:%ld with reason:%@", (long)code, reason);
     
-    // The WebSocket has closed. The input/output streams can be closed here.
     [self cleanUpWebsocketOutputStream];
 
-    [self.encoderOutputStream close];
-    [self.webSocket close];
-    self.webSocket = nil;
+    @synchronized(self) {
+        if (self.encoderOutputStream) {
+            [self.encoderOutputStream close];
+            self.encoderOutputStream = nil;
+        }
+    }
     
-    // If this is not because of user initated disconnect, setup timer to retry.
+    @synchronized(self) {
+        if (self.webSocket) {
+            self.webSocket.delegate = nil;
+            [self.webSocket close];
+            self.webSocket = nil;
+        }
+    }
+    
     if (!self.userDidIssueDisconnect ) {
         self.mqttStatus = AWSIoTMQTTStatusConnectionError;
-        // Indicate an error to the connection status callback.
         [self notifyConnectionStatus];
-
-        @synchronized(self) {
-            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
-            [self.reconnectThread start];
-        }
+        [self scheduleReconnectGCD];
     }
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
+    if (self.isBeingDeallocated) return;
+    if (!webSocket || webSocket != self.webSocket) return;
     AWSDDLogVerbose(@"Websocket received pong");
 }
 
-
 # pragma mark - private/serial functions -
 
-- (void)scheduleReconnection {
-    dispatch_assert_queue(self.timerQueue);
-
-    BOOL isConnectingOrConnected = self.mqttStatus == AWSIoTMQTTStatusConnected || self.mqttStatus == AWSIoTMQTTStatusConnecting;
-    if (!self.reconnectTimer && !isConnectingOrConnected) {
-        self.reconnectTimer = [NSTimer timerWithTimeInterval:self.currentReconnectTime
-                                                      target:self
-                                                    selector: @selector(reconnectToSession)
-                                                    userInfo:nil
-                                                     repeats:NO];
-        [[NSRunLoop currentRunLoop] addTimer:self.reconnectTimer forMode:NSDefaultRunLoopMode];
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
+// New GCD-based reconnect scheduler
+- (void)scheduleReconnectGCD {
+    if (self.isBeingDeallocated) return;
+    dispatch_async(self.timerQueue, ^{
+        BOOL isConnectingOrConnected = self.mqttStatus == AWSIoTMQTTStatusConnected || self.mqttStatus == AWSIoTMQTTStatusConnecting;
+        if (self.reconnectTimerSource || isConnectingOrConnected || self.userDidIssueDisconnect) {
+            return;
+        }
+        __weak AWSIoTMQTTClient *weakSelf = self;
+        self.reconnectTimerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.timerQueue);
+        if (!self.reconnectTimerSource) {
+            return;
+        }
+        uint64_t intervalNs = (uint64_t)(self.currentReconnectTime * NSEC_PER_SEC);
+        dispatch_source_set_timer(self.reconnectTimerSource, dispatch_time(DISPATCH_TIME_NOW, intervalNs), DISPATCH_TIME_FOREVER, (uint64_t)(0.1 * NSEC_PER_SEC));
+        dispatch_source_set_event_handler(self.reconnectTimerSource, ^{
+            __strong AWSIoTMQTTClient *strongSelf = weakSelf;
+            if (!strongSelf) return;
+            dispatch_source_cancel(strongSelf.reconnectTimerSource);
+            strongSelf.reconnectTimerSource = nil;
+            [strongSelf reconnectToSession];
+        });
+        dispatch_source_set_cancel_handler(self.reconnectTimerSource, ^{
+            // Clear runloop reference after unscheduling streams
+        });
+        dispatch_resume(self.reconnectTimerSource);
+    });
 }
 
 @end

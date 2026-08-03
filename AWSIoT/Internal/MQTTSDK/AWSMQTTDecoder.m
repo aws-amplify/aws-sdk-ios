@@ -41,6 +41,8 @@ int maxLengthMultiplier = 128 * 128 * 128;
 
 - (void)open {
     AWSDDLogDebug(@"opening decoder stream.");
+    if (stream == nil)
+        return;
     [stream setDelegate:self];
     [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [stream open];
@@ -48,6 +50,8 @@ int maxLengthMultiplier = 128 * 128 * 128;
 
 - (void)close {
     AWSDDLogDebug(@"closing decoder stream.");
+    if (stream == nil)
+        return;
     [stream setDelegate:nil];
     [stream close];
     stream = nil;

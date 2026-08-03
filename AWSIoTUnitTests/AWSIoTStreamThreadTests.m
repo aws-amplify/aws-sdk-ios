@@ -19,10 +19,9 @@
 
 @interface AWSIoTStreamThread()
 @property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
-@property (nonatomic, assign) BOOL isRunning;
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
-@property (nonatomic, assign) BOOL didCleanUp;
-@property (nonatomic, strong, nullable) NSTimer *defaultRunLoopTimer;
+@property (atomic, assign) BOOL isRunning;
+@property (atomic, assign) BOOL didCleanUp;
+@property (atomic, strong, nullable) NSTimer *defaultRunLoopTimer;
 @end
 
 
@@ -155,14 +154,13 @@
 
     [self.thread cancelAndDisconnect:YES];
 
-    // Validate synchronization
-    __block BOOL didSynchronize = NO;
-    dispatch_sync(self.thread.serialQueue, ^{
-        didSynchronize = YES;
-    });
-
-    XCTAssertTrue(didSynchronize, @"The cleanupQueue should synchronize the operations");
+    // With atomic properties, synchronization is handled automatically
+    // Validate that cleanup completed by checking atomic properties
     [self waitForExpectations:@[stopExpectation] timeout:1];
+    
+    // The atomic properties ensure thread-safe access without explicit queues
+    XCTAssertTrue(self.thread.didCleanUp, @"didCleanUp should be YES after cleanup");
+    XCTAssertFalse(self.thread.isRunning, @"isRunning should be NO after cleanup");
 }
 
 @end
