@@ -44,10 +44,15 @@
 }
 
 - (void)close {
-    AWSDDLogDebug(@"closing encoder stream.");
-    [self.stream close];
-    [self.stream setDelegate:nil];
-    self.stream = nil;
+    // Make sure we handle the streams in a thread-safe way
+    @synchronized (self.stream) {
+        if (self.stream) { // We'd better double check that the stream is not nil
+            AWSDDLogDebug(@"closing encoder stream.");
+            [self.stream close];
+            [self.stream setDelegate:nil];
+            self.stream = nil;
+        }
+    }
 }
 
 //This is executed in the runLoop.
