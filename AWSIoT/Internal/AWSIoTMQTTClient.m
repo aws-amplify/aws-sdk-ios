@@ -267,10 +267,68 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     self.userDidIssueConnect = YES;
     self.session = nil;
     
-    NSString *privateKeyTag = [NSString stringWithFormat:@"%@%@",[AWSIoTKeychain privateKeyTag], certificateId];
+    NSString *privateKeyTag = [NSString stringWithFormat:@"%@%@",[AWSIoTKeychain rsaPrivateKeyTag], certificateId];
     NSString *certificateLabel = [AWSIoTManager certTagWithCertificateId:certificateId];
     
     SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel];
+    if (identityRef == NULL) {
+        AWSDDLogError(@"Could not find SecIdentityRef");
+        return NO;
+    };
+    self.mqttStatus = AWSIoTMQTTStatusConnecting;
+    self.clientCerts = [[NSArray alloc] initWithObjects:(__bridge_transfer id)identityRef, nil];
+    self.host = host;
+    self.port = port;
+    self.cleanSession = cleanSession;
+    self.connectStatusCallback = callback;
+    self.clientId = clientId;
+    self.keepAliveInterval = theKeepAliveInterval;
+    self.lastWillAndTestamentTopic = willTopic;
+    self.lastWillAndTestamentMessage = willMsg;
+    self.lastWillAndTestamentQoS = willQoS;
+    self.lastWillAndTestamentRetainFlag = willRetainFlag;
+    
+    return [self connectWithCert];
+}
+
+- (BOOL)connectWithClientId:(NSString*)clientId
+                     toHost:(NSString*)host
+                       port:(UInt32)port
+               cleanSession:(BOOL)cleanSession
+              certificateId:(NSString*)certificateId
+           keyAlgorithmType:(AWSIoTKeyAlgorithmType)keyAlgorithmType
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback {
+    
+    if (self.userDidIssueConnect ) {
+        //Issuing connect multiple times. Not allowed.
+        return NO;
+    }
+    //Intialize connection state
+    self.userDidIssueDisconnect = NO;
+    self.userDidIssueConnect = YES;
+    self.session = nil;
+    
+    NSString *privateTagPrefix = [AWSIoTKeychain getPrivateKeyTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!privateTagPrefix) {
+        AWSDDLogError(@"Unable to get private key tag prefix");
+        return NO;
+    }
+
+    NSString *certTagPrefix = [AWSIoTKeychain getCertificateTagFromKeyAlgorithmType:keyAlgorithmType];
+    if (!certTagPrefix) {
+        AWSDDLogError(@"Unable to get certificate tag prefix");
+        return NO;
+    }
+    
+    NSString *privateKeyTag = [privateTagPrefix stringByAppendingString:certificateId];
+    NSString *certificateLabel = [certTagPrefix stringByAppendingString:certificateId];
+    
+    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel keyAlgorithmType:keyAlgorithmType];
     if (identityRef == NULL) {
         AWSDDLogError(@"Could not find SecIdentityRef");
         return NO;

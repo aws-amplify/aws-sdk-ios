@@ -193,6 +193,7 @@
 		03B83FB52729C3CA004D5426 /* AWSS3TransferUtility_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 03B83FB42729C3AE004D5426 /* AWSS3TransferUtility_private.h */; };
 		03D33F2626C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */; };
 		03D33F2726C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A8360D2EEA592B009B8728 /* AWSIoTKeyAlgorithmType.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A8360C2EEA5917009B8728 /* AWSIoTKeyAlgorithmType.h */; };
 		173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */; };
 		173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
@@ -2850,6 +2851,7 @@
 		03B83FB42729C3AE004D5426 /* AWSS3TransferUtility_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtility_private.h; sourceTree = "<group>"; };
 		03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.m"; sourceTree = "<group>"; };
 		03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"; sourceTree = "<group>"; };
+		10A8360C2EEA5917009B8728 /* AWSIoTKeyAlgorithmType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSIoTKeyAlgorithmType.h; sourceTree = "<group>"; };
 		173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaRequestRetryHandler.h; sourceTree = "<group>"; };
 		173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaRequestRetryHandler.m; sourceTree = "<group>"; };
 		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
@@ -7199,6 +7201,7 @@
 				CE9DE6351C6A78D70060793F /* Internal */,
 				CE9DE6101C6A78A60060793F /* Info.plist */,
 				174F80A62108066F00775D0D /* AWSIoTMQTTTypes.h */,
+				10A8360C2EEA5917009B8728 /* AWSIoTKeyAlgorithmType.h */,
 				B4932E1D283D4AB100993CBC /* AWSIoTKeyChainTypes.h */,
 			);
 			path = AWSIoT;
@@ -8491,6 +8494,7 @@
 				03427769269D185200379263 /* AWSIoTMessage+AWSMQTTMessage.h in Headers */,
 				174F80A72108066F00775D0D /* AWSIoTMQTTTypes.h in Headers */,
 				B4B8C9B7284698D8009E0865 /* AWSIoTKeyChainTypes.h in Headers */,
+				10A8360D2EEA592B009B8728 /* AWSIoTKeyAlgorithmType.h in Headers */,
 				CE9DE6681C6A78D70060793F /* AWSMQTTEncoder.h in Headers */,
 				CE9DE6701C6A78D70060793F /* AWSSRWebSocket.h in Headers */,
 				CE9DE6641C6A78D70060793F /* AWSIoTWebSocketOutputStream.h in Headers */,
