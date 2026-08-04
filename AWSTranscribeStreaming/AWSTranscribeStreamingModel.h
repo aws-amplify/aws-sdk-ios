@@ -159,7 +159,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingMediaEncoding) {
  */
 @interface AWSTranscribeStreamingItem : AWSModel
 
-
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
 /**
  <p>The word or punctuation that was recognized in the input audio.</p>
  */
